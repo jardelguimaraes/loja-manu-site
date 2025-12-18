@@ -8,39 +8,46 @@
     <link rel="stylesheet" href="style.css">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Loja Manu Itaúna | Moda Feminina">
-    <meta property="og:description" content="Elegância que valoriza o seu estilo. Confira nossa nova coleção em Itaúna!">
-    <meta property="og:image" content="https://seusite.vercel.app/img/colecoes/look1.jpg"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta property="og:title" content="Loja Manu Itaúna">
+    <meta property="og:description" content="Elegância que valoriza o seu estilo.">
+    <meta property="og:image" content="https://seusite.vercel.app/img/colecoes/look1.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
     <header class="header">
         <div class="container header-content">
             <div class="logo">
-                <img src="img/logo-m.png" alt="Logo Loja Manu" class="logo-img" onerror="this.style.display='none'">
+                <img src="img/logo-m.png" alt="Logo Manu" class="logo-img" onerror="this.style.display='none'">
                 <div class="logo-text">
                     <h1>Loja Manu</h1>
-                    <span>Moda Feminina & Estilo</span>
                 </div>
             </div>
-            <nav class="desktop-nav">
-                <a href="#colecao">Coleção</a>
-                <a href="#depoimentos">Depoimentos</a>
-                <a href="#cadastro">VIP</a>
-                <a href="#contato">Contato</a>
+
+            <div class="mobile-menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#colecao" onclick="toggleMenu()">Coleção</a>
+                <a href="#depoimentos" onclick="toggleMenu()">Clientes</a>
+                <a href="#cadastro" onclick="toggleMenu()">VIP</a>
+                <a href="#contato" onclick="toggleMenu()" class="btn-nav-contato">Contato</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
         <div class="hero-overlay">
-            <div class="hero-content">
-                <h2>Elegância que valoriza o seu estilo</h2>
-                <p>Peças selecionadas com carinho para o dia a dia e ocasiões especiais.</p>
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Elegância que valoriza <br>o seu estilo</h2>
+                <p>Moda feminina selecionada com carinho em Itaúna.</p>
                 <a href="#colecao" class="btn-hero">Ver Coleção</a>
             </div>
         </div>
@@ -48,44 +55,44 @@
 
     <section id="colecao" class="section">
         <div class="container">
-            <h2 class="section-title">Destaques da Coleção</h2>
+            <h2 class="section-title" data-aos="fade-up">Destaques da Semana</h2>
             <div class="grid">
                 
-                <div class="card-produto">
+                <div class="card-produto" data-aos="fade-up" data-aos-delay="100">
                     <div class="img-container">
-                        <img src="img/colecoes/look1.jpg" alt="Body Preto Elegante">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Vi%20o%20Body%20Preto%20no%20site%20e%20gostaria%20de%20saber%20tamanhos." target="_blank" class="overlay-link">
-                            <span><i class="fab fa-whatsapp"></i> Ver Detalhes</span>
+                        <img src="img/colecoes/look1.jpg" alt="Look 1">
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Amei%20o%20Look%201%20do%20site." target="_blank" class="overlay-link">
+                            <span>Ver Detalhes</span>
                         </a>
                     </div>
                     <div class="info-produto">
-                        <h3>Body Preto Luxo</h3>
+                        <h3>Body Premium</h3>
                         <p>Elegância e conforto.</p>
                     </div>
                 </div>
 
-                <div class="card-produto">
+                <div class="card-produto" data-aos="fade-up" data-aos-delay="200">
                     <div class="img-container">
-                        <img src="img/colecoes/look2.jpg" alt="Vestido Estampado">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Amei%20o%20Vestido%20Estampado%20do%20site,%20tem%20disponível?" target="_blank" class="overlay-link">
-                            <span><i class="fab fa-whatsapp"></i> Ver Detalhes</span>
+                        <img src="img/colecoes/look2.jpg" alt="Look 2">
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Amei%20o%20Look%202%20do%20site." target="_blank" class="overlay-link">
+                            <span>Ver Detalhes</span>
                         </a>
                     </div>
                     <div class="info-produto">
-                        <h3>Vestido Estampado</h3>
-                        <p>Leveza para o verão.</p>
+                        <h3>Vestido Floral</h3>
+                        <p>Leveza para o dia a dia.</p>
                     </div>
                 </div>
 
-                <div class="card-produto">
+                <div class="card-produto" data-aos="fade-up" data-aos-delay="300">
                     <div class="img-container">
-                        <img src="img/colecoes/look3.jpg" alt="Conjunto Alfaiataria">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Gostaria%20de%20saber%20o%20valor%20do%20Conjunto%20de%20Alfaiataria." target="_blank" class="overlay-link">
-                            <span><i class="fab fa-whatsapp"></i> Ver Detalhes</span>
+                        <img src="img/colecoes/look3.jpg" alt="Look 3">
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Amei%20o%20Look%203%20do%20site." target="_blank" class="overlay-link">
+                            <span>Ver Detalhes</span>
                         </a>
                     </div>
                     <div class="info-produto">
-                        <h3>Conjunto Alfaiataria</h3>
+                        <h3>Alfaiataria</h3>
                         <p>Sofisticação garantida.</p>
                     </div>
                 </div>
@@ -94,104 +101,106 @@
         </div>
     </section>
 
-    <section class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Sobre a Loja Manu</h2>
-            <p style="text-align: center; max-width: 800px; margin: auto;">
-                Localizada no coração de Itaúna, a Loja Manu nasceu para levar moda feminina elegante e atual para mulheres que valorizam estilo, conforto e personalidade. 
-                Nosso atendimento é personalizado para fazer você se sentir incrível.
-            </p>
+    <section class="section bg-image-fixed">
+        <div class="overlay-white">
+            <div class="container" data-aos="zoom-in">
+                <h2 class="section-title">Sobre a Loja Manu</h2>
+                <p class="about-text">
+                    Localizada no coração de Itaúna, nascemos para levar moda feminina elegante e atual para mulheres que não abrem mão de personalidade. 
+                    Nosso atendimento é feito de mulher para mulher, com carinho e dedicação.
+                </p>
+            </div>
         </div>
     </section>
 
     <section id="depoimentos" class="section">
         <div class="container">
-            <h2 class="section-title">O que dizem nossas clientes</h2>
+            <h2 class="section-title" data-aos="fade-up">Love Notes</h2>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
+                <div class="testimonial-card" data-aos="flip-left" data-aos-delay="100">
+                    <i class="fas fa-quote-left quote-icon"></i>
                     <p>"As roupas são de uma qualidade incrível. O caimento do vestido foi perfeito!"</p>
-                    <cite>- Ana Clara</cite>
+                    <cite>Ana Clara</cite>
                 </div>
-                <div class="testimonial-card">
-                    <p>"Atendimento maravilhoso pelo WhatsApp e a entrega foi super rápida aqui em Itaúna."</p>
-                    <cite>- Fernanda Souza</cite>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Amo as novidades da Manu. Sempre peças diferenciadas."</p>
-                    <cite>- Patrícia Lima</cite>
+                <div class="testimonial-card" data-aos="flip-left" data-aos-delay="200">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>"Atendimento maravilhoso pelo WhatsApp e a entrega foi super rápida."</p>
+                    <cite>Fernanda Souza</cite>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="cadastro" class="section bg-light">
-        <div class="container" style="text-align: center;">
+        <div class="container text-center">
             <h2 class="section-title">Entre para nossa Lista VIP</h2>
-            <p>Cadastre-se para receber novidades e ofertas exclusivas no seu WhatsApp.</p>
+            <p>Seja a primeira a saber das novidades e reposições.</p>
             
-            <form id="form-vip" style="margin-top: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">
-                <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <input type="text" id="nome" placeholder="Seu Nome" required style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
-                    <input type="text" id="whatsapp" placeholder="Seu WhatsApp (Ex: 37999999999)" required style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
-                    <button type="submit" id="btn-enviar" style="background: var(--cor-destaque); color: white; border: none; padding: 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem;">QUERO ENTRAR NA LISTA</button>
+            <form id="form-vip" class="form-style" data-aos="fade-up">
+                <div class="input-group">
+                    <input type="text" id="nome" placeholder="Seu Nome" required>
+                    <input type="text" id="whatsapp" placeholder="Seu WhatsApp" required>
                 </div>
-                <p id="msg-sucesso" style="display:none; color: green; margin-top: 15px; font-weight: bold;">✅ Cadastro realizado com sucesso!</p>
-                <p id="msg-erro" style="display:none; color: red; margin-top: 15px; font-weight: bold;">❌ Erro ao cadastrar. Tente novamente.</p>
+                <button type="submit" id="btn-enviar">QUERO ENTRAR NA LISTA</button>
+                <p id="msg-sucesso" class="msg-success">✅ Cadastro realizado! Aguarde novidades.</p>
+                <p id="msg-erro" class="msg-error">❌ Erro ao cadastrar. Tente novamente.</p>
             </form>
         </div>
     </section>
 
-    <section id="contato" class="section bg-primary">
+    <section id="contato" class="section bg-dark text-white">
         <div class="container text-center">
-            <h2 style="color: white;">Venha nos visitar</h2>
-            <p style="color: white; margin-bottom: 20px;">R. Geniplo Dornas, 229 – Centro, Itaúna – MG</p>
+            <h2 style="color: #fff; margin-bottom: 20px;">Venha nos visitar</h2>
+            <p><i class="fas fa-map-marker-alt"></i> R. Geniplo Dornas, 229 – Centro, Itaúna – MG</p>
             
-            <div class="map-responsive">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.366752317954!2d-44.5866896!3d-20.0766336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa0b6b3e7b1a2a5%3A0x6a0b0b0b0b0b0b0b!2sR.%20Geniplo%20Dornas%2C%20229%20-%20Centro%2C%20Ita%C3%BAna%20-%20MG!5e0!3m2!1spt-BR!2sbr!4v1610000000000!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="map-container" data-aos="zoom-in">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3746.476483664797!2d-44.5886!3d-20.0768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA0JzM2LjUiUyA0NMKwMzUnMTkuMCJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             
-            <br>
-            <a class="btn-white" href="https://wa.me/5537999146764" target="_blank">
-                <i class="fab fa-whatsapp"></i> Falar com Atendente
-            </a>
+            <div class="social-links">
+                <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>© 2025 Loja Manu Itaúna – Moda Feminina. Todos os direitos reservados.</p>
+        <p>© 2025 Loja Manu Itaúna. Feito com carinho.</p>
     </footer>
 
     <div class="float-buttons">
-        <a class="btn-float instagram" href="https://www.instagram.com/lojamanuitauna/" target="_blank" title="Siga no Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a class="btn-float whatsapp" href="https://wa.me/5537999146764" target="_blank" title="Chamar no WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
+        <a class="btn-float whatsapp" href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inicializa animações
+        AOS.init({ once: true });
+
+        // Menu Mobile
+        function toggleMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+        }
+
+        // Script do Formulário N8N
         document.getElementById('form-vip').addEventListener('submit', function(e) {
-            e.preventDefault(); // Impede o recarregamento da página
-            
+            e.preventDefault();
             const btn = document.getElementById('btn-enviar');
             const msgSucesso = document.getElementById('msg-sucesso');
             const msgErro = document.getElementById('msg-erro');
             
-            // Estado de carregamento
             btn.innerText = 'Enviando...';
-            btn.style.opacity = '0.7';
             btn.disabled = true;
 
-            // Coleta os dados
             const dados = {
                 nome: document.getElementById('nome').value,
                 whatsapp: document.getElementById('whatsapp').value,
                 origem: 'Site Loja Manu',
-                data: new Date().toISOString()
+                data: new Date().toLocaleString()
             };
 
-            // ⚠️ ATENÇÃO: SUBSTITUA O LINK ABAIXO PELO SEU WEBHOOK DE PRODUÇÃO DO N8N ⚠️
+            // ⚠️ COLOQUE SEU WEBHOOK AQUI
             const webhookURL = 'https://webhook.jg.jardelguimaraes.com.br/webhook/cadastro-loja-manu'; 
 
             fetch(webhookURL, {
@@ -202,27 +211,18 @@
             .then(response => {
                 if (response.ok) {
                     msgSucesso.style.display = 'block';
-                    msgErro.style.display = 'none';
-                    document.getElementById('form-vip').reset(); // Limpa o formulário
-                    
-                    // Opcional: Redireciona para o WhatsApp após 2 segundos
-                    // setTimeout(() => { window.location.href = "https://wa.me/5537999146764"; }, 2000);
+                    document.getElementById('form-vip').reset();
+                    setTimeout(() => msgSucesso.style.display = 'none', 5000);
                 } else {
-                    throw new Error('Erro na resposta do servidor');
+                    throw new Error('Erro');
                 }
             })
-            .catch(error => {
-                console.error('Erro:', error);
-                msgErro.style.display = 'block';
-                msgSucesso.style.display = 'none';
-            })
+            .catch(() => msgErro.style.display = 'block')
             .finally(() => {
                 btn.innerText = 'QUERO ENTRAR NA LISTA';
-                btn.style.opacity = '1';
                 btn.disabled = false;
             });
         });
     </script>
-
 </body>
 </html>
