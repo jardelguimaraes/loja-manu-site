@@ -1,8 +1,8 @@
-/* --- CORES CLEAN LUXURY --- */
+/* --- CORES --- */
 :root {
-    --cor-rose: #bd8c98;      /* Rosa principal */
-    --cor-rose-escuro: #88505e; /* Substituto do preto no rodapé */
-    --cor-fundo-suave: #fff9fa; /* Fundo muito leve */
+    --cor-rose: #bd8c98;      
+    --cor-rose-escuro: #88505e;
+    --cor-menu-bg: #fff0f5; /* Fundo novo do menu (Lavender Blush suave) */
     --cor-texto: #555;
     --preto: #222;
     --branco: #ffffff;
@@ -20,21 +20,17 @@ body {
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-/* --- HEADER --- */
+/* --- HEADER (COM COR DE DESTAQUE) --- */
 .header {
     position: fixed;
     top: 0; width: 100%;
-    padding: 10px 0;
+    padding: 12px 0;
     z-index: 1000;
     transition: all 0.4s ease;
-    background: transparent; /* Transparente só no PC no topo */
-}
-
-/* Header Branco ao rolar */
-.header.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    padding: 8px 0;
+    /* MUDANÇA: Cor fixa para destacar logo e menu */
+    background: var(--cor-menu-bg); 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .container { width: 90%; max-width: 1100px; margin: auto; }
@@ -49,56 +45,56 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
+    color: var(--cor-rose-escuro); /* Logo com cor forte */
 }
 
 /* MENU DESKTOP */
 .nav-menu { display: flex; gap: 25px; }
 .nav-menu a {
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 1px;
-}
-.nav-menu a:hover { color: var(--cor-rose); }
-
-/* Cores do Menu Desktop */
-.header .logo-text h1, .header .nav-menu a, .header .mobile-menu-icon {
-    color: var(--branco); 
-    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-.header.scrolled .logo-text h1, .header.scrolled .nav-menu a, .header.scrolled .mobile-menu-icon {
-    color: var(--cor-rose-escuro); text-shadow: none;
+    color: var(--preto); /* Links escuros para ler bem */
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
 }
 
-.mobile-menu-icon { display: none; font-size: 1.5rem; cursor: pointer; }
+/* Efeito botão ao passar o mouse */
+.nav-menu a:hover { 
+    background: var(--branco); 
+    color: var(--cor-rose); 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.mobile-menu-icon { display: none; font-size: 1.5rem; cursor: pointer; color: var(--cor-rose-escuro); }
 
 /* --- HERO BANNER --- */
 .hero {
-    height: 85vh; /* Ocupa boa parte da tela */
-    background-color: #d8c0c6; /* Rosa queimado de fundo se a foto falhar */
+    height: 85vh; 
+    background-color: #d8c0c6;
     background-image: url('../img/banner.jpg'); 
     background-size: cover;
     background-position: center;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 70px; /* Empurra pra baixo por causa do menu fixo */
 }
 
 .hero-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.05)); /* Degradê suave */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.05));
 }
 
 .hero-content { 
     text-align: center; color: var(--branco); padding: 0 20px; z-index: 2; 
-    margin-top: 40px; /* Desce um pouco para não bater no header */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .hero-content h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.2rem; margin-bottom: 10px; line-height: 1.1;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    font-size: 3.5rem; margin-bottom: 10px; line-height: 1.1;
 }
 
 .btn-hero {
@@ -110,23 +106,10 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     text-transform: uppercase;
     font-weight: 600;
     margin-top: 25px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-.btn-hero:hover { background: var(--cor-rose); color: var(--branco); transform: translateY(-2px); }
+.btn-hero:hover { background: var(--cor-rose); color: var(--branco); }
 
-/* --- LEMA --- */
-.slogan-banner {
-    background: var(--cor-rose-suave);
-    color: var(--cor-rose-escuro);
-    text-align: center;
-    padding: 25px 20px;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    background: #fdf0f3;
-}
-
-/* --- VITRINE --- */
+/* --- VITRINE (GRID 8 FOTOS) --- */
 .section { padding: 70px 0; }
 .section-title { 
     text-align: center; font-size: 2rem; margin-bottom: 40px; 
@@ -135,7 +118,8 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* Ajuste para caber 4 por linha em telas grandes */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 30px;
 }
 
@@ -151,7 +135,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .img-container {
     position: relative;
     width: 100%;
-    padding-top: 135%; /* Retrato */
+    padding-top: 135%; /* Retrato Padronizado */
     overflow: hidden;
     background: #f5f5f5;
 }
@@ -169,88 +153,70 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 }
 .img-container:hover .overlay-link { transform: translateY(0); }
 
-.info-produto { padding: 20px; text-align: center; }
-.info-produto h3 { font-size: 0.95rem; text-transform: uppercase; margin-bottom: 5px; color: var(--preto); }
+.info-produto { padding: 15px; text-align: center; }
+.info-produto h3 { font-size: 0.9rem; text-transform: uppercase; color: #555; }
 
-/* --- HISTÓRIA --- */
-.bg-suave { background: var(--cor-fundo-suave); }
+/* --- OUTROS --- */
+.slogan-banner {
+    background: #fdf0f3; color: var(--cor-rose-escuro);
+    text-align: center; padding: 25px 20px;
+    font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem;
+}
+
+.bg-suave { background: #fff9fa; }
 .section-title-left { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--cor-rose-escuro); margin-bottom: 20px; }
-.text-box { max-width: 800px; margin: auto; text-align: center; }
-.text-box p { margin-bottom: 15px; color: #666; }
-.signature { font-family: 'Playfair Display', serif; font-style: italic; color: var(--cor-rose); margin-top: 20px; font-size: 1.2rem; }
+.text-box { max-width: 800px; margin: auto; }
+.signature { font-family: 'Playfair Display', serif; font-style: italic; color: var(--cor-rose); margin-top: 20px; }
 
-/* --- FORMULÁRIO COMPACTO --- */
+/* FORM */
 .compact-form { max-width: 450px; margin: 0 auto; }
 .input-row { display: flex; gap: 10px; margin-bottom: 10px; }
-.form-input {
-    width: 100%; padding: 12px; 
-    border: 1px solid #ddd; border-radius: 6px;
-    font-size: 0.9rem; outline: none;
-}
-.form-input:focus { border-color: var(--cor-rose); }
-.btn-full {
-    width: 100%; padding: 12px;
-    background: var(--cor-rose-escuro); color: var(--branco);
-    border: none; border-radius: 6px;
-    font-weight: bold; cursor: pointer; letter-spacing: 1px;
-}
-.btn-full:hover { background: var(--cor-rose); }
+.form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; }
+.btn-full { width: 100%; padding: 12px; background: var(--cor-rose-escuro); color: var(--branco); border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
 
-/* --- FOOTER MODERNO (SEM PRETO) --- */
-.footer { 
-    background: var(--cor-rose-escuro); /* Rose Escuro chique */
-    color: #fff; 
-    padding: 50px 0 20px; 
-}
-
-.footer-grid {
-    display: flex; flex-wrap: wrap; gap: 30px;
-    justify-content: space-between; align-items: center;
-}
-
+/* --- FOOTER & ENDEREÇO --- */
+.footer { background: var(--cor-rose-escuro); color: #fff; padding: 50px 0 20px; }
+.footer-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: center; }
 .footer-info { flex: 1; min-width: 250px; }
 .footer-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 10px; color: #ffdee6; }
-.footer-map {
-    width: 100%; max-width: 300px; height: 150px; /* Mapa pequeno e discreto */
-    border-radius: 8px; overflow: hidden; opacity: 0.9;
+
+/* ESTILO NOVO DO ENDEREÇO */
+.address-box {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    max-width: 350px;
 }
+.icon-map { font-size: 24px; color: #ffdee6; }
 
+.footer-map { width: 100%; max-width: 300px; height: 150px; border-radius: 8px; overflow: hidden; opacity: 0.9; }
 .social-links-footer { text-align: center; margin-top: 30px; font-size: 1.5rem; }
-.social-links-footer a { color: #fff; margin: 0 10px; opacity: 0.8; transition: 0.3s; }
-.social-links-footer a:hover { opacity: 1; transform: scale(1.1); }
+.social-links-footer a { color: #fff; margin: 0 10px; }
+.copyright { text-align: center; margin-top: 20px; font-size: 0.75rem; opacity: 0.6; }
 
-.copyright { text-align: center; margin-top: 20px; font-size: 0.75rem; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
-
-/* --- BOTÃO FLUTUANTE WHATSAPP --- */
+/* FLOAT WHATSAPP */
 .float-zap {
     position: fixed; bottom: 20px; right: 20px;
     width: 60px; height: 60px;
     background: #25D366; color: #fff;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 32px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 2000;
+    font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 2000;
     animation: pulse 2s infinite;
 }
-.float-zap:hover { transform: scale(1.1); }
-
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
     70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-/* --- MOBILE FIXES --- */
+/* MOBILE */
 @media (max-width: 768px) {
     .mobile-menu-icon { display: block; }
-    
-    /* AQUI ESTÁ A CORREÇÃO: No celular, o fundo é BRANCO sempre */
-    .header { background: #ffffff; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    
-    /* As letras ficam escuras para ler no fundo branco */
-    .header .logo-text h1, .header .mobile-menu-icon { color: var(--cor-rose-escuro); text-shadow: none; }
-    
     .nav-menu {
         position: fixed; top: 0; right: -100%;
         width: 80%; height: 100vh;
@@ -260,10 +226,8 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
         box-shadow: -5px 0 20px rgba(0,0,0,0.1);
     }
     .nav-menu.active { right: 0; }
-    .header .nav-menu a { color: var(--preto); font-size: 1.2rem; margin: 15px 0; text-shadow: none; }
-    
-    .hero h2 { font-size: 2.2rem; }
     .input-row { flex-direction: column; }
     .footer-grid { flex-direction: column; text-align: center; }
-    .footer-map { margin: 20px auto; }
+    .address-box { margin: 15px auto; text-align: left; }
+    .hero h2 { font-size: 2.5rem; }
 }
