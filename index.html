@@ -3,112 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Manu Itaúna</title>
+    <title>Manu Moda Feminina</title>
     
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header class="header">
         <div class="container header-content">
-            <div class="logo">
-                <div class="logo-text">
-                    <h1>Manu Moda Feminina</h1> /*nome da loja*/
+            <a href="#" class="logo-link">
+                <div class="logo">
+                    <img src="img/logo-m.png" alt="Logo Manu" class="logo-img">
+                    <div class="logo-text">
+                        <h1>Manu Moda</h1>
+                    </div>
                 </div>
-            </div>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#colecao">Coleção</a>
+                <a href="#cadastro">VIP</a>
+                <a href="#contato">Contato</a>
+            </nav>
+
             <div class="mobile-menu-icon" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="#colecao" onclick="toggleMenu()">Coleção</a>
-                <a href="#depoimentos" onclick="toggleMenu()">Clientes</a>
-                <a href="#cadastro" onclick="toggleMenu()">VIP</a>
-                <a href="#contato" onclick="toggleMenu()">Contato</a>
-            </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h2>Elegância que valoriza o seu estilo</h2>
-            <p>Peças selecionadas com carinho em Itaúna.</p>
-            <a href="#colecao" class="btn-hero">Ver Coleção</a>
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h2>Elegância e Estilo</h2>
+                <p>Moda feminina selecionada com carinho.</p>
+                <a href="#colecao" class="btn-hero">Ver Coleção</a>
+            </div>
         </div>
     </section>
 
     <section id="colecao" class="section">
         <div class="container">
             <h2 class="section-title">Destaques da Semana</h2>
+            
             <div class="grid">
                 <div class="card-produto">
                     <div class="img-container">
-                        <img src="img/colecoes/look1.jpg" alt="Look 1">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Amei%20o%20Look%201" target="_blank" class="overlay-link">
+                        <img src="img/colecoes/look1.jpg" alt="Look 1" onerror="this.src='https://via.placeholder.com/300x400?text=Foto+Look+1'">
+                        <a href="https://wa.me/5537999146764?text=Tenho%20interesse%20no%20Look%201" target="_blank" class="overlay-link">
                             <i class="fab fa-whatsapp"></i> Ver Detalhes
                         </a>
                     </div>
                     <div class="info-produto">
-                        <h3>Body Premium</h3>
-                        <p>Elegância e conforto</p>
+                        <h3>Look Especial</h3>
+                        <p>Elegância garantida</p>
                     </div>
                 </div>
+
                 <div class="card-produto">
                     <div class="img-container">
-                        <img src="img/colecoes/look2.jpg" alt="Look 2">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Amei%20o%20Look%202" target="_blank" class="overlay-link">
+                        <img src="img/colecoes/look2.jpg" alt="Look 2" onerror="this.src='https://via.placeholder.com/300x400?text=Foto+Look+2'">
+                        <a href="https://wa.me/5537999146764?text=Tenho%20interesse%20no%20Look%202" target="_blank" class="overlay-link">
                             <i class="fab fa-whatsapp"></i> Ver Detalhes
                         </a>
                     </div>
                     <div class="info-produto">
                         <h3>Vestido Floral</h3>
-                        <p>Leveza para o dia a dia</p>
+                        <p>Leveza e conforto</p>
                     </div>
                 </div>
+
                 <div class="card-produto">
                     <div class="img-container">
-                        <img src="img/colecoes/look3.jpg" alt="Look 3">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Amei%20o%20Look%203" target="_blank" class="overlay-link">
+                        <img src="img/colecoes/look3.jpg" alt="Look 3" onerror="this.src='https://via.placeholder.com/300x400?text=Foto+Look+3'">
+                        <a href="https://wa.me/5537999146764?text=Tenho%20interesse%20no%20Look%203" target="_blank" class="overlay-link">
                             <i class="fab fa-whatsapp"></i> Ver Detalhes
                         </a>
                     </div>
                     <div class="info-produto">
                         <h3>Alfaiataria</h3>
-                        <p>Sofisticação garantida</p>
+                        <p>Sofisticação total</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="cadastro" class="section" style="background: #fff;">
+    <section id="cadastro" class="section bg-light">
         <div class="container text-center">
-            <h2 class="section-title">Entre para nossa Lista VIP</h2>
-            <p>Receba novidades no WhatsApp.</p>
+            <h2 class="section-title">Lista VIP</h2>
+            <p>Receba novidades exclusivas no WhatsApp.</p>
             <form id="form-vip" style="max-width: 500px; margin: 30px auto;">
                 <input type="text" id="nome" class="form-input" placeholder="Seu Nome" required>
                 <input type="text" id="whatsapp" class="form-input" placeholder="Seu WhatsApp" required>
-                <button type="submit" id="btn-enviar" class="btn-submit">QUERO ENTRAR NA LISTA</button>
-                <p id="msg-sucesso" style="display:none; color: green; margin-top: 10px;">✅ Sucesso!</p>
-                <p id="msg-erro" style="display:none; color: red; margin-top: 10px;">❌ Erro ao cadastrar.</p>
+                <button type="submit" id="btn-enviar" class="btn-black">CADASTRAR</button>
+                <p id="msg-status" style="margin-top:10px; font-weight:bold;"></p>
             </form>
         </div>
     </section>
-    
-    <section id="contato" class="section" style="background: #111; color: #fff; text-align: center;">
+
+    <footer class="footer" id="contato">
         <div class="container">
-            <h2>Venha nos visitar</h2>
+            <h3>Loja Manu Itaúna</h3>
             <p style="margin-bottom: 20px;">R. Geniplo Dornas, 229 – Centro, Itaúna – MG</p>
-            <div style="font-size: 2rem;">
-                <a href="https://www.instagram.com/lojamanuitauna/" target="_blank" style="color:#fff; margin:10px;"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/5537999146764" target="_blank" style="color:#fff; margin:10px;"><i class="fab fa-whatsapp"></i></a>
+            
+            <div style="width: 100%; height: 300px; margin-bottom: 30px; border-radius: 10px; overflow: hidden;">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    src="https://maps.google.com/maps?q=R.+Geniplo+Dornas,+229+%E2%80%93+Centro,+Ita%C3%BAna+%E2%80%93+MG&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                </iframe>
             </div>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.7;">© 2025 Loja Manu. Todos os direitos reservados.</p>
         </div>
-    </section>
+    </footer>
 
     <script>
         // Menu Mobile
@@ -119,27 +142,26 @@
         // Cabeçalho muda de cor ao rolar
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
-            if (window.scrollY > 50) { header.classList.add('scrolled'); }
-            else { header.classList.remove('scrolled'); }
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
         });
 
-        // Script N8N (SEU WEBHOOK AQUI)
+        // Integração N8N (Formulário)
         document.getElementById('form-vip').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-enviar');
-            const msgSucesso = document.getElementById('msg-sucesso');
-            const msgErro = document.getElementById('msg-erro');
+            const msg = document.getElementById('msg-status');
             
-            btn.innerText = 'Enviando...'; btn.disabled = true;
+            btn.innerText = 'Enviando...';
+            btn.disabled = true;
 
             const dados = {
                 nome: document.getElementById('nome').value,
                 whatsapp: document.getElementById('whatsapp').value,
-                origem: 'Site Manu',
                 data: new Date().toISOString()
             };
 
-            // ⚠️ COLOQUE SEU WEBHOOK AQUI
+            // SEU WEBHOOK AQUI
             const webhookURL = 'https://webhook.jg.jardelguimaraes.com.br/webhook/cadastro-loja-manu'; 
 
             fetch(webhookURL, {
@@ -147,15 +169,21 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(dados)
             })
-            .then(response => {
-                if (response.ok) {
-                    msgSucesso.style.display = 'block';
-                    msgErro.style.display = 'none';
+            .then(res => {
+                if (res.ok) {
+                    msg.innerText = '✅ Cadastro Sucesso!';
+                    msg.style.color = 'green';
                     document.getElementById('form-vip').reset();
-                } else { throw new Error('Erro'); }
+                } else { throw new Error(); }
             })
-            .catch(() => { msgErro.style.display = 'block'; })
-            .finally(() => { btn.innerText = 'QUERO ENTRAR NA LISTA'; btn.disabled = false; });
+            .catch(() => {
+                msg.innerText = '❌ Erro ao enviar.';
+                msg.style.color = 'red';
+            })
+            .finally(() => {
+                btn.innerText = 'CADASTRAR';
+                btn.disabled = false;
+            });
         });
     </script>
 </body>
