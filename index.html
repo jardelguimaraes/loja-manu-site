@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manu Moda Feminina</title>
+    <title>Loja Manu | Moda Feminina em Itaúna</title>
     
     <link rel="stylesheet" href="css/style.css">
 
@@ -20,14 +20,15 @@
                 <div class="logo">
                     <img src="img/logo-m.png" alt="Logo Manu" class="logo-img">
                     <div class="logo-text">
-                        <h1>Manu Moda</h1>
+                        <h1>Loja Manu</h1>
                     </div>
                 </div>
             </a>
             
             <nav class="nav-menu" id="nav-menu">
                 <a href="#colecao">Coleção</a>
-                <a href="#cadastro">VIP</a>
+                <a href="#sobre">Nossa História</a>
+                <a href="#vip">VIP</a>
                 <a href="#contato">Contato</a>
             </nav>
 
@@ -40,12 +41,16 @@
     <section class="hero">
         <div class="hero-overlay">
             <div class="hero-content">
-                <h2>Elegância e Estilo</h2>
-                <p>Moda feminina selecionada com carinho.</p>
+                <h2>Sua essência,<br>seu estilo.</h2>
+                <p>Moda selecionada para valorizar a mulher real.</p>
                 <a href="#colecao" class="btn-hero">Ver Coleção</a>
             </div>
         </div>
     </section>
+
+    <div class="slogan-banner">
+        <p>"Exaltando a beleza da mulher incansável que corre atrás dos seus sonhos."</p>
+    </div>
 
     <section id="colecao" class="section">
         <div class="container">
@@ -54,8 +59,8 @@
             <div class="grid">
                 <div class="card-produto">
                     <div class="img-container">
-                        <img src="img/colecoes/look1.jpg" alt="Look 1" onerror="this.src='https://via.placeholder.com/300x400?text=Foto+Look+1'">
-                        <a href="https://wa.me/5537999146764?text=Tenho%20interesse%20no%20Look%201" target="_blank" class="overlay-link">
+                        <img src="img/colecoes/look1.jpg" alt="Look 1" onerror="this.src='https://via.placeholder.com/300x400?text=Carregando...'">
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Tenho%20interesse%20no%20Look%201" target="_blank" class="overlay-link">
                             <i class="fab fa-whatsapp"></i> Ver Detalhes
                         </a>
                     </div>
@@ -67,8 +72,8 @@
 
                 <div class="card-produto">
                     <div class="img-container">
-                        <img src="img/colecoes/look2.jpg" alt="Look 2" onerror="this.src='https://via.placeholder.com/300x400?text=Foto+Look+2'">
-                        <a href="https://wa.me/5537999146764?text=Tenho%20interesse%20no%20Look%202" target="_blank" class="overlay-link">
+                        <img src="img/colecoes/look2.jpg" alt="Look 2" onerror="this.src='https://via.placeholder.com/300x400?text=Carregando...'">
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Tenho%20interesse%20no%20Look%202" target="_blank" class="overlay-link">
                             <i class="fab fa-whatsapp"></i> Ver Detalhes
                         </a>
                     </div>
@@ -80,8 +85,8 @@
 
                 <div class="card-produto">
                     <div class="img-container">
-                        <img src="img/colecoes/look3.jpg" alt="Look 3" onerror="this.src='https://via.placeholder.com/300x400?text=Foto+Look+3'">
-                        <a href="https://wa.me/5537999146764?text=Tenho%20interesse%20no%20Look%203" target="_blank" class="overlay-link">
+                        <img src="img/colecoes/look3.jpg" alt="Look 3" onerror="this.src='https://via.placeholder.com/300x400?text=Carregando...'">
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Tenho%20interesse%20no%20Look%203" target="_blank" class="overlay-link">
                             <i class="fab fa-whatsapp"></i> Ver Detalhes
                         </a>
                     </div>
@@ -94,66 +99,77 @@
         </div>
     </section>
 
-    <section id="cadastro" class="section bg-light">
+    <section id="sobre" class="section bg-rose">
+        <div class="container split-content">
+            <div class="text-box">
+                <h2 class="section-title-left">Nossa Trajetória</h2>
+                <p>
+                    A <strong>Loja Manu</strong> é a concretização de um sonho antigo de <strong>Raquel Santos</strong>. 
+                    Com um espírito empreendedor nato, Raquel sempre acreditou que a moda vai muito além de vestir: é sobre autoestima e conquista.
+                </p>
+                <p>
+                    Mulher incansável e batalhadora, ela transformou sua paixão em um espaço acolhedor em Itaúna. 
+                    Aqui, cada peça é escolhida com o compromisso de trazer excelência e qualidade para mulheres que, assim como a Raquel, 
+                    não param nunca e merecem se sentir incríveis.
+                </p>
+                <p class="signature">Com carinho, Equipe Manu.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vip" class="section">
         <div class="container text-center">
-            <h2 class="section-title">Lista VIP</h2>
-            <p>Receba novidades exclusivas no WhatsApp.</p>
-            <form id="form-vip" style="max-width: 500px; margin: 30px auto;">
+            <h2 class="section-title">Clube VIP Loja Manu</h2>
+            <p>Entre para nossa lista exclusiva e receba novidades antes de todo mundo.</p>
+            <form id="form-vip" class="modern-form">
                 <input type="text" id="nome" class="form-input" placeholder="Seu Nome" required>
                 <input type="text" id="whatsapp" class="form-input" placeholder="Seu WhatsApp" required>
-                <button type="submit" id="btn-enviar" class="btn-black">CADASTRAR</button>
-                <p id="msg-status" style="margin-top:10px; font-weight:bold;"></p>
+                <button type="submit" id="btn-enviar" class="btn-full">QUERO ENTRAR</button>
+                <p id="msg-status" style="margin-top:15px; font-weight:bold;"></p>
             </form>
         </div>
     </section>
 
     <footer class="footer" id="contato">
         <div class="container">
-            <h3>Loja Manu Itaúna</h3>
-            <p style="margin-bottom: 20px;">R. Geniplo Dornas, 229 – Centro, Itaúna – MG</p>
-            
-            <div style="width: 100%; height: 300px; margin-bottom: 30px; border-radius: 10px; overflow: hidden;">
-                <iframe 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0" 
-                    scrolling="no" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    src="https://maps.google.com/maps?q=R.+Geniplo+Dornas,+229+%E2%80%93+Centro,+Ita%C3%BAna+%E2%80%93+MG&t=&z=15&ie=UTF8&iwloc=&output=embed">
-                </iframe>
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3>Loja Manu</h3>
+                    <p>Moda Feminina com Propósito.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> R. Geniplo Dornas, 229 – Centro, Itaúna – MG</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.934876648773!2d-44.5855!3d-20.0765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA0JzM1LjQiUyA0NMKwMzUnMDcuOCJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000!5m2!1spt-BR!2sbr" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
             </div>
-
-            <div class="social-links">
-                <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            
-            <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.7;">© 2025 Loja Manu. Todos os direitos reservados.</p>
+            <p class="copyright">© 2026 Loja Manu. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Menu Mobile
         function toggleMenu() {
             document.getElementById('nav-menu').classList.toggle('active');
         }
 
-        // Cabeçalho muda de cor ao rolar
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 50) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
         });
 
-        // Integração N8N (Formulário)
         document.getElementById('form-vip').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-enviar');
             const msg = document.getElementById('msg-status');
-            
-            btn.innerText = 'Enviando...';
-            btn.disabled = true;
+            btn.innerText = 'Enviando...'; btn.disabled = true;
 
             const dados = {
                 nome: document.getElementById('nome').value,
@@ -161,7 +177,6 @@
                 data: new Date().toISOString()
             };
 
-            // SEU WEBHOOK AQUI
             const webhookURL = 'https://webhook.jg.jardelguimaraes.com.br/webhook/cadastro-loja-manu'; 
 
             fetch(webhookURL, {
@@ -171,17 +186,17 @@
             })
             .then(res => {
                 if (res.ok) {
-                    msg.innerText = '✅ Cadastro Sucesso!';
-                    msg.style.color = 'green';
+                    msg.innerText = '✅ Sucesso! Bem-vinda!';
+                    msg.style.color = '#27ae60';
                     document.getElementById('form-vip').reset();
                 } else { throw new Error(); }
             })
             .catch(() => {
                 msg.innerText = '❌ Erro ao enviar.';
-                msg.style.color = 'red';
+                msg.style.color = '#c0392b';
             })
             .finally(() => {
-                btn.innerText = 'CADASTRAR';
+                btn.innerText = 'QUERO ENTRAR';
                 btn.disabled = false;
             });
         });
