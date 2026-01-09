@@ -1,11 +1,12 @@
-/* --- CORES --- */
+/* --- CORES E VARIÁVEIS --- */
 :root {
-    --cor-rose: #bd8c98;      
-    --cor-rose-escuro: #88505e;
-    --cor-menu-bg: #fff0f5; /* Fundo novo do menu (Lavender Blush suave) */
+    --cor-rose: #bd8c98;        /* Rosa Principal */
+    --cor-rose-escuro: #88505e; /* Rodapé e Títulos Fortes */
+    --cor-menu-bg: #fff0f5;     /* Fundo do Menu (Lavender Blush) */
     --cor-texto: #555;
     --preto: #222;
     --branco: #ffffff;
+    --sombra-vidro: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,15 +20,15 @@ body {
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
+.text-center { text-align: center; }
 
-/* --- HEADER (COM COR DE DESTAQUE) --- */
+/* --- HEADER --- */
 .header {
     position: fixed;
     top: 0; width: 100%;
     padding: 12px 0;
     z-index: 1000;
     transition: all 0.4s ease;
-    /* MUDANÇA: Cor fixa para destacar logo e menu */
     background: var(--cor-menu-bg); 
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -45,7 +46,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
-    color: var(--cor-rose-escuro); /* Logo com cor forte */
+    color: var(--cor-rose-escuro);
 }
 
 /* MENU DESKTOP */
@@ -55,13 +56,12 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 1px;
-    color: var(--preto); /* Links escuros para ler bem */
+    color: var(--preto);
     padding: 8px 15px;
     border-radius: 20px;
     transition: 0.3s;
 }
 
-/* Efeito botão ao passar o mouse */
 .nav-menu a:hover { 
     background: var(--branco); 
     color: var(--cor-rose); 
@@ -70,84 +70,90 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .mobile-menu-icon { display: none; font-size: 1.5rem; cursor: pointer; color: var(--cor-rose-escuro); }
 
-/* --- HERO BANNER (ATUALIZADO) --- */
+/* --- HERO BANNER (CARD COMPACTO E CENTRALIZADO) --- */
 .hero {
     width: 100%;
-    /* Altura ajustada: Ocupa 75% da tela ou no máximo 650px */
-    height: 75vh; 
-    max-height: 650px; 
+    height: 80vh; /* Altura da tela */
+    max-height: 650px; /* Limite para não ficar gigante */
     
     background-color: #d8c0c6;
+    /* Lembre-se: ../ volta para a pasta raiz para achar a img */
     background-image: url('../img/banner.jpg'); 
     background-size: cover;
-    background-position: center top; /* Foca mais no rosto/topo da imagem */
+    background-position: center top;
     
     position: relative;
     display: flex; 
     align-items: center; 
-    justify-content: center; /* Centraliza tudo */
+    justify-content: center; /* Centraliza o card na tela */
     
     margin-top: 70px; /* Compensa o menu fixo */
 }
 
-/* Camada escura mais suave para destacar o "vidro" */
 .hero-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.3); /* Um pouco mais escuro para contraste */
+    background: rgba(0,0,0,0.25); /* Escurece levemente a foto */
 }
 
-/* O NOVO CARD DE CONTEÚDO (Efeito Vidro) */
+/* O CARD DE VIDRO (AJUSTADO) */
 .hero-content { 
     position: relative; 
     z-index: 2; 
-    text-align: center; 
+    
+    /* Configuração Flex para Centralizar Texto e Botão */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* Cores e Vidro */
     color: var(--branco); 
+    background: rgba(255, 255, 255, 0.15); /* Transparência */
+    backdrop-filter: blur(6px); /* Desfoque */
+    -webkit-backdrop-filter: blur(6px);
     
-    /* AQUI ESTÁ A MÁGICA: Uma caixa delimitada */
-    background: rgba(255, 255, 255, 0.15); /* Fundo branco transparente */
-    backdrop-filter: blur(8px); /* Desfoque do fundo (vidro fosco) */
-    -webkit-backdrop-filter: blur(8px); /* Para Safari */
+    /* Tamanho Compacto */
+    padding: 40px 30px;
+    width: 90%; 
+    max-width: 500px; /* CAIXA MENOR AGORA */
     
-    padding: 40px 60px; /* Espaçamento interno generoso */
-    border-radius: 20px; /* Cantos arredondados */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Borda fina e elegante */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra para flutuar */
-    
-    max-width: 700px; /* Largura máxima para não esticar demais */
-    width: 90%;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--sombra-vidro);
     
     animation: fadeInUp 1s ease;
 }
 
 .hero-content h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem; /* Fonte grande */
+    font-size: 2.8rem; 
     margin-bottom: 10px; 
     line-height: 1.1;
-    text-shadow: none; /* Remove sombra antiga pois agora tem fundo */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .hero-content p {
     font-size: 1.1rem;
     font-weight: 400;
     margin-bottom: 5px;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 .btn-hero {
     display: inline-block;
-    background: var(--cor-rose); /* Botão Rosa Sólido */
+    background: var(--cor-rose);
     color: var(--branco);
-    padding: 14px 40px;
+    padding: 12px 35px;
     border-radius: 50px;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     letter-spacing: 1px;
     margin-top: 25px;
-    box-shadow: 0 5px 15px rgba(189, 140, 152, 0.4);
-    transition: 0.3s;
     border: none;
+    box-shadow: 0 4px 15px rgba(189, 140, 152, 0.4);
+    transition: 0.3s;
 }
 .btn-hero:hover { 
     background: var(--branco); 
@@ -155,20 +161,13 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     transform: translateY(-2px);
 }
 
-/* Animação suave de entrada */
+/* Animação de Entrada */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Ajuste Mobile para o Card não ficar gigante no celular */
-@media (max-width: 768px) {
-    .hero { height: 60vh; min-height: 400px; }
-    .hero-content { padding: 30px 20px; width: 85%; }
-    .hero-content h2 { font-size: 2.2rem; }
-}
-
-/* --- VITRINE (GRID 8 FOTOS) --- */
+/* --- VITRINE --- */
 .section { padding: 70px 0; }
 .section-title { 
     text-align: center; font-size: 2rem; margin-bottom: 40px; 
@@ -177,163 +176,5 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .grid {
     display: grid;
-    /* Ajuste para caber 4 por linha em telas grandes */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.card-produto {
-    background: var(--branco);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s;
-    border: 1px solid #f0f0f0;
-}
-.card-produto:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-
-.img-container {
-    position: relative;
-    width: 100%;
-    padding-top: 135%; /* Retrato Padronizado */
-    overflow: hidden;
-    background: #f5f5f5;
-}
-.img-container img {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover;
-}
-.overlay-link {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: rgba(255,255,255,0.95);
-    padding: 15px; text-align: center;
-    transform: translateY(100%); transition: 0.3s;
-    font-weight: bold; color: var(--cor-rose);
-    text-transform: uppercase; font-size: 0.8rem;
-}
-.img-container:hover .overlay-link { transform: translateY(0); }
-
-.info-produto { padding: 15px; text-align: center; }
-.info-produto h3 { font-size: 0.9rem; text-transform: uppercase; color: #555; }
-
-/* --- OUTROS --- */
-.slogan-banner {
-    background: #fdf0f3; color: var(--cor-rose-escuro);
-    text-align: center; padding: 25px 20px;
-    font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem;
-}
-
-.bg-suave { background: #fff9fa; }
-.section-title-left { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--cor-rose-escuro); margin-bottom: 20px; }
-.text-box { max-width: 800px; margin: auto; }
-.signature { font-family: 'Playfair Display', serif; font-style: italic; color: var(--cor-rose); margin-top: 20px; }
-
-/* FORM */
-.compact-form { max-width: 450px; margin: 0 auto; }
-.input-row { display: flex; gap: 10px; margin-bottom: 10px; }
-.form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; }
-.btn-full { width: 100%; padding: 12px; background: var(--cor-rose-escuro); color: var(--branco); border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
-
-/* --- FOOTER & ENDEREÇO --- */
-.footer { background: var(--cor-rose-escuro); color: #fff; padding: 50px 0 20px; }
-.footer-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: center; }
-.footer-info { flex: 1; min-width: 250px; }
-.footer-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 10px; color: #ffdee6; }
-
-/* ESTILO NOVO DO ENDEREÇO */
-.address-box {
-    background: rgba(255,255,255,0.1);
-    padding: 15px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-top: 15px;
-    max-width: 350px;
-}
-.icon-map { font-size: 24px; color: #ffdee6; }
-
-.footer-map { width: 100%; max-width: 300px; height: 150px; border-radius: 8px; overflow: hidden; opacity: 0.9; }
-.social-links-footer { text-align: center; margin-top: 30px; font-size: 1.5rem; }
-.social-links-footer a { color: #fff; margin: 0 10px; }
-.copyright { text-align: center; margin-top: 20px; font-size: 0.75rem; opacity: 0.6; }
-
-/* FLOAT WHATSAPP */
-.float-zap {
-    position: fixed; bottom: 20px; right: 20px;
-    width: 60px; height: 60px;
-    background: #25D366; color: #fff;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 2000;
-    animation: pulse 2s infinite;
-}
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .mobile-menu-icon { display: block; }
-    .nav-menu {
-        position: fixed; top: 0; right: -100%;
-        width: 80%; height: 100vh;
-        background: #fff;
-        flex-direction: column; justify-content: center; align-items: center;
-        transition: 0.4s; z-index: 999;
-        box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-    }
-    .nav-menu.active { right: 0; }
-    .input-row { flex-direction: column; }
-    .footer-grid { flex-direction: column; text-align: center; }
-    .address-box { margin: 15px auto; text-align: left; }
-    .hero h2 { font-size: 2.5rem; }
-}
-
-/* --- CORREÇÕES FINAIS --- */
-
-/* Classe para centralizar textos */
-.text-center { text-align: center; }
-
-/* Ícones do Rodapé Coloridos */
-.social-links-footer .fa-instagram {
-    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.8rem; /* Um pouco maior */
-}
-
-.social-links-footer .fa-whatsapp {
-    color: #25D366;
-    font-size: 1.8rem;
-}
-
-/* Ajuste fino para o mapa não ficar com borda estranha */
-.footer-map iframe {
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-/* --- ASSINATURA DO DESENVOLVEDOR --- */
-.footer-bottom {
-    margin-top: 40px;
-    border-top: 1px solid rgba(255,255,255,0.1); /* Linha fina separadora */
-    padding-top: 20px;
-    text-align: center;
-}
-
-.copyright {
-    font-size: 0.8rem;
-    opacity: 0.6;
-    margin-bottom: 8px;
-}
-
-.developer {
-    font-size: 0.75rem; /* Um pouco menor que o texto normal */
-    opacity: 0.9;
-    text-transform: uppercase;
-    letter-spacing: 2px; /* Espaçamento chique entre letras */
-    color: #ffdee6; /* Mesma cor suave usada no título */
-    font-weight: 500;
-}
+    gap: 30
