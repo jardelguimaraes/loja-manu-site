@@ -77,7 +77,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     /* AQUI ESTÁ A MUDANÇA PRINCIPAL NA ALTURA */
     height: 50vh;           /* Ocupa apenas 50% da altura da tela */
     min-height: 350px;      /* Garante uma altura mínima para não esmagar o texto */
-    max-height: 450px;      /* Trava a altura máxima (bem menor que os 546px atuais) */
+    max-height: 350px;      /* Trava a altura máxima (bem menor que os 546px atuais) */
     
     background-color: #d8c0c6;
     /* Lembre-se: ../ volta para a pasta raiz para achar a img */
