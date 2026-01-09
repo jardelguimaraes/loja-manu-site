@@ -231,3 +231,50 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     .address-box { margin: 15px auto; text-align: left; }
     .hero h2 { font-size: 2.5rem; }
 }
+
+/* --- CORREÇÕES FINAIS --- */
+
+/* Classe para centralizar textos */
+.text-center { text-align: center; }
+
+/* Ícones do Rodapé Coloridos */
+.social-links-footer .fa-instagram {
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.8rem; /* Um pouco maior */
+}
+
+.social-links-footer .fa-whatsapp {
+    color: #25D366;
+    font-size: 1.8rem;
+}
+
+/* Ajuste fino para o mapa não ficar com borda estranha */
+.footer-map iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* --- ASSINATURA DO DESENVOLVEDOR --- */
+.footer-bottom {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1); /* Linha fina separadora */
+    padding-top: 20px;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-bottom: 8px;
+}
+
+.developer {
+    font-size: 0.75rem; /* Um pouco menor que o texto normal */
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Espaçamento chique entre letras */
+    color: #ffdee6; /* Mesma cor suave usada no título */
+    font-weight: 500;
+}
