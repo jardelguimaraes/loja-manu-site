@@ -70,27 +70,29 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .mobile-menu-icon { display: none; font-size: 1.5rem; cursor: pointer; color: var(--cor-rose-escuro); }
 
-/* --- HERO BANNER (CORRIGIDO E COMPACTO) --- */
+/* --- HERO BANNER (Versão Super Compacta e Centralizada) --- */
 .hero {
     width: 100%;
-    /* Altura reduzida: Ocupa 60% da tela (antes era 85%) */
-    height: 60vh; 
-    min-height: 450px; /* Garante altura mínima */
-    max-height: 550px; /* Trava para não ficar gigante em telas grandes */
+    
+    /* AQUI ESTÁ A MUDANÇA PRINCIPAL NA ALTURA */
+    height: 50vh;           /* Ocupa apenas 50% da altura da tela */
+    min-height: 350px;      /* Garante uma altura mínima para não esmagar o texto */
+    max-height: 450px;      /* Trava a altura máxima (bem menor que os 546px atuais) */
     
     background-color: #d8c0c6;
+    /* Lembre-se: ../ volta para a pasta raiz para achar a img */
     background-image: url('../img/banner.jpg'); 
     background-size: cover;
-    background-position: center top; /* Foco no topo da imagem */
+    background-position: center 30%; /* Ajuste fino para focar melhor o rosto na área menor */
     
     position: relative;
     
-    /* CENTRALIZAÇÃO TOTAL */
+    /* ESTES COMANDOS GARANTEM A CENTRALIZAÇÃO DO TEXTO NA NOVA ALTURA */
     display: flex; 
-    align-items: center;     /* Centraliza Verticalmente */
+    align-items: center;     /* Centraliza Verticalmente (no meio da nova altura) */
     justify-content: center; /* Centraliza Horizontalmente */
     
-    margin-top: 70px; /* Compensa o menu fixo */
+    margin-top: 70px; /* Mantém a distância do menu fixo */
 }
 
 .hero-overlay {
