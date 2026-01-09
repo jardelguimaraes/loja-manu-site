@@ -70,58 +70,51 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .mobile-menu-icon { display: none; font-size: 1.5rem; cursor: pointer; color: var(--cor-rose-escuro); }
 
-/* --- HERO BANNER (Versão Super Compacta e Centralizada) --- */
+/* --- HERO BANNER (CENTRALIZADO E COMPACTO) --- */
 .hero {
     width: 100%;
-    
-    /* AQUI ESTÁ A MUDANÇA PRINCIPAL NA ALTURA */
-    height: 50vh;           /* Ocupa apenas 50% da altura da tela */
-    min-height: 350px;      /* Garante uma altura mínima para não esmagar o texto */
-    max-height: 350px;      /* Trava a altura máxima (bem menor que os 546px atuais) */
+    /* Altura travada em 350px conforme solicitado */
+    height: 350px; 
+    min-height: 350px;
     
     background-color: #d8c0c6;
-    /* Lembre-se: ../ volta para a pasta raiz para achar a img */
     background-image: url('../img/banner.jpg'); 
     background-size: cover;
-    background-position: center 30%; /* Ajuste fino para focar melhor o rosto na área menor */
+    background-position: center 30%; /* Foco no rosto/topo */
     
     position: relative;
-    
-    /* ESTES COMANDOS GARANTEM A CENTRALIZAÇÃO DO TEXTO NA NOVA ALTURA */
-    display: flex; 
-    align-items: center;     /* Centraliza Verticalmente (no meio da nova altura) */
-    justify-content: center; /* Centraliza Horizontalmente */
-    
-    margin-top: 70px; /* Mantém a distância do menu fixo */
+    margin-top: 70px; /* Compensa o menu fixo */
 }
 
 .hero-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.25); /* Escurece levemente para ler o texto */
+    background: rgba(0,0,0,0.2); /* Sombra leve */
+    
+    /* A MÁGICA DA CENTRALIZAÇÃO ACONTECE AQUI: */
+    display: flex;
+    align-items: center;     /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
 }
 
-/* A CAIXA DE VIDRO (AGORA MENOR) */
+/* CAIXA DE VIDRO */
 .hero-content { 
     position: relative; 
     z-index: 2; 
     
-    /* Tamanho Compacto */
+    /* Tamanho e Estilo */
     width: 90%; 
-    max-width: 450px; /* Largura máxima reduzida (era 700px) */
+    max-width: 450px;
     
-    /* Centralização do Conteúdo Interno */
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* Garante que o texto interno também centralize */
+    display: flex; flex-direction: column; align-items: center;
     
-    /* Efeito Vidro */
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
-    padding: 30px; /* Espaçamento interno menor */
+    padding: 25px; /* Padding levemente menor */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     
     animation: fadeInUp 1s ease;
@@ -129,47 +122,41 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .hero-content h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem; /* Fonte ajustada */
-    margin-bottom: 10px; 
+    font-size: 2.2rem; /* Fonte ajustada para altura 350px */
+    margin-bottom: 8px; 
     line-height: 1.1;
     color: #ffffff;
     text-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .hero-content p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 400;
     margin-bottom: 5px;
     color: #ffffff;
-    opacity: 0.95;
 }
 
 .btn-hero {
     display: inline-block;
-    background: var(--cor-rose); /* Usa a cor rosa definida no :root */
+    background: var(--cor-rose);
     color: #ffffff;
-    padding: 10px 30px; /* Botão mais delicado */
+    padding: 8px 25px;
     border-radius: 50px;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 1px;
-    margin-top: 20px;
+    margin-top: 15px;
     border: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: 0.3s;
 }
-.btn-hero:hover { 
-    background: #ffffff; 
-    color: var(--cor-rose); 
-    transform: translateY(-2px);
-}
+.btn-hero:hover { background: #ffffff; color: var(--cor-rose); transform: translateY(-2px); }
 
-/* Ajuste Mobile */
+/* Mobile */
 @media (max-width: 768px) {
-    .hero { height: 50vh; min-height: 350px; }
-    .hero-content { padding: 20px; width: 85%; }
-    .hero-content h2 { font-size: 2rem; }
+    .hero { height: 300px; min-height: 300px; } /* Ainda menor no celular */
+    .hero-content h2 { font-size: 1.8rem; }
+}
 }
 
 /* --- VITRINE (GRID 8 FOTOS) --- */
