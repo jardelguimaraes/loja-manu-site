@@ -350,3 +350,18 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .btn-finalizar:hover { background: #1ebc57; }
 
 @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* --- BOTÃO ESGOTADO --- */
+.btn-buy:disabled, 
+.btn-buy.esgotado {
+    background-color: #d1d1d1; /* Cinza claro */
+    color: #777;               /* Texto cinza escuro */
+    cursor: not-allowed;       /* Aparece o símbolo de proibido no mouse */
+    box-shadow: none;
+    transform: none !important; /* Remove o pulinho ao passar o mouse */
+}
+
+/* Garante que não muda de cor se passar o mouse */
+.btn-buy:disabled:hover {
+    background-color: #d1d1d1;
+}
