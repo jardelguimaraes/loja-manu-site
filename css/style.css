@@ -365,3 +365,95 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .btn-buy:disabled:hover {
     background-color: #d1d1d1;
 }
+
+/* --- SEÇÃO DEPOIMENTOS (NOVO) --- */
+.reviews-section {
+    background: linear-gradient(to bottom, #ffffff, #fff0f5); /* Degradê suave Rose */
+    padding: 80px 0;
+    text-align: center;
+}
+
+.review-grid {
+    display: grid;
+    /* Cria colunas automáticas (minimo 300px) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.review-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(189, 140, 152, 0.15); /* Sombra Rose Suave */
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(189, 140, 152, 0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-card:hover {
+    transform: translateY(-10px); /* Efeito de flutuar ao passar o mouse */
+}
+
+/* Aspas decorativas */
+.review-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--cor-rose);
+    opacity: 0.2;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    line-height: 1;
+}
+
+.client-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--cor-rose);
+    margin-bottom: 15px;
+}
+
+.stars {
+    color: #FFD700; /* Dourado */
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.client-name {
+    font-weight: 700;
+    color: var(--cor-rose-escuro);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.client-location {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+/* Botão do Instagram para ver mais */
+.btn-social-proof {
+    display: inline-block;
+    margin-top: 40px;
+    color: var(--cor-rose-escuro);
+    font-weight: 600;
+    border-bottom: 2px solid var(--cor-rose);
+    padding-bottom: 2px;
+}
+.btn-social-proof:hover { color: var(--cor-rose); }
