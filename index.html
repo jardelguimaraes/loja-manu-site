@@ -7,12 +7,19 @@
     
     <link rel="stylesheet" href="css/style.css">
 
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#bd8c98">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
+    <div class="top-bar">
+        <p><i class="fas fa-gift"></i> Frete Grátis para Itaúna nas compras acima de R$ 199,00</p>
+    </div>
 
     <header class="header">
         <div class="container header-content">
@@ -20,7 +27,7 @@
                 <div class="logo">
                     <img src="img/logo-m.png" alt="Logo Manu" class="logo-img">
                     <div class="logo-text">
-                        <h1>Loja Manu Itaúna</h1>
+                        <h1>Loja Manu</h1>
                     </div>
                 </div>
             </a>
@@ -58,62 +65,138 @@
             <h2 class="section-title">Nossa Coleção</h2>
             
             <div class="grid">
+                
                 <div class="card-produto">
+                    <span class="badge">Lançamento</span>
                     <div class="img-container">
                         <img src="img/colecoes/look1.jpg" alt="Look 1" onerror="this.src='https://via.placeholder.com/300x400?text=Look+1'">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Gostei%20do%20Look%201" target="_blank" class="overlay-link"><i class="fab fa-whatsapp"></i> Ver Detalhes</a>
                     </div>
-                    <div class="info-produto"><h3>Look 01</h3></div>
+                    <div class="info-produto">
+                        <h3>Conjunto Alfaiataria</h3>
+                        <div class="price-box">
+                            <span class="price-new">R$ 149,90</span>
+                            <span class="installments">3x de R$ 49,96 s/ juros</span>
+                        </div>
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Quero%20comprar%20o%20*Look%201*" target="_blank" class="btn-buy">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </a>
+                    </div>
                 </div>
+
                 <div class="card-produto">
                     <div class="img-container">
                         <img src="img/colecoes/look2.jpg" alt="Look 2" onerror="this.src='https://via.placeholder.com/300x400?text=Look+2'">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Gostei%20do%20Look%202" target="_blank" class="overlay-link"><i class="fab fa-whatsapp"></i> Ver Detalhes</a>
                     </div>
-                    <div class="info-produto"><h3>Look 02</h3></div>
+                    <div class="info-produto">
+                        <h3>Vestido Midi Floral</h3>
+                        <div class="price-box">
+                            <span class="price-old">R$ 189,90</span>
+                            <span class="price-new">R$ 129,90</span>
+                            <span class="installments">2x de R$ 64,95 s/ juros</span>
+                        </div>
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Quero%20comprar%20o%20*Look%202*" target="_blank" class="btn-buy">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </a>
+                    </div>
                 </div>
+
                 <div class="card-produto">
+                    <span class="badge" style="background: #222;">Últimas Peças</span>
                     <div class="img-container">
                         <img src="img/colecoes/look3.jpg" alt="Look 3" onerror="this.src='https://via.placeholder.com/300x400?text=Look+3'">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Gostei%20do%20Look%203" target="_blank" class="overlay-link"><i class="fab fa-whatsapp"></i> Ver Detalhes</a>
                     </div>
-                    <div class="info-produto"><h3>Look 03</h3></div>
+                    <div class="info-produto">
+                        <h3>Body Premium</h3>
+                        <div class="price-box">
+                            <span class="price-new">R$ 89,90</span>
+                            <span class="installments">À vista no PIX</span>
+                        </div>
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Quero%20comprar%20o%20*Look%203*" target="_blank" class="btn-buy">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </a>
+                    </div>
                 </div>
+
                 <div class="card-produto">
                     <div class="img-container">
                         <img src="img/colecoes/look4.jpg" alt="Look 4" onerror="this.src='https://via.placeholder.com/300x400?text=Look+4'">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Gostei%20do%20Look%204" target="_blank" class="overlay-link"><i class="fab fa-whatsapp"></i> Ver Detalhes</a>
                     </div>
-                    <div class="info-produto"><h3>Look 04</h3></div>
+                    <div class="info-produto">
+                        <h3>Chemise Linho</h3>
+                        <div class="price-box">
+                            <span class="price-new">R$ 159,90</span>
+                            <span class="installments">3x de R$ 53,30 s/ juros</span>
+                        </div>
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Quero%20comprar%20o%20*Look%204*" target="_blank" class="btn-buy">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </a>
+                    </div>
                 </div>
+
                 <div class="card-produto">
                     <div class="img-container">
                         <img src="img/colecoes/look5.jpg" alt="Look 5" onerror="this.src='https://via.placeholder.com/300x400?text=Look+5'">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Gostei%20do%20Look%205" target="_blank" class="overlay-link"><i class="fab fa-whatsapp"></i> Ver Detalhes</a>
                     </div>
-                    <div class="info-produto"><h3>Look 05</h3></div>
+                    <div class="info-produto">
+                        <h3>Cropped Renda</h3>
+                        <div class="price-box">
+                            <span class="price-new">R$ 69,90</span>
+                            <span class="installments">À vista no PIX</span>
+                        </div>
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Quero%20comprar%20o%20*Look%205*" target="_blank" class="btn-buy">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </a>
+                    </div>
                 </div>
+
                 <div class="card-produto">
                     <div class="img-container">
                         <img src="img/colecoes/look6.jpg" alt="Look 6" onerror="this.src='https://via.placeholder.com/300x400?text=Look+6'">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Gostei%20do%20Look%206" target="_blank" class="overlay-link"><i class="fab fa-whatsapp"></i> Ver Detalhes</a>
                     </div>
-                    <div class="info-produto"><h3>Look 06</h3></div>
+                    <div class="info-produto">
+                        <h3>Saia Midi</h3>
+                        <div class="price-box">
+                            <span class="price-new">R$ 119,90</span>
+                            <span class="installments">2x de R$ 59,95 s/ juros</span>
+                        </div>
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Quero%20comprar%20o%20*Look%206*" target="_blank" class="btn-buy">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </a>
+                    </div>
                 </div>
+
                 <div class="card-produto">
                     <div class="img-container">
                         <img src="img/colecoes/look7.jpg" alt="Look 7" onerror="this.src='https://via.placeholder.com/300x400?text=Look+7'">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Gostei%20do%20Look%207" target="_blank" class="overlay-link"><i class="fab fa-whatsapp"></i> Ver Detalhes</a>
                     </div>
-                    <div class="info-produto"><h3>Look 07</h3></div>
+                    <div class="info-produto">
+                        <h3>Macacão Longo</h3>
+                        <div class="price-box">
+                            <span class="price-new">R$ 199,90</span>
+                            <span class="installments">4x de R$ 49,97 s/ juros</span>
+                        </div>
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Quero%20comprar%20o%20*Look%207*" target="_blank" class="btn-buy">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </a>
+                    </div>
                 </div>
+
                 <div class="card-produto">
                     <div class="img-container">
                         <img src="img/colecoes/look8.jpg" alt="Look 8" onerror="this.src='https://via.placeholder.com/300x400?text=Look+8'">
-                        <a href="https://wa.me/5537999146764?text=Olá!%20Gostei%20do%20Look%208" target="_blank" class="overlay-link"><i class="fab fa-whatsapp"></i> Ver Detalhes</a>
                     </div>
-                    <div class="info-produto"><h3>Look 08</h3></div>
+                    <div class="info-produto">
+                        <h3>Blazer Neoprene</h3>
+                        <div class="price-box">
+                            <span class="price-new">R$ 179,90</span>
+                            <span class="installments">3x de R$ 59,96 s/ juros</span>
+                        </div>
+                        <a href="https://wa.me/5537999146764?text=Olá!%20Quero%20comprar%20o%20*Look%208*" target="_blank" class="btn-buy">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </a>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -152,7 +235,7 @@
             <div class="footer-grid">
                 
                 <div class="footer-info">
-                    <h3>Loja Manu Itaúna</h3>
+                    <h3>Loja Manu</h3>
                     <p style="margin-bottom: 20px; font-style: italic; color: #ffdee6;">Moda com Propósito.</p>
                     
                     <div class="address-box">
@@ -166,7 +249,7 @@
                 
                 <div class="footer-map">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3746.6667950949533!2d-44.5880799258416!3d-20.07987254585641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa0b067d5555555%3A0x5555555555555555!2sR.%20Geniplo%20Dornas%2C%20229%20-%20Centro%2C%20Ita%C3%BAna%20-%20MG%2C%2035680-043!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.9723224765796!2d-44.58552682398579!3d-20.176882281268685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa0ae6522204595%3A0x6331908616186b86!2sR.%20Geniplo%20Dornas%2C%20229%20-%20Centro%2C%20Ita%C3%BAna%20-%20MG%2C%2035680-033!5e0!3m2!1spt-BR!2sbr!4v1704830000000!5m2!1spt-BR!2sbr" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
@@ -189,19 +272,53 @@
     </a>
 
     <script>
-        function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
-        // Script N8N (Mantenha o mesmo que já funciona)
+        // Menu Mobile
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        }
+
+        // Header muda de cor
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // Integração N8N
         document.getElementById('form-vip').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-enviar');
             const msg = document.getElementById('msg-status');
-            btn.innerText = '...'; btn.disabled = true;
-            const dados = { nome: document.getElementById('nome').value, whatsapp: document.getElementById('whatsapp').value, data: new Date().toISOString() };
+            btn.innerText = 'Enviando...'; btn.disabled = true;
+
+            const dados = {
+                nome: document.getElementById('nome').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                data: new Date().toISOString()
+            };
+
             const webhookURL = 'https://webhook.jg.jardelguimaraes.com.br/webhook/cadastro-loja-manu'; 
-            fetch(webhookURL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dados) })
-            .then(res => { if (res.ok) { msg.innerText = '✅ Bem-vinda!'; msg.style.color = 'green'; document.getElementById('form-vip').reset(); } else { throw new Error(); } })
-            .catch(() => { msg.innerText = 'Erro.'; msg.style.color = 'red'; })
-            .finally(() => { btn.innerText = 'QUERO ENTRAR'; btn.disabled = false; });
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dados)
+            })
+            .then(res => {
+                if (res.ok) {
+                    msg.innerText = '✅ Cadastro realizado! Bem-vinda!';
+                    msg.style.color = 'green';
+                    document.getElementById('form-vip').reset();
+                } else { throw new Error(); }
+            })
+            .catch(() => {
+                msg.innerText = '❌ Erro ao cadastrar.';
+                msg.style.color = 'red';
+            })
+            .finally(() => {
+                btn.innerText = 'QUERO ENTRAR';
+                btn.disabled = false;
+            });
         });
     </script>
 </body>

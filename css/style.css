@@ -1,11 +1,12 @@
-/* --- CORES --- */
+/* --- RESET E VARIÁVEIS --- */
 :root {
-    --cor-rose: #bd8c98;      
-    --cor-rose-escuro: #88505e;
-    --cor-menu-bg: #fff0f5; /* Fundo novo do menu (Lavender Blush suave) */
+    --cor-rose: #bd8c98;        /* Rosa Principal */
+    --cor-rose-escuro: #88505e; /* Destaque Forte */
+    --cor-menu-bg: #fff0f5;     /* Fundo Suave Menu */
     --cor-texto: #555;
     --preto: #222;
     --branco: #ffffff;
+    --verde-zap: #25D366;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,15 +20,32 @@ body {
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
+.text-center { text-align: center; }
 
-/* --- HEADER (COM COR DE DESTAQUE) --- */
+/* --- 1. BARRA DE ANÚNCIO (TOP BAR) --- */
+.top-bar {
+    background-color: var(--cor-rose-escuro);
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: fixed;
+    width: 100%;
+    z-index: 1002;
+    top: 0;
+}
+
+/* --- 2. HEADER --- */
 .header {
     position: fixed;
-    top: 0; width: 100%;
-    padding: 12px 0;
+    /* Empurra o header para baixo por causa da Top Bar */
+    top: 35px; 
+    width: 100%;
+    padding: 10px 0;
     z-index: 1000;
     transition: all 0.4s ease;
-    /* MUDANÇA: Cor fixa para destacar logo e menu */
     background: var(--cor-menu-bg); 
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -45,68 +63,51 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
-    color: var(--cor-rose-escuro); /* Logo com cor forte */
+    color: var(--cor-rose-escuro);
 }
 
-/* MENU DESKTOP */
-.nav-menu { display: flex; gap: 25px; }
+/* MENU */
+.nav-menu { display: flex; gap: 20px; }
 .nav-menu a {
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 1px;
-    color: var(--preto); /* Links escuros para ler bem */
-    padding: 8px 15px;
+    color: var(--preto);
+    padding: 8px 12px;
     border-radius: 20px;
     transition: 0.3s;
 }
-
-/* Efeito botão ao passar o mouse */
-.nav-menu a:hover { 
-    background: var(--branco); 
-    color: var(--cor-rose); 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
+.nav-menu a:hover { background: var(--branco); color: var(--cor-rose); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
 .mobile-menu-icon { display: none; font-size: 1.5rem; cursor: pointer; color: var(--cor-rose-escuro); }
 
-/* --- HERO BANNER (CENTRALIZADO E COMPACTO) --- */
+/* --- 3. HERO BANNER (CENTRALIZADO) --- */
 .hero {
     width: 100%;
-    /* Altura travada em 350px conforme solicitado */
-    height: 350px; 
+    height: 350px; /* Altura fixa compacta */
     min-height: 350px;
     
     background-color: #d8c0c6;
     background-image: url('../img/banner.jpg'); 
     background-size: cover;
-    background-position: center 30%; /* Foco no rosto/topo */
+    background-position: center 30%;
     
     position: relative;
-    margin-top: 70px; /* Compensa o menu fixo */
+    /* Ajuste de margem: 70px do header + 35px da top bar = 105px */
+    margin-top: 105px; 
 }
 
 .hero-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.2); /* Sombra leve */
-    
-    /* A MÁGICA DA CENTRALIZAÇÃO ACONTECE AQUI: */
-    display: flex;
-    align-items: center;     /* Centraliza verticalmente */
-    justify-content: center; /* Centraliza horizontalmente */
+    background: rgba(0,0,0,0.2);
+    display: flex; align-items: center; justify-content: center; /* Centraliza a caixa */
 }
 
-/* CAIXA DE VIDRO */
 .hero-content { 
-    position: relative; 
-    z-index: 2; 
-    
-    /* Tamanho e Estilo */
-    width: 90%; 
-    max-width: 450px;
-    
+    position: relative; z-index: 2; 
+    width: 90%; max-width: 450px;
     text-align: center;
-    /* Garante que o texto interno também centralize */
     display: flex; flex-direction: column; align-items: center;
     
     background: rgba(255, 255, 255, 0.15);
@@ -114,217 +115,154 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
-    padding: 25px; /* Padding levemente menor */
+    padding: 25px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-    
     animation: fadeInUp 1s ease;
 }
 
 .hero-content h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; /* Fonte ajustada para altura 350px */
-    margin-bottom: 8px; 
-    line-height: 1.1;
-    color: #ffffff;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-size: 2.2rem; margin-bottom: 8px; line-height: 1.1;
+    color: #ffffff; text-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
-.hero-content p {
-    font-size: 0.95rem;
-    font-weight: 400;
-    margin-bottom: 5px;
-    color: #ffffff;
-}
+.hero-content p { font-size: 0.95rem; font-weight: 400; margin-bottom: 5px; color: #ffffff; }
 
 .btn-hero {
     display: inline-block;
-    background: var(--cor-rose);
-    color: #ffffff;
-    padding: 8px 25px;
-    border-radius: 50px;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    margin-top: 15px;
-    border: none;
-    transition: 0.3s;
+    background: var(--cor-rose); color: #ffffff;
+    padding: 8px 25px; border-radius: 50px;
+    text-transform: uppercase; font-weight: 600; font-size: 0.75rem; letter-spacing: 1px;
+    margin-top: 15px; border: none; transition: 0.3s;
 }
 .btn-hero:hover { background: #ffffff; color: var(--cor-rose); transform: translateY(-2px); }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .hero { height: 300px; min-height: 300px; } /* Ainda menor no celular */
-    .hero-content h2 { font-size: 1.8rem; }
-}
+/* Animação */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- 4. SLOGAN --- */
+.slogan-banner {
+    background: #fdf0f3; color: var(--cor-rose-escuro);
+    width: 90%; max-width: 700px; margin: 30px auto;
+    border-radius: 50px; padding: 15px 20px;
+    text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
 }
 
-/* --- VITRINE (GRID 8 FOTOS) --- */
-.section { padding: 70px 0; }
-.section-title { 
-    text-align: center; font-size: 2rem; margin-bottom: 40px; 
-    font-family: 'Playfair Display', serif; color: var(--cor-rose-escuro);
-}
+/* --- 5. VITRINE (GRID E-COMMERCE) --- */
+.section { padding: 60px 0; }
+.section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; font-family: 'Playfair Display', serif; color: var(--cor-rose-escuro); }
 
 .grid {
     display: grid;
-    /* Ajuste para caber 4 por linha em telas grandes */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 30px;
 }
 
 .card-produto {
-    background: var(--branco);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s;
+    position: relative;
+    background: var(--branco); border-radius: 8px;
+    overflow: hidden; transition: transform 0.3s;
     border: 1px solid #f0f0f0;
+    display: flex; flex-direction: column;
 }
 .card-produto:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 
+/* Etiqueta */
+.badge {
+    position: absolute; top: 10px; right: 10px;
+    background: var(--cor-rose-escuro); color: #fff;
+    font-size: 0.7rem; padding: 4px 10px; border-radius: 4px;
+    text-transform: uppercase; font-weight: bold; z-index: 2;
+}
+
 .img-container {
-    position: relative;
-    width: 100%;
-    padding-top: 135%; /* Retrato Padronizado */
-    overflow: hidden;
-    background: #f5f5f5;
+    position: relative; width: 100%; padding-top: 135%; overflow: hidden; background: #f5f5f5;
 }
-.img-container img {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover;
-}
-.overlay-link {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: rgba(255,255,255,0.95);
-    padding: 15px; text-align: center;
-    transform: translateY(100%); transition: 0.3s;
-    font-weight: bold; color: var(--cor-rose);
-    text-transform: uppercase; font-size: 0.8rem;
-}
-.img-container:hover .overlay-link { transform: translateY(0); }
+.img-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
 
-.info-produto { padding: 15px; text-align: center; }
-.info-produto h3 { font-size: 0.9rem; text-transform: uppercase; color: #555; }
+.info-produto { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.info-produto h3 { font-size: 0.95rem; color: #333; margin-bottom: 5px; font-weight: 600; }
 
-/* --- OUTROS --- */
-.slogan-banner {
-    background: #fdf0f3; color: var(--cor-rose-escuro);
-    text-align: center; padding: 25px 20px;
-    font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem;
+.price-box { margin: 10px 0; }
+.price-old { text-decoration: line-through; color: #999; font-size: 0.8rem; margin-right: 5px; }
+.price-new { color: var(--cor-rose-escuro); font-size: 1.1rem; font-weight: 700; }
+.installments { display: block; font-size: 0.75rem; color: #777; margin-top: 2px; }
+
+.btn-buy {
+    display: block; width: 100%; padding: 10px;
+    background: var(--verde-zap); color: #fff;
+    border-radius: 4px; font-weight: bold; font-size: 0.9rem; text-transform: uppercase;
+    margin-top: 10px; transition: 0.2s;
 }
+.btn-buy:hover { background: #1ebc57; transform: translateY(-2px); }
 
+/* --- 6. HISTÓRIA --- */
 .bg-suave { background: #fff9fa; }
 .section-title-left { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--cor-rose-escuro); margin-bottom: 20px; }
 .text-box { max-width: 800px; margin: auto; }
 .signature { font-family: 'Playfair Display', serif; font-style: italic; color: var(--cor-rose); margin-top: 20px; }
 
-/* FORM */
+/* --- 7. VIP --- */
 .compact-form { max-width: 450px; margin: 0 auto; }
 .input-row { display: flex; gap: 10px; margin-bottom: 10px; }
-.form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; }
+.form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; outline: none; }
+.form-input:focus { border-color: var(--cor-rose); }
 .btn-full { width: 100%; padding: 12px; background: var(--cor-rose-escuro); color: var(--branco); border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
 
-/* --- FOOTER & ENDEREÇO --- */
+/* --- 8. RODAPÉ --- */
 .footer { background: var(--cor-rose-escuro); color: #fff; padding: 50px 0 20px; }
 .footer-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: center; }
 .footer-info { flex: 1; min-width: 250px; }
 .footer-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 10px; color: #ffdee6; }
 
-/* ESTILO NOVO DO ENDEREÇO */
 .address-box {
-    background: rgba(255,255,255,0.1);
-    padding: 15px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-top: 15px;
-    max-width: 350px;
+    background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;
+    display: flex; align-items: center; gap: 15px; margin-top: 15px; max-width: 350px;
 }
 .icon-map { font-size: 24px; color: #ffdee6; }
 
-.footer-map { width: 100%; max-width: 300px; height: 150px; border-radius: 8px; overflow: hidden; opacity: 0.9; }
-.social-links-footer { text-align: center; margin-top: 30px; font-size: 1.5rem; }
-.social-links-footer a { color: #fff; margin: 0 10px; }
-.copyright { text-align: center; margin-top: 20px; font-size: 0.75rem; opacity: 0.6; }
+.footer-map { width: 100%; max-width: 300px; height: 150px; border-radius: 8px; overflow: hidden; }
+.footer-map iframe { border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 
-/* FLOAT WHATSAPP */
+.social-links-footer { text-align: center; margin-top: 30px; font-size: 1.8rem; }
+.social-links-footer a { margin: 0 10px; transition: 0.3s; }
+.social-links-footer .fa-instagram {
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.social-links-footer .fa-whatsapp { color: var(--verde-zap); }
+
+.footer-bottom { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; }
+.copyright { font-size: 0.8rem; opacity: 0.6; margin-bottom: 8px; }
+.developer { font-size: 0.75rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 2px; color: #ffdee6; font-weight: 500; }
+
+/* FLOAT ZAP */
 .float-zap {
     position: fixed; bottom: 20px; right: 20px;
-    width: 60px; height: 60px;
-    background: #25D366; color: #fff;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
+    width: 60px; height: 60px; background: var(--verde-zap); color: #fff;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
     font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 2000;
     animation: pulse 2s infinite;
 }
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
 /* MOBILE */
 @media (max-width: 768px) {
+    .top-bar { font-size: 0.7rem; padding: 6px 0; }
+    .header { top: 28px; background: #ffffff; padding: 8px 0; }
+    .hero { margin-top: 90px; height: 300px; min-height: 300px; }
+    
     .mobile-menu-icon { display: block; }
     .nav-menu {
         position: fixed; top: 0; right: -100%;
-        width: 80%; height: 100vh;
-        background: #fff;
+        width: 80%; height: 100vh; background: #fff;
         flex-direction: column; justify-content: center; align-items: center;
-        transition: 0.4s; z-index: 999;
-        box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+        transition: 0.4s; z-index: 999; box-shadow: -5px 0 20px rgba(0,0,0,0.1);
     }
     .nav-menu.active { right: 0; }
+    .header .nav-menu a { color: var(--preto); font-size: 1.2rem; margin: 15px 0; }
+    
     .input-row { flex-direction: column; }
     .footer-grid { flex-direction: column; text-align: center; }
     .address-box { margin: 15px auto; text-align: left; }
-    .hero h2 { font-size: 2.5rem; }
-}
-
-/* --- CORREÇÕES FINAIS --- */
-
-/* Classe para centralizar textos */
-.text-center { text-align: center; }
-
-/* Ícones do Rodapé Coloridos */
-.social-links-footer .fa-instagram {
-    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.8rem; /* Um pouco maior */
-}
-
-.social-links-footer .fa-whatsapp {
-    color: #25D366;
-    font-size: 1.8rem;
-}
-
-/* Ajuste fino para o mapa não ficar com borda estranha */
-.footer-map iframe {
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-/* --- ASSINATURA DO DESENVOLVEDOR --- */
-.footer-bottom {
-    margin-top: 40px;
-    border-top: 1px solid rgba(255,255,255,0.1); /* Linha fina separadora */
-    padding-top: 20px;
-    text-align: center;
-}
-
-.copyright {
-    font-size: 0.8rem;
-    opacity: 0.6;
-    margin-bottom: 8px;
-}
-
-.developer {
-    font-size: 0.75rem; /* Um pouco menor que o texto normal */
-    opacity: 0.9;
-    text-transform: uppercase;
-    letter-spacing: 2px; /* Espaçamento chique entre letras */
-    color: #ffdee6; /* Mesma cor suave usada no título */
-    font-weight: 500;
 }
