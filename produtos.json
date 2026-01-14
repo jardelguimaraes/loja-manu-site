@@ -1,5 +1,4 @@
-{
-  "itens": [
+   [
     {
       "id": 1,
       "nome": "Vestido azul",
@@ -13,4 +12,3 @@
       "esgotado": false
     }
   ]
-}
