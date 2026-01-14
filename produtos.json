@@ -1,14 +1,12 @@
-   [
-    {
-      "id": 1,
-      "nome": "Vestido azul",
-      "preco": 189.90,
-      "parcelas": 3,
-      "precoParcela": 63.30,
-      "formaPagamento": "cartão",
-      "etiqueta": "exclusiva",
-      "corEtiqueta": "lilás",
-      "imagem": "img/colecoes/8.jpg",
-      "esgotado": false
-    }
-  ]
+[
+  {
+    "id": 1,
+    "nome": "Vestido azul",
+    "img": "img/colecoes/8.jpg",
+    "preco": 189.90,
+    "parcelas": "3x R$ 63,30 cartão",
+    "tag": "Exclusiva",
+    "tagCor": "#C7B8EA",
+    "esgotado": false
+  }
+]
