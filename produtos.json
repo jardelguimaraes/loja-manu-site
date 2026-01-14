@@ -1,23 +1,4 @@
-Para adicionar o novo item ao estoque, primeiro precisamos calcular o preço da parcela. O preço total é de 200 reais e o número de parcelas é 4. Portanto, o preço da parcela é:
-
-200 / 4 = 50.00
-
-Agora, podemos criar o novo item com os dados fornecidos:
-
-```json
-{
-  "id": 6,
-  "nome": "Blusa infantil",
-  "preco": 200.00,
-  "parcelas": "4x",
-  "parcelaPreco": 50.00,
-  "formaPagamento": "cartão",
-  "etiqueta": "exclusiva",
-  "corEtiqueta": "lilás",
-  "imagem": "img/colecoes/39.jpg",
-  "esgotado": false
-}
-```
+`
 
 Agora, adicionaremos o novo item ao estoque atual:
 
