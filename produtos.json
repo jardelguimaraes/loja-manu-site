@@ -13,10 +13,10 @@
     "id": 2,
     "nome": "Vestido Midi Floral",
     "img": "img/colecoes/look2.jpg",
-    "preco": 129.90,
+    "preco": 149.90,
     "parcelas": "2x de R$ 64,95 s/ juros",
-    "tag": null,
-    "tagCor": null,
+    "tag": "Lançamento",
+    "tagCor": "#88505e",
     "esgotado": false
   },
   {
