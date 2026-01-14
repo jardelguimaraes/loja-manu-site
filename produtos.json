@@ -1,38 +1,79 @@
-[
-  {
-    "id": 3,
-    "nome": "Vestido Azul",
-    "preco": 189.9,
-    "parcelas": "3x",
-    "parcelaPreco": 63.3,
-    "formaPagamento": "cartão",
-    "tag": "Exclusiva",
-    "tagCor": "#800080",
-    "esgotado": false,
-    "img": "img/colecoes/8.jpg"
-  },
-  {
-    "id": 4,
-    "nome": "Conjunto jeans",
-    "preco": 139.9,
-    "parcelas": "3x",
-    "parcelaPreco": 46.63333333333333,
-    "formaPagamento": "cartão",
-    "tag": "Lançamento",
-    "tagCor": "#00FF00",
-    "esgotado": false,
-    "img": "img/colecoes/33.jpg"
-  },
-  {
-    "id": 5,
-    "nome": "Novo Item",
-    "preco": 0,
-    "parcelas": "1x",
-    "parcelaPreco": 0,
-    "formaPagamento": "cartão",
-    "tag": "Novo",
-    "tagCor": "#0000FF",
-    "esgotado": false,
-    "img": "img/colecoes/37.jpg"
-  }
-]
+Para adicionar o novo item ao estoque, primeiro precisamos calcular o preço da parcela. O preço total é de 200 reais e o número de parcelas é 4. Portanto, o preço da parcela é:
+
+200 / 4 = 50.00
+
+Agora, podemos criar o novo item com os dados fornecidos:
+
+```json
+{
+  "id": 6,
+  "nome": "Blusa infantil",
+  "preco": 200.00,
+  "parcelas": "4x",
+  "parcelaPreco": 50.00,
+  "formaPagamento": "cartão",
+  "etiqueta": "exclusiva",
+  "corEtiqueta": "lilás",
+  "imagem": "img/colecoes/39.jpg",
+  "esgotado": false
+}
+```
+
+Agora, adicionaremos o novo item ao estoque atual:
+
+```json
+{
+  "data": [
+    {
+      "id": 3,
+      "nome": "Vestido Azul",
+      "preco": 189.9,
+      "parcelas": "3x",
+      "parcelaPreco": 63.3,
+      "formaPagamento": "cartão",
+      "tag": "Exclusiva",
+      "tagCor": "#800080",
+      "esgotado": false,
+      "img": "img/colecoes/8.jpg"
+    },
+    {
+      "id": 4,
+      "nome": "Conjunto jeans",
+      "preco": 139.9,
+      "parcelas": "3x",
+      "parcelaPreco": 46.63333333333333,
+      "formaPagamento": "cartão",
+      "tag": "Lançamento",
+      "tagCor": "#00FF00",
+      "esgotado": false,
+      "img": "img/colecoes/33.jpg"
+    },
+    {
+      "id": 5,
+      "nome": "Novo Item",
+      "preco": 0,
+      "parcelas": "1x",
+      "parcelaPreco": 0,
+      "formaPagamento": "cartão",
+      "tag": "Novo",
+      "tagCor": "#0000FF",
+      "esgotado": false,
+      "img": "img/colecoes/37.jpg"
+    },
+    {
+      "id": 6,
+      "nome": "Blusa infantil",
+      "preco": 200.00,
+      "parcelas": "4x",
+      "parcelaPreco": 50.00,
+      "formaPagamento": "cartão",
+      "etiqueta": "exclusiva",
+      "corEtiqueta": "lilás",
+      "imagem": "img/colecoes/39.jpg",
+      "esgotado": false
+    }
+  ]
+}
+```
+
+A lista completa de produtos está acima.
