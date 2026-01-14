@@ -48,18 +48,7 @@ Agora, adicionaremos o novo item ao estoque atual:
       "esgotado": false,
       "img": "img/colecoes/33.jpg"
     },
-    {
-      "id": 5,
-      "nome": "Novo Item",
-      "preco": 0,
-      "parcelas": "1x",
-      "parcelaPreco": 0,
-      "formaPagamento": "cartão",
-      "tag": "Novo",
-      "tagCor": "#0000FF",
-      "esgotado": false,
-      "img": "img/colecoes/37.jpg"
-    },
+    
     {
       "id": 6,
       "nome": "Blusa infantil",
