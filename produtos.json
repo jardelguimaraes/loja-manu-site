@@ -1,42 +1,16 @@
-[
-  {
-    "id": 1,
-    "nome": "Conjunto Alfaiataria",
-    "img": "img/colecoes/look1.jpg",
-    "preco": 149.9,
-    "parcelas": "3x de R$ 49,96 s/ juros",
-    "tag": "Lançamento",
-    "tagCor": "#88505e",
-    "esgotado": false
-  },
-  {
-    "id": 2,
-    "nome": "Vestido Midi Floral",
-    "img": "img/colecoes/look2.jpg",
-    "preco": 149.9,
-    "parcelas": "2x de R$ 64,95 s/ juros",
-    "tag": "Lançamento",
-    "tagCor": "#88505e",
-    "esgotado": false
-  },
-  {
-    "id": 3,
-    "nome": "Body Premium",
-    "img": "img/colecoes/look3.jpg",
-    "preco": 89.9,
-    "parcelas": "Indisponível",
-    "tag": "Esgotado",
-    "tagCor": "#333",
-    "esgotado": true
-  },
-  {
-    "id": 4,
-    "nome": "Vestido Nada / 299,90 / 3x sem juros / Exclusivo",
-    "img": "img/colecoes/6.jpg",
-    "preco": 0,
-    "parcelas": "Consulte",
-    "tag": null,
-    "tagCor": "#bd8c98",
-    "esgotado": false
-  }
-]
+{
+  "itens": [
+    {
+      "id": 1,
+      "nome": "Vestido azul",
+      "preco": 189.90,
+      "parcelas": 3,
+      "precoParcela": 63.30,
+      "formaPagamento": "cartão",
+      "etiqueta": "exclusiva",
+      "corEtiqueta": "lilás",
+      "imagem": "img/colecoes/8.jpg",
+      "esgotado": false
+    }
+  ]
+}
