@@ -64,81 +64,10 @@
         <div class="container">
             <h2 class="section-title">Nossa Coleção</h2>
             
-            <div class="grid">
-                
-                <div class="card-produto">
-                    <span class="badge">Lançamento</span>
-                    <div class="img-container">
-                        <img src="img/colecoes/look1.jpg" alt="Look 1" onerror="this.src='https://via.placeholder.com/300x400?text=Look+1'">
-                    </div>
-                    <div class="info-produto">
-                        <h3>Conjunto Alfaiataria</h3>
-                        <div class="price-box">
-                            <span class="price-new">R$ 149,90</span>
-                            <span class="installments">3x de R$ 49,96 s/ juros</span>
-                        </div>
-                        <button class="btn-buy"onclick="adicionarItem('Conjunto Alfaiataria', 149,90)"> Adicionar à sacola</button>
-                    </div>
-                </div>
-
-                <div class="card-produto">
-                    <div class="img-container">
-                        <img src="img/colecoes/look2.jpg" alt="Look 2" onerror="this.src='https://via.placeholder.com/300x400?text=Look+2'">
-                    </div>
-                    <div class="info-produto">
-                        <h3>Vestido Midi Floral</h3>
-                        <div class="price-box">
-                            <span class="price-old">R$ 189,90</span>
-                            <span class="price-new">R$ 129,90</span>
-                            <span class="installments">2x de R$ 64,95 s/ juros</span>
-                        </div>
-                        <button class="btn-buy"onclick="adicionarItem('Vestido Midi Floral', 189,90)"> Adicionar à sacola</button>
-                    </div>
-                </div>
-
-                <div class="card-produto">
-                    <span class="badge" style="background: #222;">Últimas Peças</span> <!--Para colocar etiqueta na foto podendo mudar a cor de fundo do escrito--!>
-                    <div class="img-container">
-                        <img src="img/colecoes/look3.jpg" alt="Look 3" onerror="this.src='https://via.placeholder.com/300x400?text=Look+3'">
-                    </div>
-                    <div class="info-produto">
-                        <h3>Body Premium</h3>
-                        <div class="price-box">
-                            <span class="price-new">R$ 89,90</span>
-                            <span class="installments">À vista no PIX</span>
-                        </div>
-                        <button class="btn-buy"onclick="adicionarItem('Body Premium', 89,90)"> Adicionar à sacola</button>
-                    </div>
-                </div>
-
-                <div class="card-produto">
-                    <div class="img-container">
-                        <img src="img/colecoes/look4.jpg" alt="Look 4" onerror="this.src='https://via.placeholder.com/300x400?text=Look+4'">
-                    </div>
-                    <div class="info-produto">
-                        <h3>Chemise Linho</h3>
-                        <div class="price-box">
-                            <span class="price-new">R$ 159,90</span>
-                            <span class="installments">3x de R$ 53,30 s/ juros</span>
-                        </div>
-                        <button class="btn-buy"onclick="adicionarItem('Chemise Linho', 159,90)"> Adicionar à sacola</button>
-                    </div>
-                </div>
-
-                <div class="card-produto">
-                    <div class="img-container">
-                        <img src="img/colecoes/look5.jpg" alt="Look 5" onerror="this.src='https://via.placeholder.com/300x400?text=Look+5'">
-                    </div>
-                    <div class="info-produto">
-                        <h3>Cropped Renda</h3>
-                        <div class="price-box">
-                            <span class="price-new">R$ 69,90</span>
-                            <span class="installments">À vista no PIX</span> <!--Colocar opção de pagamento a vista sem parcelamento--!>
-                        </div>
-                        <button class="btn-buy"onclick="adicionarItem('Cropped Renda', 69,90)"> Adicionar à sacola</button>
-                    </div>
-                </div>
-
+            <div class="grid" id="grid-produtos">
+                <p style="text-align:center; width:100%;">Carregando coleção...</p>
+            </div>
+            
                 <div class="card-produto">
                     <span class="badge" style="background: #333;">Esgotado</span> 
                     <div class="img-container">
@@ -314,6 +243,57 @@
     </a>
 
    <script>
+
+        // --- CARREGAR PRODUTOS DO JSON (AUTOMÁTICO) ---
+    async function carregarProdutos() {
+        try {
+            const response = await fetch('produtos.json'); // Lê o arquivo de dados
+            const produtos = await response.json();
+            
+            const container = document.getElementById('grid-produtos');
+            container.innerHTML = ''; // Limpa o "Carregando..."
+
+            produtos.forEach(produto => {
+                // Lógica para Esgotado
+                const disabledAttr = produto.esgotado ? 'disabled' : '';
+                const btnText = produto.esgotado ? 'Esgotado' : '<i class="fab fa-whatsapp"></i> Comprar';
+                const imgFilter = produto.esgotado ? 'filter: grayscale(100%);' : '';
+                
+                // Lógica da Etiqueta
+                let badgeHTML = '';
+                if (produto.tag) {
+                    badgeHTML = `<span class="badge" style="background: ${produto.tagCor || '#bd8c98'};">${produto.tag}</span>`;
+                }
+
+                // Cria o Card HTML
+                const card = document.createElement('div');
+                card.className = 'card-produto';
+                card.innerHTML = `
+                    ${badgeHTML}
+                    <div class="img-container">
+                        <img src="${produto.img}" alt="${produto.nome}" style="${imgFilter}" onerror="this.src='https://via.placeholder.com/300x400?text=Foto'">
+                    </div>
+                    <div class="info-produto">
+                        <h3>${produto.nome}</h3>
+                        <div class="price-box">
+                            <span class="price-new">R$ ${produto.preco.toFixed(2).replace('.', ',')}</span>
+                            <span class="installments">${produto.parcelas}</span>
+                        </div>
+                        <button class="btn-buy" ${disabledAttr} onclick="adicionarItem('${produto.nome}', ${produto.preco})">
+                            ${btnText}
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        } catch (erro) {
+            console.error("Erro ao carregar produtos:", erro);
+            document.getElementById('grid-produtos').innerHTML = '<p>Erro ao carregar coleção.</p>';
+        }
+    }
+
+    // Chama a função assim que a tela abrir
+    document.addEventListener('DOMContentLoaded', carregarProdutos);                 
         // --- LÓGICA DO CARRINHO ---
         let carrinho = [];
 
@@ -451,4 +431,5 @@
     </div>
 
 </body>
+
 </html>
