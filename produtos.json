@@ -22,8 +22,7 @@ Agora, podemos criar o novo item com os dados fornecidos:
 Agora, adicionaremos o novo item ao estoque atual:
 
 ```json
-{
-  "data": [
+ [
     {
       "id": 3,
       "nome": "Vestido Azul",
@@ -62,7 +61,7 @@ Agora, adicionaremos o novo item ao estoque atual:
       "esgotado": false
     }
   ]
-}
+
 ```
 
 A lista completa de produtos está acima.
