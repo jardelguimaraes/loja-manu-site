@@ -1,12 +1,38 @@
 [
   {
     "id": 1,
-    "nome": "Vestido azul",
-    "img": "img/colecoes/8.jpg",
+    "nome": "Vestido Preto",
+    "preco": 99.90,
+    "parcelas": "2x",
+    "parcelaPreco": 49.95,
+    "formaPagamento": "cartão",
+    "tag": "Promoção",
+    "tagCor": "#FF0000",
+    "esgotado": false,
+    "img": "img/colecoes/1.jpg"
+  },
+  {
+    "id": 2,
+    "nome": "Vestido Vermelho",
+    "preco": 129.90,
+    "parcelas": "3x",
+    "parcelaPreco": 43.30,
+    "formaPagamento": "cartão",
+    "tag": "Lançamento",
+    "tagCor": "#00FF00",
+    "esgotado": false,
+    "img": "img/colecoes/2.jpg"
+  },
+  {
+    "id": 3,
+    "nome": "Vestido Azul",
     "preco": 189.90,
-    "parcelas": "3x R$ 63,30 cartão",
+    "parcelas": "3x",
+    "parcelaPreco": 63.30,
+    "formaPagamento": "cartão",
     "tag": "Exclusiva",
-    "tagCor": "#C7B8EA",
-    "esgotado": false
+    "tagCor": "#800080",
+    "esgotado": false,
+    "img": "img/colecoes/8.jpg"
   }
 ]
