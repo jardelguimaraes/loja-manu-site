@@ -2,7 +2,7 @@
   {
     "id": 1,
     "nome": "Vestido Preto",
-    "preco": 99.90,
+    "preco": 99.9,
     "parcelas": "2x",
     "parcelaPreco": 49.95,
     "formaPagamento": "cartão",
@@ -14,9 +14,9 @@
   {
     "id": 2,
     "nome": "Vestido Vermelho",
-    "preco": 129.90,
+    "preco": 129.9,
     "parcelas": "3x",
-    "parcelaPreco": 43.30,
+    "parcelaPreco": 43.3,
     "formaPagamento": "cartão",
     "tag": "Lançamento",
     "tagCor": "#00FF00",
@@ -26,13 +26,25 @@
   {
     "id": 3,
     "nome": "Vestido Azul",
-    "preco": 189.90,
+    "preco": 189.9,
     "parcelas": "3x",
-    "parcelaPreco": 63.30,
+    "parcelaPreco": 63.3,
     "formaPagamento": "cartão",
     "tag": "Exclusiva",
     "tagCor": "#800080",
     "esgotado": false,
     "img": "img/colecoes/8.jpg"
+  },
+  {
+    "id": 4,
+    "nome": "Conjunto jeans",
+    "preco": 139.9,
+    "parcelas": "3x",
+    "parcelaPreco": 46.633333333333336,
+    "formaPagamento": "cartão",
+    "tag": "Lançamento",
+    "tagCor": "#00FF00",
+    "esgotado": false,
+    "img": "img/colecoes/33.jpg"
   }
 ]
