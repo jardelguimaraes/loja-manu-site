@@ -1,29 +1,5 @@
 [
   {
-    "id": 1,
-    "nome": "Vestido Preto",
-    "preco": 99.9,
-    "parcelas": "2x",
-    "parcelaPreco": 49.95,
-    "formaPagamento": "cartão",
-    "tag": "Promoção",
-    "tagCor": "#FF0000",
-    "esgotado": false,
-    "img": "img/colecoes/1.jpg"
-  },
-  {
-    "id": 2,
-    "nome": "Vestido Vermelho",
-    "preco": 129.9,
-    "parcelas": "3x",
-    "parcelaPreco": 43.3,
-    "formaPagamento": "cartão",
-    "tag": "Lançamento",
-    "tagCor": "#00FF00",
-    "esgotado": false,
-    "img": "img/colecoes/2.jpg"
-  },
-  {
     "id": 3,
     "nome": "Vestido Azul",
     "preco": 189.9,
@@ -40,11 +16,23 @@
     "nome": "Conjunto jeans",
     "preco": 139.9,
     "parcelas": "3x",
-    "parcelaPreco": 46.633333333333336,
+    "parcelaPreco": 46.63333333333333,
     "formaPagamento": "cartão",
     "tag": "Lançamento",
     "tagCor": "#00FF00",
     "esgotado": false,
     "img": "img/colecoes/33.jpg"
+  },
+  {
+    "id": 5,
+    "nome": "Novo Item",
+    "preco": 0,
+    "parcelas": "1x",
+    "parcelaPreco": 0,
+    "formaPagamento": "cartão",
+    "tag": "Novo",
+    "tagCor": "#0000FF",
+    "esgotado": false,
+    "img": "img/colecoes/37.jpg"
   }
 ]
