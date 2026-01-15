@@ -154,7 +154,8 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* Mudei levemente o minmax para garantir cards mais robustos no PC */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 30px;
 }
 
@@ -175,11 +176,15 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     text-transform: uppercase; font-weight: bold; z-index: 2;
 }
 
-/* --- AJUSTE NASA: PADRONIZAÇÃO DE IMAGENS --- */
+/* --- SOLUÇÃO NASA: PROPORÇÃO INTELIGENTE --- */
 .img-container {
     position: relative;
     width: 100%;
-    height: 380px; /* ALTURA FIXA: O Segredo da padronização */
+    /* REMOVIDO: height: 380px; */
+    
+    /* MÁGICA AQUI: Proporção 2:3 (Padrão Moda Vertical) */
+    aspect-ratio: 2 / 3; 
+    
     overflow: hidden; 
     background: #f5f5f5;
 }
@@ -190,8 +195,8 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     left: 0; 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /* CORTA as bordas para preencher o quadrado perfeitamente */
-    object-position: top center; /* FOCA no topo (rosto/busto) para não cortar a cabeça da modelo */
+    object-fit: cover; 
+    object-position: top center; /* Foca sempre no rosto/ombros */
 }
 /* ------------------------------------------- */
 
@@ -445,30 +450,3 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     font-style: italic;
     color: #555;
     margin-bottom: 20px;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.client-name {
-    font-weight: 700;
-    color: var(--cor-rose-escuro);
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-}
-
-.client-location {
-    font-size: 0.75rem;
-    color: #999;
-}
-
-/* Botão do Instagram para ver mais */
-.btn-social-proof {
-    display: inline-block;
-    margin-top: 40px;
-    color: var(--cor-rose-escuro);
-    font-weight: 600;
-    border-bottom: 2px solid var(--cor-rose);
-    padding-bottom: 2px;
-}
-.btn-social-proof:hover { color: var(--cor-rose); }
