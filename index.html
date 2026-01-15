@@ -259,16 +259,37 @@
 
     document.addEventListener('DOMContentLoaded', carregarProdutos);                  
         
-        // --- LÓGICA DO CARRINHO ---
+       // --- LÓGICA DO CARRINHO (AGORA COM MEMÓRIA) ---
         let carrinho = [];
+
+        // Ao abrir o site, tenta recuperar o carrinho salvo
+        if (localStorage.getItem('carrinhoManu')) {
+            carrinho = JSON.parse(localStorage.getItem('carrinhoManu'));
+            atualizarCarrinhoUI();
+        }
+
+        function salvarCarrinho() {
+            localStorage.setItem('carrinhoManu', JSON.stringify(carrinho));
+        }
 
         function adicionarItem(nome, preco) {
             carrinho.push({ nome: nome, preco: preco });
+            salvarCarrinho(); // Salva na memória
             atualizarCarrinhoUI();
+            
             const btnFloat = document.querySelector('.cart-float');
             btnFloat.style.transform = 'scale(1.3)';
             setTimeout(() => btnFloat.style.transform = 'scale(1)', 200);
+             
         }
+
+       function removerItem(index) {
+            carrinho.splice(index, 1);
+            salvarCarrinho(); // Atualiza a memória
+            atualizarCarrinhoUI();
+        }
+
+        // As outras funções (atualizarCarrinhoUI, enviarPedidoWhatsApp...) continuam iguais!
 
         function atualizarCarrinhoUI() {
             const lista = document.getElementById('itens-carrinho');
@@ -296,11 +317,7 @@
                 });
             }
             totalSpan.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-        }
-
-        function removerItem(index) {
-            carrinho.splice(index, 1);
-            atualizarCarrinhoUI();
+        
         }
 
         function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
@@ -371,4 +388,5 @@
 
 </body>
 </html>
+
 
