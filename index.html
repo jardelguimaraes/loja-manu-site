@@ -232,7 +232,7 @@
                         <h3>${produto.nome}</h3>
                         <div class="price-box">
                             <span class="price-new">R$ ${produto.preco.toFixed(2).replace('.', ',')}</span>
-                            <span class="installments">${produto.parcelas}</span>
+                            ${produto.parcelas ? `<span class="installments">${produto.parcelas}</span>` : ''}
                         </div>
                         <button class="btn-buy" ${disabledAttr} onclick="adicionarItem('${produto.nome}', ${produto.preco})">
                             ${btnText}
@@ -389,3 +389,4 @@
 </body>
 
 </html>
+
