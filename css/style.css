@@ -175,10 +175,25 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     text-transform: uppercase; font-weight: bold; z-index: 2;
 }
 
+/* --- AJUSTE NASA: PADRONIZAÇÃO DE IMAGENS --- */
 .img-container {
-    position: relative; width: 100%; padding-top: 135%; overflow: hidden; background: #f5f5f5;
+    position: relative;
+    width: 100%;
+    height: 380px; /* ALTURA FIXA: O Segredo da padronização */
+    overflow: hidden; 
+    background: #f5f5f5;
 }
-.img-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.img-container img { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* CORTA as bordas para preencher o quadrado perfeitamente */
+    object-position: top center; /* FOCA no topo (rosto/busto) para não cortar a cabeça da modelo */
+}
+/* ------------------------------------------- */
 
 .info-produto { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
 .info-produto h3 { font-size: 0.95rem; color: #333; margin-bottom: 5px; font-weight: 600; }
@@ -355,8 +370,8 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .btn-buy:disabled, 
 .btn-buy.esgotado {
     background-color: #d1d1d1; /* Cinza claro */
-    color: #777;               /* Texto cinza escuro */
-    cursor: not-allowed;       /* Aparece o símbolo de proibido no mouse */
+    color: #777;                /* Texto cinza escuro */
+    cursor: not-allowed;        /* Aparece o símbolo de proibido no mouse */
     box-shadow: none;
     transform: none !important; /* Remove o pulinho ao passar o mouse */
 }
