@@ -65,56 +65,11 @@
             <h2 class="section-title">Nossa Coleção</h2>
             
             <div class="grid" id="grid-produtos">
-                <p style="text-align:center; width:100%;">Carregando coleção...</p>
+                <p style="text-align:center; width:100%; color:#888;">Carregando coleção...</p>
             </div>
             
-                <div class="card-produto">
-                    <span class="badge" style="background: #333;">Esgotado</span> 
-                    <div class="img-container">
-                        <img src="img/colecoes/look6.jpg" alt="Look 6" onerror="this.src='https://via.placeholder.com/300x400?text=Look+6'">
-                    </div>
-                    <div class="info-produto">
-                        <h3>Saia Midi</h3>
-                        <div class="price-box">
-                            <span class="price-new">R$ 119,90</span>
-                            <span class="installments">2x de R$ 59,95 s/ juros</span> 
-                        </div>
-                        <button class="btn-buy" disabled> Esgotado </button> <!--uso para desabilitar o botão de colocar no carrinho--!> 
-                    </div>
-                </div>
-
-                <div class="card-produto">
-                    <div class="img-container">
-                        <img src="img/colecoes/look7.jpg" alt="Look 7" onerror="this.src='https://via.placeholder.com/300x400?text=Look+7'">
-                    </div>
-                    <div class="info-produto">
-                        <h3>Macacão Longo</h3>
-                        <div class="price-box">
-                            <span class="price-new">R$ 199,90</span>
-                            <span class="installments">4x de R$ 49,97 s/ juros</span>
-                        </div>
-                        <button class="btn-buy"onclick="adicionarItem('Macacão Longo', 199,90)"> Adicionar à sacola</button>
-                    </div>
-                </div>
-
-                <div class="card-produto">
-                    <div class="img-container">
-                        <img src="img/colecoes/look8.jpg" alt="Look 8" onerror="this.src='https://via.placeholder.com/300x400?text=Look+8'">
-                    </div>
-                    <div class="info-produto">
-                        <h3>Blazer Neoprene</h3>
-                        <div class="price-box">
-                            <span class="price-new">R$ 179,90</span>
-                            <span class="installments">3x de R$ 59,96 s/ juros</span>
-                        </div>
-                        <button class="btn-buy"onclick="adicionarItem('Blazer Neoprene', 179,90)"> Adicionar à sacola</button>
-                    </div>
-                </div>
-
             </div>
-        </div>
     </section>
-
     <section class="reviews-section">
         <div class="container">
             <h2 class="section-title">Quem usa, se apaixona</h2>
@@ -288,12 +243,13 @@
             });
         } catch (erro) {
             console.error("Erro ao carregar produtos:", erro);
-            document.getElementById('grid-produtos').innerHTML = '<p>Erro ao carregar coleção.</p>';
+            // Se o JSON estiver vazio ou der erro, não mostra nada (limpa os fantasmas)
+            document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center; width:100%;">Nenhum produto encontrado no momento.</p>';
         }
     }
 
     // Chama a função assim que a tela abrir
-    document.addEventListener('DOMContentLoaded', carregarProdutos);                 
+    document.addEventListener('DOMContentLoaded', carregarProdutos);                  
         // --- LÓGICA DO CARRINHO ---
         let carrinho = [];
 
@@ -413,7 +369,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Sua Sacola</h2>
-                <button class="btn-close" onclick="fecharCarrinho()">&times;</button>
+                <button class="btn-close" onclick="fecharCarrinho()">×</button>
             </div>
             
             <ul id="itens-carrinho">
