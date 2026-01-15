@@ -1,7 +1,7 @@
 [
   {
     "id":1,"nome":"Vestido azul","preco":129.9,"parcelas":"3x sem juros","parcelaPreco":43.3,"formaPagamento":"cartão","tag":"Lançamento","tagCor":null,"esgotado":false,"img":"img/colecoes/43.jpg"
-  },
+  }
   {
     "id":2,"nome":"Vestido floral lindo","preco":119.9,"parcelas":"3x","parcelaPreco":39.97,"formaPagamento":"cartão","tag":"exclusivo","tagCor":null,"esgotado":false,"img":"img/colecoes/47.jpg"
   },
