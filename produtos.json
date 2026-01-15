@@ -1,1 +1,18 @@
 []
+Não há itens na lista para adicionar o novo item. Para adicionar o novo item, é necessário ter uma lista existente. 
+
+No entanto, posso criar uma lista com o novo item:
+[
+  {
+    "id": 1,
+    "nome": "Vestido azul",
+    "preco": 129.90,
+    "parcelas": 3,
+    "parcelaPreco": 43.30,
+    "formaPagamento": "3 X sem juros",
+    "tag": "Lançamento",
+    "tagCor": "azul",
+    "esgotado": false,
+    "img": "img/colecoes/43.jpg"
+  }
+]
