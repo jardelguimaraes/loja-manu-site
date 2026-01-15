@@ -1,48 +1,26 @@
-`
-
-Agora, adicionaremos o novo item ao estoque atual:
-
-```json
- 
-    {
-      "id": 3,
-      "nome": "Vestido Azul",
-      "preco": 189.9,
-      "parcelas": "3x",
-      "parcelaPreco": 63.3,
-      "formaPagamento": "cartão",
-      "tag": "Exclusiva",
-      "tagCor": "#800080",
-      "esgotado": false,
-      "img": "img/colecoes/8.jpg"
-    },
-    {
-      "id": 4,
-      "nome": "Conjunto jeans",
-      "preco": 139.9,
-      "parcelas": "3x",
-      "parcelaPreco": 46.63333333333333,
-      "formaPagamento": "cartão",
-      "tag": "Lançamento",
-      "tagCor": "#00FF00",
-      "esgotado": false,
-      "img": "img/colecoes/33.jpg"
-    },
-    
-    {
-      "id": 6,
-      "nome": "Blusa infantil",
-      "preco": 200.00,
-      "parcelas": "4x",
-      "parcelaPreco": 50.00,
-      "formaPagamento": "cartão",
-      "etiqueta": "exclusiva",
-      "corEtiqueta": "lilás",
-      "imagem": "img/colecoes/39.jpg",
-      "esgotado": false
-    }
-  
-
-```
-
-A lista completa de produtos está acima.
+[
+  {
+    "id": 1,
+    "nome": "Vestido Azul",
+    "preco": 189.90,
+    "parcelas": "3x",
+    "parcelaPreco": 63.30,
+    "formaPagamento": "cartão",
+    "tag": "Exclusiva",
+    "tagCor": "#800080",
+    "esgotado": false,
+    "img": "img/colecoes/look1.jpg"
+  },
+  {
+    "id": 2,
+    "nome": "Conjunto Jeans",
+    "preco": 139.90,
+    "parcelas": "3x",
+    "parcelaPreco": 46.63,
+    "formaPagamento": "cartão",
+    "tag": "Lançamento",
+    "tagCor": "#00FF00",
+    "esgotado": false,
+    "img": "img/colecoes/look2.jpg"
+  }
+]
