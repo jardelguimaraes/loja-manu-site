@@ -3,7 +3,7 @@
 Agora, adicionaremos o novo item ao estoque atual:
 
 ```json
- [
+ 
     {
       "id": 3,
       "nome": "Vestido Azul",
@@ -41,7 +41,7 @@ Agora, adicionaremos o novo item ao estoque atual:
       "imagem": "img/colecoes/39.jpg",
       "esgotado": false
     }
-  ]
+  
 
 ```
 
