@@ -203,7 +203,9 @@
         // --- CARREGAR PRODUTOS DO JSON (AUTOMÁTICO) ---
     async function carregarProdutos() {
         try {
-            const response = await fetch('produtos.json');
+            // O '?v=' + Date.now() cria um número único a cada segundo,
+            // obrigando o navegador a baixar a versão mais nova SEMPRE.
+            const response = await fetch('produtos.json?v=' + Date.now());
             let produtos = await response.json(); // Pega os dados
 
             // --- A MÁGICA DA ORDENAÇÃO NASA ---
@@ -369,3 +371,4 @@
 
 </body>
 </html>
+
