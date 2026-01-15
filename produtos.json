@@ -1,2 +1,14 @@
-[ ]
-  
+[
+  {
+    "id": 58,
+    "nome": "Vestido Azul",
+    "preco": 139.90,
+    "parcelas": "3x de R$ 46,63 sem juros",
+    "parcelaPreco": 46.63,
+    "formaPagamento": "cartão",
+    "tag": null,
+    "tagCor": null,
+    "esgotado": false,
+    "img": "nova_foto_58.jpg"
+  }
+]
