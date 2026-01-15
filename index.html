@@ -212,7 +212,7 @@
                 // Lógica para Esgotado
                 const disabledAttr = produto.esgotado ? 'disabled' : '';
                 const btnText = produto.esgotado ? 'Esgotado' : '<i class="fab fa-whatsapp"></i> Comprar';
-                const imgFilter = produto.esgotado ? 'filter: grayscale(100%);' : '';
+                const imgFilter = produto.esgotado ? 'filter: grayscale(0%) opacity(0.6);' : '';
                 
                 // Lógica da Etiqueta
                 let badgeHTML = '';
@@ -389,4 +389,5 @@
 </body>
 
 </html>
+
 
