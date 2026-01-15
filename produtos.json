@@ -1,5 +1,1 @@
-[
-  {"id":1,"nome":"Vestido Azul","preco":189.9,"parcelas":"3x","parcelaPreco":63.3,"formaPagamento":"cartão","tag":"Exclusiva","tagCor":"#800080","esgotado":false,"img":"img/colecoes/look1.jpg"},
-  {"id":2,"nome":"Conjunto Jeans","preco":139.9,"parcelas":"3x","parcelaPreco":46.63,"formaPagamento":"cartão","tag":"Lançamento","tagCor":"#00FF00","esgotado":false,"img":"img/colecoes/look2.jpg"},
-  {"id":3,"nome":"","preco":0,"parcelas":"","parcelaPreco":0,"formaPagamento":"","tag":null,"tagCor":null,"esgotado":false,"img":"img/colecoes/41.jpg"}
-]
+[]
