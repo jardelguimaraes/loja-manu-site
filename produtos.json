@@ -1,1 +1,5 @@
-{"data":[{"id":58,"nome":"Vestido Azul","preco":139.9,"parcelas":"3x de R$ 46,63 sem juros","parcelaPreco":46.63,"formaPagamento":"cartão","tag":null,"tagCor":null,"esgotado":false,"img":"img/colecoes/58.jpg"},{"id":59,"nome":"Vestido Floral","preco":119.9,"parcelas":"2x de R$ 59,95 sem juros","parcelaPreco":59.95,"formaPagamento":"cartão","tag":"Exclusivo","tagCor":null,"esgotado":false,"img":"img/colecoes/60.jpg"}]}
+
+  [
+    {"id":58,"nome":"Vestido Azul","preco":139.9,"parcelas":"3x de R$ 46,63 sem juros","parcelaPreco":46.63,"formaPagamento":"cartão","tag":null,"tagCor":null,"esgotado":false,"img":"img/colecoes/58.jpg"}
+    {"id":59,"nome":"Vestido Floral","preco":119.9,"parcelas":"2x de R$ 59,95 sem juros","parcelaPreco":59.95,"formaPagamento":"cartão","tag":"Exclusivo","tagCor":null,"esgotado":false,"img":"img/colecoes/60.jpg"}
+  ]
