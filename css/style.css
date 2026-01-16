@@ -261,7 +261,13 @@ html {
 }
 
 .img-container { height: 380px; overflow: hidden; position: relative; }
-.img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* Preenche o espaço */
+    object-position: top;  /* <--- O SEGREDO: Ancora no topo (cabeça) */
+    transition: transform 0.5s;
+}
 .card-produto:hover .img-container img { transform: scale(1.05); }
 
 .info-produto {
