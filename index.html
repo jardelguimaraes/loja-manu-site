@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -63,10 +64,15 @@
     <section id="colecao" class="section">
         <div class="container">
             <h2 class="section-title">Nossa Coleção</h2>
+            
+            <div class="filtros-container">
+                <button class="btn-filtro ativo" onclick="filtrarPorTag('todos', this)">Todos</button>
+                <button class="btn-filtro" onclick="filtrarPorTag('Lançamento', this)">✨ Lançamentos</button>
+                <button class="btn-filtro" onclick="filtrarPorTag('Promoção', this)">🔥 Promoção</button>
+            </div>
 
-            <div class="search-container" style="text-align: center; margin-bottom: 30px;">
-                <input type="text" id="campo-busca" placeholder="🔍 Buscar peça..." 
-                style="padding: 10px; width: 80%; max-width: 400px; border: 1px solid #ddd; border-radius: 20px; outline: none;">
+            <div class="search-container">
+                <input type="text" id="campo-busca" placeholder="🔍 Buscar peça (ex: vestido, jeans)...">
             </div>
             
             <div class="grid" id="grid-produtos">
@@ -82,49 +88,26 @@
             <p style="color: #888; margin-top: -30px; margin-bottom: 40px;">Veja o que nossas clientes VIP estão dizendo.</p>
             
             <div class="review-grid">
-                
                 <div class="review-card">
                     <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente 1" class="client-photo">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">
-                        "Estou encantada com a qualidade das peças! O conjunto de alfaiataria vestiu perfeitamente. O atendimento da Raquel foi impecável do início ao fim."
-                    </p>
-                    <div>
-                        <p class="client-name">Fernanda Oliveira</p>
-                        <span class="client-location">Cliente VIP</span>
-                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Estou encantada com a qualidade das peças! O conjunto de alfaiataria vestiu perfeitamente. O atendimento da Raquel foi impecável."</p>
+                    <div><p class="client-name">Fernanda Oliveira</p><span class="client-location">Cliente VIP</span></div>
                 </div>
 
                 <div class="review-card">
                     <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente 2" class="client-photo">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">
-                        "As roupas são ainda mais lindas pessoalmente. Comprei o vestido floral e recebi muitos elogios. A entrega em Itaúna foi super rápida!"
-                    </p>
-                    <div>
-                        <p class="client-name">Juliana Costa</p>
-                        <span class="client-location">Cliente VIP</span>
-                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"As roupas são ainda mais lindas pessoalmente. Comprei o vestido floral e recebi muitos elogios. A entrega em Itaúna foi super rápida!"</p>
+                    <div><p class="client-name">Juliana Costa</p><span class="client-location">Cliente VIP</span></div>
                 </div>
 
                 <div class="review-card">
                     <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Cliente 3" class="client-photo">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">
-                        "A Loja Manu virou meu vício! Toda semana tem novidade e preço justo. Amo como as peças valorizam meu corpo. Recomendo de olhos fechados."
-                    </p>
-                    <div>
-                        <p class="client-name">Mariana Dias</p>
-                        <span class="client-location">Cliente VIP</span>
-                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"A Loja Manu virou meu vício! Toda semana tem novidade e preço justo. Amo como as peças valorizam meu corpo."</p>
+                    <div><p class="client-name">Mariana Dias</p><span class="client-location">Cliente VIP</span></div>
                 </div>
-
             </div>
 
             <a href="https://www.instagram.com/lojamanuitauna/" target="_blank" class="btn-social-proof">
@@ -165,11 +148,9 @@
     <footer class="footer" id="contato">
         <div class="container">
             <div class="footer-grid">
-                
                 <div class="footer-info">
                     <h3>Loja Manu Itaúna</h3>
                     <p style="margin-bottom: 20px; font-style: italic; color: #ffdee6;">Moda com Propósito.</p>
-                    
                     <div class="address-box">
                         <i class="fas fa-map-marker-alt icon-map"></i>
                         <div>
@@ -203,6 +184,32 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <div class="cart-float" onclick="abrirCarrinho()">
+        <i class="fas fa-shopping-bag" style="font-size: 1.5rem;"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+
+    <div id="modal-carrinho" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sua Sacola</h2>
+                <button class="btn-close" onclick="fecharCarrinho()">×</button>
+            </div>
+            
+            <ul id="itens-carrinho">
+                <li style="text-align:center; color:#999;">Sua sacola está vazia.</li>
+            </ul>
+
+            <div class="cart-total">
+                Total: <span id="total-carrinho">R$ 0,00</span>
+            </div>
+
+            <button class="btn-finalizar" onclick="enviarPedidoWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Fechar Pedido no Zap
+            </button>
+        </div>
+    </div>
+
    <script>
         // --- INICIALIZAÇÃO DO SITE ---
         document.addEventListener('DOMContentLoaded', function() {
@@ -210,38 +217,42 @@
             carregarCarrinho(); // Recupera a memória do carrinho
         });
 
-        // --- CARREGAR PRODUTOS ---
-        let produtosGlobais = []; // Guardar produtos na memória para a busca
+        let produtosGlobais = []; // Guarda a lista completa para o filtro/busca
 
+        // --- CARREGAR PRODUTOS (Com Cache Buster) ---
         async function carregarProdutos() {
             try {
+                // O '?v=' + Date.now() força baixar a versão nova sempre
                 const response = await fetch('produtos.json?v=' + Date.now());
-                let produtos = await response.json();
-                
-                // Ordenação: Esgotados p/ final
+                let produtos = await response.json(); 
+
+                // Ordenação: Esgotados vão para o final
                 produtos.sort((a, b) => a.esgotado - b.esgotado);
                 
-                produtosGlobais = produtos; // Salva para a busca usar depois
+                produtosGlobais = produtos; // Salva na memória global
                 renderizarProdutos(produtos); // Desenha na tela
 
             } catch (erro) {
-                console.error("Erro:", erro);
-                document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center; width:100%;">Erro ao carregar coleção.</p>';
+                console.error("Erro ao carregar produtos:", erro);
+                document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center; width:100%;">Nenhum produto encontrado no momento.</p>';
             }
         }
 
+        // --- DESENHAR PRODUTOS NA TELA ---
         function renderizarProdutos(lista) {
             const container = document.getElementById('grid-produtos');
             container.innerHTML = ''; 
 
             if (lista.length === 0) {
-                container.innerHTML = '<p style="text-align:center; width:100%; color:#888;">Nenhum produto encontrado.</p>';
+                container.innerHTML = '<p style="text-align:center; width:100%; color:#888;">Nenhum produto com esse nome ou filtro.</p>';
                 return;
             }
 
             lista.forEach(produto => {
                 const disabledAttr = produto.esgotado ? 'disabled' : '';
                 const btnText = produto.esgotado ? 'Esgotado' : '<i class="fab fa-whatsapp"></i> Comprar';
+                
+                // Visual Esgotado: Transparente
                 const imgFilter = produto.esgotado ? 'filter: grayscale(0%) opacity(0.5);' : '';
                 
                 let badgeHTML = '';
@@ -271,14 +282,41 @@
             });
         }
 
-        // --- LÓGICA DO CARRINHO (AGORA FUNCIONA AO RECARREGAR) ---
+        // --- SISTEMA DE BUSCA ---
+        document.getElementById('campo-busca').addEventListener('input', function(e) {
+            const termo = e.target.value.toLowerCase();
+            const filtrados = produtosGlobais.filter(produto => 
+                produto.nome.toLowerCase().includes(termo)
+            );
+            renderizarProdutos(filtrados);
+        });
+
+        // --- SISTEMA DE FILTROS (TAGS) ---
+        function filtrarPorTag(tag, elementoBtn) {
+            // Muda cor dos botões
+            document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
+            elementoBtn.classList.add('ativo');
+
+            // Limpa a busca textual para não confundir
+            document.getElementById('campo-busca').value = '';
+
+            if (tag === 'todos') {
+                renderizarProdutos(produtosGlobais);
+            } else {
+                // Filtra quem tem a tag selecionada (ex: Lançamento)
+                const filtrados = produtosGlobais.filter(p => p.tag && p.tag.includes(tag));
+                renderizarProdutos(filtrados);
+            }
+        }
+
+        // --- LÓGICA DO CARRINHO (AGRUPADO E INTELIGENTE) ---
         let carrinho = [];
 
         function carregarCarrinho() {
             const salvo = localStorage.getItem('carrinhoManu');
             if (salvo) {
                 carrinho = JSON.parse(salvo);
-                atualizarCarrinhoUI(); // Desenha assim que o site abre!
+                atualizarCarrinhoUI();
             }
         }
 
@@ -287,17 +325,37 @@
         }
 
         function adicionarItem(nome, preco) {
-            carrinho.push({ nome: nome, preco: preco });
+            // Verifica se item já existe
+            const itemExistente = carrinho.find(item => item.nome === nome);
+
+            if (itemExistente) {
+                itemExistente.quantidade += 1; // Apenas soma
+            } else {
+                carrinho.push({ nome: nome, preco: preco, quantidade: 1 }); // Cria novo
+            }
+            
             salvarCarrinho();
             atualizarCarrinhoUI();
             
-            // Efeito visual (O ícone da sacola dá um "pulo" para avisar que deu certo)
+            // Efeito visual (Pulinho no ícone)
             const btnFloat = document.querySelector('.cart-float');
             btnFloat.style.transform = 'scale(1.3)';
             setTimeout(() => btnFloat.style.transform = 'scale(1)', 200);
             
-            // REMOVI A LINHA QUE ABRI O CARRINHO SOZINHO.
-            // Agora o cliente continua na loja sem interrupção.
+            // NÃO ABRE O CARRINHO SOZINHO (Modo Silencioso)
+        }
+
+        function alterarQuantidade(index, mudanca) {
+            const item = carrinho[index];
+            item.quantidade += mudanca;
+
+            // Se zerar, remove o item
+            if (item.quantidade <= 0) {
+                carrinho.splice(index, 1);
+            }
+            
+            salvarCarrinho();
+            atualizarCarrinhoUI();
         }
 
         function removerItem(index) {
@@ -311,30 +369,46 @@
             const totalSpan = document.getElementById('total-carrinho');
             const contador = document.getElementById('cart-count');
             
-            contador.innerText = carrinho.length;
+            // Conta ITENS totais (não apenas linhas)
+            const totalItens = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
+            contador.innerText = totalItens;
+            
             lista.innerHTML = '';
-            let total = 0;
+            let totalFinanceiro = 0;
 
             if (carrinho.length === 0) {
                 lista.innerHTML = '<li style="text-align:center; color:#999; padding:20px;">Sua sacola está vazia.</li>';
             } else {
                 carrinho.forEach((item, index) => {
-                    total += item.preco;
+                    totalFinanceiro += item.preco * item.quantidade;
+                    
                     const li = document.createElement('li');
                     li.className = 'item-carrinho';
+                    // HTML do Item no Carrinho (Com botões +/-)
                     li.innerHTML = `
-                        <span>${item.nome}</span>
-                        <span class="item-preco">R$ ${item.preco.toFixed(2).replace('.', ',')} 
-                            <i class="fas fa-trash-alt" style="color:red; cursor:pointer; margin-left:10px;" onclick="removerItem(${index})"></i>
-                        </span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+                            <div style="flex:1;">
+                                <span style="font-weight:600;">${item.nome}</span>
+                                <div style="font-size:0.9rem; color:#666;">
+                                    R$ ${item.preco.toFixed(2).replace('.', ',')} un.
+                                </div>
+                            </div>
+                            
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <button onclick="alterarQuantidade(${index}, -1)" style="background:#eee; border:none; width:25px; height:25px; border-radius:50%; cursor:pointer;">-</button>
+                                <span style="font-weight:bold;">${item.quantidade}</span>
+                                <button onclick="alterarQuantidade(${index}, 1)" style="background:#eee; border:none; width:25px; height:25px; border-radius:50%; cursor:pointer;">+</button>
+                            </div>
+
+                            <i class="fas fa-trash-alt" style="color:#ff6b6b; cursor:pointer; margin-left:15px;" onclick="removerItem(${index})"></i>
+                        </div>
                     `;
                     lista.appendChild(li);
                 });
             }
-            totalSpan.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            totalSpan.innerText = totalFinanceiro.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         }
 
-        // --- OUTRAS FUNÇÕES ---
         function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
         function fecharCarrinho() { document.getElementById('modal-carrinho').classList.remove('open'); }
 
@@ -342,68 +416,46 @@
             if (carrinho.length === 0) { alert("Sua sacola está vazia!"); return; }
             let mensagem = "Olá, Loja Manu! Gostaria de fechar meu pedido do site:\n\n";
             let total = 0;
+            
             carrinho.forEach(item => {
-                mensagem += `▪️ ${item.nome} - R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
-                total += item.preco;
+                const subtotal = item.preco * item.quantidade;
+                mensagem += `▪️ (${item.quantidade}x) ${item.nome} - R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
+                total += subtotal;
             });
+            
             mensagem += `\n*TOTAL: ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}*`;
             mensagem += "\n\nAguardo instruções de pagamento.";
-            const link = `https://wa.me/5537999146764?text=${encodeURIComponent(mensagem)}`;
+            
+            // Seu número (já configurado)
+            const telefone = "5537999146764";
+            const link = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
             window.open(link, '_blank');
         }
 
+        // --- Menu Mobile e Scroll ---
         function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
+        
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 50) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
         });
 
-        // ... (Código do formulário VIP continua igual) ...
-    // --- SISTEMA DE BUSCA ---
-    document.getElementById('campo-busca').addEventListener('input', function(e) {
-        const termo = e.target.value.toLowerCase();
-        
-        // Filtra a lista global que salvamos no inicio
-        const filtrados = produtosGlobais.filter(produto => 
-            produto.nome.toLowerCase().includes(termo)
-        );
-        
-        // Redesenha a tela apenas com os filtrados
-        renderizarProdutos(filtrados);
-    });
-       
-    </script>
-    
-    <div class="cart-float" onclick="abrirCarrinho()">
-        <i class="fas fa-shopping-bag" style="font-size: 1.5rem;"></i>
-        <span class="cart-count" id="cart-count">0</span>
-    </div>
-
-    <div id="modal-carrinho" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Sua Sacola</h2>
-                <button class="btn-close" onclick="fecharCarrinho()">×</button>
-            </div>
+        // --- Formulário VIP (Webhook) ---
+        document.getElementById('form-vip').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-enviar');
+            const msg = document.getElementById('msg-status');
+            btn.innerText = 'Enviando...'; btn.disabled = true;
             
-            <ul id="itens-carrinho">
-                <li style="text-align:center; color:#999;">Sua sacola está vazia.</li>
-            </ul>
-
-            <div class="cart-total">
-                Total: <span id="total-carrinho">R$ 0,00</span>
-            </div>
-
-            <button class="btn-finalizar" onclick="enviarPedidoWhatsApp()">
-                <i class="fab fa-whatsapp"></i> Fechar Pedido no Zap
-            </button>
-        </div>
-    </div>
-
+            const dados = { nome: document.getElementById('nome').value, whatsapp: document.getElementById('whatsapp').value, data: new Date().toISOString() };
+            const webhookURL = 'https://webhook.jg.jardelguimaraes.com.br/webhook/cadastro-loja-manu'; 
+            
+            fetch(webhookURL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dados) })
+            .then(res => { if (res.ok) { msg.innerText = '✅ Sucesso!'; msg.style.color = 'green'; document.getElementById('form-vip').reset(); } else { throw new Error(); } })
+            .catch(() => { msg.innerText = 'Erro.'; msg.style.color = 'red'; })
+            .finally(() => { btn.innerText = 'QUERO ENTRAR'; btn.disabled = false; });
+        });
+   </script>
 </body>
 </html>
-
-
-
-
