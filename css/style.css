@@ -7,10 +7,11 @@
 }
 
 :root {
-    /* PALETA DE CORES ORIGINAL (BASEADA NAS FOTOS) */
-    --marsala: #7d4e57;        /* Cor do Rodapé e Topo */
-    --marsala-light: #9c6670;  /* Variação mais clara */
-    --rosa-suave: #fff0f5;     /* Fundo de seções claras */
+    /* PALETA DE CORES RESTAURADA (Baseada na foto do celular) */
+    --marsala-dark: #7d4e57;    /* Topo, Rodapé, Títulos Fortes */
+    --marsala-medium: #a87b85;  /* Botões e Detalhes */
+    --marsala-bg: #cfb0b7;      /* Fundo do Banner (O Rosé da foto) */
+    --rosa-claro: #fff0f5;      /* Fundos suaves */
     --text: #333;
     --white: #ffffff;
 }
@@ -27,7 +28,7 @@ html {
 
 /* --- TOPO E HEADER --- */
 .top-bar {
-    background: var(--marsala); /* VOLTOU A SER MARSALA */
+    background: var(--marsala-dark);
     color: white;
     text-align: center;
     padding: 10px;
@@ -43,7 +44,7 @@ html {
     background: rgba(255, 255, 255, 0.98);
     padding: 10px 0;
     position: fixed;
-    top: 36px; /* Ajuste fino para colar na top-bar */
+    top: 36px;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -57,18 +58,13 @@ html {
 
 .logo-link { text-decoration: none; color: inherit; }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
+.logo { display: flex; align-items: center; gap: 12px; }
 .logo-img { height: 50px; }
 
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
-    color: var(--marsala); /* Título na cor certa */
+    color: var(--marsala-dark);
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -85,54 +81,58 @@ html {
     transition: color 0.3s;
 }
 
-.nav-menu a:hover { color: var(--marsala); }
+.nav-menu a:hover { color: var(--marsala-dark); }
 
 .mobile-menu-icon {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--marsala);
+    color: var(--marsala-dark);
 }
 
-/* --- HERO SECTION (BANNER) --- */
+/* --- HERO SECTION (BANNER CORRIGIDO) --- */
 .hero {
     height: 75vh;
-    background: url('../img/hero-bg.jpg') center/cover no-repeat;
+    /* Aqui está o segredo: Um degradê com a cor Rosé da sua foto */
+    background: linear-gradient(rgba(125, 78, 87, 0.3), rgba(125, 78, 87, 0.3)), url('../img/hero-bg.jpg') center/cover no-repeat;
+    background-color: var(--marsala-bg); /* Cor de fundo se a imagem falhar */
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* CAIXA DO BANNER (RESTAURADA: FUNDO ESCURO, LETRA BRANCA) */
+/* CAIXA "SUA ESSÊNCIA" (IGUAL À FOTO) */
 .hero-overlay {
-    background: rgba(125, 78, 87, 0.85); /* Marsala Transparente */
+    background: rgba(125, 78, 87, 0.6); /* Marsala escuro semi-transparente */
     padding: 40px;
-    border-radius: 15px; /* Bordas arredondadas como na foto */
+    border-radius: 20px;
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.6); /* Borda branca fina */
     max-width: 600px;
     margin: 0 20px;
+    backdrop-filter: blur(3px); /* Efeito de vidro */
 }
 
 .hero-content h2 {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    color: white; /* Texto Branco */
+    color: white;
     margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .hero-content p {
     color: #f0f0f0;
     font-size: 1.1rem;
     margin-bottom: 25px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .btn-hero {
-    background: rgba(255,255,255,0.2); /* Botão sutil */
+    background: rgba(255,255,255,0.25);
     color: white;
-    padding: 12px 30px;
+    padding: 12px 35px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
@@ -144,20 +144,20 @@ html {
 
 .btn-hero:hover {
     background: white;
-    color: var(--marsala);
+    color: var(--marsala-dark);
 }
 
 .slogan-banner {
-    background: var(--rosa-suave);
+    background: var(--rosa-claro);
     text-align: center;
     padding: 40px 20px;
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    color: var(--marsala); /* Texto Marsala */
+    color: var(--marsala-dark);
     font-size: 1.3rem;
 }
 
-/* --- LAYOUT --- */
+/* --- LAYOUT GERAL --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -170,7 +170,15 @@ html {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    color: var(--marsala);
+    color: var(--marsala-dark);
+    margin-bottom: 40px;
+}
+
+.section-title-left { /* Para alinhar titulos específicos se precisar */
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--marsala-dark);
     margin-bottom: 40px;
 }
 
@@ -185,9 +193,9 @@ html {
 
 .btn-filtro {
     padding: 8px 18px;
-    border: 1px solid var(--marsala);
+    border: 1px solid var(--marsala-dark);
     background: transparent;
-    color: var(--marsala);
+    color: var(--marsala-dark);
     border-radius: 20px;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
@@ -196,7 +204,7 @@ html {
 }
 
 .btn-filtro.ativo, .btn-filtro:hover {
-    background: var(--marsala);
+    background: var(--marsala-dark);
     color: white;
 }
 
@@ -214,7 +222,7 @@ html {
 }
 
 #campo-busca:focus {
-    border-color: var(--marsala);
+    border-color: var(--marsala-dark);
     box-shadow: 0 0 10px rgba(125, 78, 87, 0.2);
 }
 
@@ -241,7 +249,7 @@ html {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: var(--marsala); /* Etiqueta Marsala */
+    background: var(--marsala-dark);
     color: white;
     padding: 5px 12px;
     font-size: 0.7rem;
@@ -275,7 +283,7 @@ html {
     display: block;
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--marsala);
+    color: var(--marsala-dark);
 }
 
 .installments {
@@ -310,24 +318,93 @@ html {
 }
 .client-photo {
     width: 80px; height: 80px; border-radius: 50%; margin-bottom: 15px; object-fit: cover;
-    border: 3px solid var(--marsala);
+    border: 3px solid var(--marsala-dark);
 }
 .stars { color: #f1c40f; margin-bottom: 15px; }
 .review-text { font-style: italic; color: #555; margin-bottom: 20px; line-height: 1.5; }
-.client-name { font-weight: 700; color: var(--marsala); }
+.client-name { font-weight: 700; color: var(--marsala-dark); }
 .client-location { font-size: 0.8rem; color: #999; }
 
 .btn-social-proof {
     display: block; width: fit-content; margin: 40px auto 0;
-    color: var(--marsala); text-decoration: none; font-weight: 600;
-    border: 2px solid var(--marsala); padding: 10px 25px; border-radius: 30px;
+    color: var(--marsala-dark); text-decoration: none; font-weight: 600;
+    border: 2px solid var(--marsala-dark); padding: 10px 25px; border-radius: 30px;
     transition: all 0.3s;
 }
-.btn-social-proof:hover { background: var(--marsala); color: white; }
+.btn-social-proof:hover { background: var(--marsala-dark); color: white; }
+
+/* --- NOSSA TRAJETÓRIA E TEXTOS --- */
+.bg-suave { background-color: var(--rosa-claro); }
+
+.text-box {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: center; /* Garante que o texto fique centralizado */
+}
+.text-box p { margin-bottom: 20px; }
+
+.signature {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    margin-top: 30px;
+    color: var(--marsala-dark);
+}
+
+/* --- CLUBE VIP (FORMULÁRIOS CORRIGIDOS) --- */
+.compact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+
+/* Aqui está a correção para os Inputs "quebrados" */
+.form-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    border-color: var(--marsala-dark);
+    box-shadow: 0 0 5px rgba(125, 78, 87, 0.2);
+}
+
+/* Aqui está a correção para o Botão "feio" */
+.btn-full {
+    width: 100%;
+    padding: 15px;
+    background: var(--marsala-dark);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.btn-full:hover { background: var(--marsala-medium); }
+.btn-full:disabled { background: #ccc; }
 
 /* --- FOOTER (RESTAURADO: COR MARSALA) --- */
 .footer {
-    background: var(--marsala); /* CORREÇÃO AQUI */
+    background: var(--marsala-dark);
     color: white;
     padding: 60px 0 20px;
 }
@@ -336,20 +413,20 @@ html {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     margin-bottom: 10px;
-    color: white; /* Título branco no fundo escuro */
+    color: white;
 }
 
 .footer-info p { color: #ffdee6; font-style: italic; }
 
-/* Caixa do Endereço (Estilo da Foto) */
 .address-box {
-    background: rgba(255, 255, 255, 0.1); /* Fundo transparente */
+    background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 8px;
     margin-top: 20px;
     display: flex;
     align-items: center;
     gap: 15px;
+    color: white;
 }
 
 .icon-map { font-size: 2rem; color: white; }
@@ -359,7 +436,7 @@ html {
     border-radius: 8px;
     overflow: hidden;
     border: 2px solid rgba(255,255,255,0.2);
-    margin-top: 20px; /* Separar dos ícones se precisar */
+    margin-top: 20px;
 }
 
 .social-links-footer {
@@ -386,7 +463,7 @@ html {
 
 .cart-float {
     position: fixed; bottom: 20px; right: 20px;
-    background: var(--marsala); /* Botão Marsala */
+    background: var(--marsala-dark);
     color: white;
     width: 60px; height: 60px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
@@ -417,7 +494,7 @@ html {
 }
 @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
 
-.modal-header h2 { font-family: 'Playfair Display', serif; color: var(--marsala); }
+.modal-header h2 { font-family: 'Playfair Display', serif; color: var(--marsala-dark); }
 .item-carrinho { padding: 10px 0; border-bottom: 1px solid #eee; }
 
 /* --- MOBILE --- */
@@ -427,5 +504,8 @@ html {
     .nav-menu.active { display: flex; }
     .mobile-menu-icon { display: block; position: absolute; right: 20px; top: 20px; }
     .hero { height: 60vh; }
+    .hero-content h2 { font-size: 2.2rem; }
+    /* Ajuste para o formulário no celular: um embaixo do outro */
+    .input-row { flex-direction: column; gap: 10px; }
     .footer-grid { grid-template-columns: 1fr; }
 }
