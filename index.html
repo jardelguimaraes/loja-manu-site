@@ -228,19 +228,25 @@
 
         let produtosGlobais = [];
 
+        // --- CARREGAR PRODUTOS ---
         async function carregarProdutos() {
             try {
                 const response = await fetch('produtos.json?v=' + Date.now());
                 let produtos = await response.json();
+                
+                // Ordenação: Esgotados para o final
                 produtos.sort((a, b) => a.esgotado - b.esgotado);
+                
                 produtosGlobais = produtos;
                 renderizarProdutos(produtos);
+
             } catch (erro) {
                 console.error("Erro:", erro);
                 document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center;">Erro ao carregar coleção.</p>';
             }
         }
 
+        // --- RENDERIZAR (COM REGRA DE ETIQUETA LIMPA) ---
         function renderizarProdutos(lista) {
             const container = document.getElementById('grid-produtos');
             container.innerHTML = ''; 
@@ -253,10 +259,12 @@
             lista.forEach(produto => {
                 const disabledAttr = produto.esgotado ? 'disabled' : '';
                 const btnText = produto.esgotado ? 'Esgotado' : '<i class="fab fa-whatsapp"></i> Comprar';
-                const imgFilter = produto.esgotado ? 'filter: grayscale(0%) opacity(0.5);' : '';
+                const imgFilter = produto.esgotado ? 'filter: grayscale(100%) opacity(0.6);' : ''; // Deixa foto PB se esgotado
                 
+                // --- REGRA DA ETIQUETA ---
+                // Se estiver esgotado, NÃO MOSTRA etiqueta no topo (pedido do Jardel)
                 let badgeHTML = '';
-                if (produto.tag) {
+                if (produto.tag && !produto.esgotado) {
                     badgeHTML = `<span class="badge" style="background: ${produto.tagCor || '#7d4e57'};">${produto.tag}</span>`;
                 }
 
@@ -289,8 +297,9 @@
             renderizarProdutos(filtrados);
         });
 
-        // --- FILTROS ---
+        // --- FILTROS INTELIGENTES (CORRIGIDO) ---
         function filtrarPorTag(tag, elementoBtn) {
+            // Atualiza visual dos botões
             document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
             elementoBtn.classList.add('ativo');
             document.getElementById('campo-busca').value = '';
@@ -298,12 +307,15 @@
             if (tag === 'todos') {
                 renderizarProdutos(produtosGlobais);
             } else {
-                const filtrados = produtosGlobais.filter(p => p.tag && p.tag.includes(tag));
+                // CORREÇÃO AQUI: Ignora maiúsculas/minúsculas para achar o filtro
+                const filtrados = produtosGlobais.filter(p => 
+                    p.tag && p.tag.toLowerCase().includes(tag.toLowerCase())
+                );
                 renderizarProdutos(filtrados);
             }
         }
 
-        // --- CARRINHO INTELIGENTE (COM VACINA ANTI-BUG) ---
+        // --- CARRINHO & OUTRAS FUNÇÕES (MANTIDAS) ---
         let carrinho = [];
 
         function carregarCarrinho() {
@@ -311,16 +323,14 @@
             if (salvo) {
                 try {
                     carrinho = JSON.parse(salvo);
-                    // AUTO-CORREÇÃO
                     carrinho.forEach(item => {
-                        if (!item.quantidade || isNaN(item.quantidade)) { item.quantidade = 1; }
-                        if (!item.preco || isNaN(item.preco)) { item.preco = 0; }
+                        if (!item.quantidade || isNaN(item.quantidade)) item.quantidade = 1;
+                        if (!item.preco || isNaN(item.preco)) item.preco = 0;
                     });
                     salvarCarrinho();
                     atualizarCarrinhoUI();
                 } catch (e) {
-                    localStorage.removeItem('carrinhoManu');
-                    carrinho = [];
+                    localStorage.removeItem('carrinhoManu'); carrinho = [];
                 }
             }
         }
@@ -331,27 +341,20 @@
             const itemExistente = carrinho.find(item => item.nome === nome);
             if (itemExistente) { itemExistente.quantidade += 1; } 
             else { carrinho.push({ nome: nome, preco: preco, quantidade: 1 }); }
-            
-            salvarCarrinho();
-            atualizarCarrinhoUI();
-            
+            salvarCarrinho(); atualizarCarrinhoUI();
             const btnFloat = document.querySelector('.cart-float');
-            btnFloat.style.transform = 'scale(1.3)';
-            setTimeout(() => btnFloat.style.transform = 'scale(1)', 200);
+            btnFloat.style.transform = 'scale(1.3)'; setTimeout(() => btnFloat.style.transform = 'scale(1)', 200);
         }
 
         function alterarQuantidade(index, mudanca) {
             const item = carrinho[index];
             item.quantidade += mudanca;
             if (item.quantidade <= 0) { carrinho.splice(index, 1); }
-            salvarCarrinho();
-            atualizarCarrinhoUI();
+            salvarCarrinho(); atualizarCarrinhoUI();
         }
 
         function removerItem(index) {
-            carrinho.splice(index, 1);
-            salvarCarrinho();
-            atualizarCarrinhoUI();
+            carrinho.splice(index, 1); salvarCarrinho(); atualizarCarrinhoUI();
         }
 
         function atualizarCarrinhoUI() {
@@ -366,32 +369,23 @@
             let totalFinanceiro = 0;
 
             if (carrinho.length === 0) {
-                lista.innerHTML = `
-                    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; color:#999;">
-                        <i class="fas fa-shopping-basket" style="font-size:3rem; margin-bottom:15px; color:#ddd;"></i>
-                        <p>Sua sacola está vazia.</p>
-                    </div>`;
+                lista.innerHTML = `<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; color:#999;"><i class="fas fa-shopping-basket" style="font-size:3rem; margin-bottom:15px; color:#ddd;"></i><p>Sua sacola está vazia.</p></div>`;
             } else {
                 carrinho.forEach((item, index) => {
-                    let qtd = item.quantidade || 1;
-                    let prc = item.preco || 0;
+                    let qtd = item.quantidade || 1; let prc = item.preco || 0;
                     totalFinanceiro += prc * qtd;
-                    
                     const li = document.createElement('li');
                     li.className = 'item-carrinho';
-                    
                     li.innerHTML = `
                         <div style="flex:1;">
                             <div style="font-weight:700; font-size:1rem; color:#333; margin-bottom:5px;">${item.nome}</div>
                             <div style="font-size:0.9rem; color:#888;">R$ ${prc.toFixed(2).replace('.', ',')}</div>
                         </div>
-                        
                         <div class="qty-controls">
                             <button class="btn-qty" onclick="alterarQuantidade(${index}, -1)">-</button>
                             <span style="font-weight:600; min-width:20px; text-align:center;">${qtd}</span>
                             <button class="btn-qty" onclick="alterarQuantidade(${index}, 1)">+</button>
                         </div>
-
                         <i class="fas fa-trash-alt" style="color:#ff6b6b; cursor:pointer; margin-left:15px; font-size:1.2rem; padding:10px;" onclick="removerItem(${index})"></i>
                     `;
                     lista.appendChild(li);
@@ -422,8 +416,7 @@
         
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
-            if (window.scrollY > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
+            if (window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled');
         });
 
         document.getElementById('form-vip').addEventListener('submit', function(e) {
