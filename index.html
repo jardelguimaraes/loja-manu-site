@@ -6,14 +6,12 @@
     <title>Loja Manu | Moda Feminina</title>
     
     <link rel="stylesheet" href="css/style.css">
-
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#bd8c98">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -51,7 +49,7 @@
         <div class="hero-overlay">
             <div class="hero-content">
                 <h2>Sua essência,<br>seu estilo.</h2>
-                <p>Moda selecionada para valorizar a mulher real.</p>
+                <p>Moda selecionada com carinho para valorizar a mulher real.</p>
                 <a href="#colecao" class="btn-hero">Ver Coleção</a>
             </div>
         </div>
@@ -66,50 +64,64 @@
             <h2 class="section-title">Nossa Coleção</h2>
             
             <div class="filtros-container">
-                <button class="btn-filtro ativo" onclick="filtrarPorTag('todos', this)">Todos</button>
+                <button class="btn-filtro ativo" onclick="filtrarPorTag('todos', this)">Ver Tudo</button>
                 <button class="btn-filtro" onclick="filtrarPorTag('Lançamento', this)">✨ Lançamentos</button>
                 <button class="btn-filtro" onclick="filtrarPorTag('Promoção', this)">🔥 Promoção</button>
+                <button class="btn-filtro" onclick="filtrarPorTag('Últimas Peças', this)">💎 Últimas Peças</button>
             </div>
 
             <div class="search-container">
-                <input type="text" id="campo-busca" placeholder="🔍 Buscar peça (ex: vestido, jeans)...">
+                <input type="text" id="campo-busca" placeholder="🔍 O que você procura hoje? (ex: vestido, jeans)...">
             </div>
             
             <div class="grid" id="grid-produtos">
-                <p style="text-align:center; width:100%; color:#888;">Carregando coleção...</p>
+                <p style="text-align:center; width:100%; color:#888;">Atualizando vitrine...</p>
             </div>
-
         </div>
     </section>
 
-    <section class="reviews-section">
+    <section class="reviews-section section">
         <div class="container">
             <h2 class="section-title">Quem usa, se apaixona</h2>
-            <p style="color: #888; margin-top: -30px; margin-bottom: 40px;">Veja o que nossas clientes VIP estão dizendo.</p>
+            <p style="text-align: center; color: #888; margin-top: -30px; margin-bottom: 50px;">O carinho de nossas clientes VIP.</p>
             
             <div class="review-grid">
                 <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente 1" class="client-photo">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="client-photo">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="review-text">"Estou encantada com a qualidade das peças! O conjunto de alfaiataria vestiu perfeitamente. O atendimento da Raquel foi impecável."</p>
+                    <p class="review-text">"Estou encantada com a qualidade! O conjunto de alfaiataria vestiu perfeitamente. O atendimento da Raquel foi impecável."</p>
                     <div><p class="client-name">Fernanda Oliveira</p><span class="client-location">Cliente VIP</span></div>
                 </div>
 
                 <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente 2" class="client-photo">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente" class="client-photo">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="review-text">"As roupas são ainda mais lindas pessoalmente. Comprei o vestido floral e recebi muitos elogios. A entrega em Itaúna foi super rápida!"</p>
                     <div><p class="client-name">Juliana Costa</p><span class="client-location">Cliente VIP</span></div>
                 </div>
 
                 <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Cliente 3" class="client-photo">
+                    <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Cliente" class="client-photo">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="review-text">"A Loja Manu virou meu vício! Toda semana tem novidade e preço justo. Amo como as peças valorizam meu corpo."</p>
                     <div><p class="client-name">Mariana Dias</p><span class="client-location">Cliente VIP</span></div>
                 </div>
-            </div>
 
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Cliente" class="client-photo">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Nunca vi um atendimento assim em loja online. Me senti super acolhida e as roupas chegaram cheirosas! Recomendo mil vezes."</p>
+                    <div><p class="client-name">Patrícia Souza</p><span class="client-location">Cliente VIP</span></div>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Cliente" class="client-photo">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Comprei um vestido para um casamento e foi sucesso total. Tecido maravilhoso e caimento perfeito. Obrigada Manu!"</p>
+                    <div><p class="client-name">Camila Rocha</p><span class="client-location">Cliente VIP</span></div>
+                </div>
+            </div>
+            
             <a href="https://www.instagram.com/lojamanuitauna/" target="_blank" class="btn-social-proof">
                 <i class="fab fa-instagram"></i> Ver mais clientes no Instagram
             </a>
@@ -133,7 +145,6 @@
             <p style="margin-bottom: 20px; font-size: 1.1rem; color: #666;">
                 Entre para nossa lista exclusiva e fique por dentro das novidades.
             </p>
-            
             <form id="form-vip" class="compact-form">
                 <div class="input-row">
                     <input type="text" id="nome" class="form-input" placeholder="Seu Nome" required>
@@ -159,7 +170,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="footer-map">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.9723224765796!2d-44.58552682398579!3d-20.176882281268685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa0ae6522204595%3A0x6331908616186b86!2sR.%20Geniplo%20Dornas%2C%20229%20-%20Centro%2C%20Ita%C3%BAna%20-%20MG%2C%2035680-033!5e0!3m2!1spt-BR!2sbr!4v1704830000000!5m2!1spt-BR!2sbr" 
@@ -167,12 +177,10 @@
                     </iframe>
                 </div>
             </div>
-            
             <div class="social-links-footer">
                 <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
-            
             <div class="footer-bottom">
                 <p class="copyright">© 2026 Loja Manu. Todos os direitos reservados.</p>
                 <p class="developer">By <strong>JGAutomações.AI</strong></p>
@@ -180,9 +188,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/5537999146764" target="_blank" class="float-zap">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/5537999146764" target="_blank" class="float-zap"><i class="fab fa-whatsapp"></i></a>
 
     <div class="cart-float" onclick="abrirCarrinho()">
         <i class="fas fa-shopping-bag" style="font-size: 1.5rem;"></i>
@@ -195,15 +201,8 @@
                 <h2>Sua Sacola</h2>
                 <button class="btn-close" onclick="fecharCarrinho()">×</button>
             </div>
-            
-            <ul id="itens-carrinho">
-                <li style="text-align:center; color:#999;">Sua sacola está vazia.</li>
-            </ul>
-
-            <div class="cart-total">
-                Total: <span id="total-carrinho">R$ 0,00</span>
-            </div>
-
+            <ul id="itens-carrinho"><li style="text-align:center; color:#999;">Sua sacola está vazia.</li></ul>
+            <div class="cart-total">Total: <span id="total-carrinho">R$ 0,00</span></div>
             <button class="btn-finalizar" onclick="enviarPedidoWhatsApp()">
                 <i class="fab fa-whatsapp"></i> Fechar Pedido no Zap
             </button>
@@ -211,48 +210,38 @@
     </div>
 
    <script>
-        // --- INICIALIZAÇÃO DO SITE ---
         document.addEventListener('DOMContentLoaded', function() {
-            carregarProdutos(); // Busca os produtos
-            carregarCarrinho(); // Recupera a memória do carrinho
+            carregarProdutos();
+            carregarCarrinho();
         });
 
-        let produtosGlobais = []; // Guarda a lista completa para o filtro/busca
+        let produtosGlobais = [];
 
-        // --- CARREGAR PRODUTOS (Com Cache Buster) ---
         async function carregarProdutos() {
             try {
-                // O '?v=' + Date.now() força baixar a versão nova sempre
                 const response = await fetch('produtos.json?v=' + Date.now());
-                let produtos = await response.json(); 
-
-                // Ordenação: Esgotados vão para o final
+                let produtos = await response.json();
                 produtos.sort((a, b) => a.esgotado - b.esgotado);
-                
-                produtosGlobais = produtos; // Salva na memória global
-                renderizarProdutos(produtos); // Desenha na tela
-
+                produtosGlobais = produtos;
+                renderizarProdutos(produtos);
             } catch (erro) {
-                console.error("Erro ao carregar produtos:", erro);
-                document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center; width:100%;">Nenhum produto encontrado no momento.</p>';
+                console.error("Erro:", erro);
+                document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center;">Erro ao carregar coleção.</p>';
             }
         }
 
-        // --- DESENHAR PRODUTOS NA TELA ---
         function renderizarProdutos(lista) {
             const container = document.getElementById('grid-produtos');
             container.innerHTML = ''; 
 
             if (lista.length === 0) {
-                container.innerHTML = '<p style="text-align:center; width:100%; color:#888;">Nenhum produto com esse nome ou filtro.</p>';
+                container.innerHTML = '<p style="text-align:center; width:100%; color:#888;">Nenhum produto encontrado.</p>';
                 return;
             }
 
             lista.forEach(produto => {
                 const disabledAttr = produto.esgotado ? 'disabled' : '';
                 const btnText = produto.esgotado ? 'Esgotado' : '<i class="fab fa-whatsapp"></i> Comprar';
-                
-                // Visual Esgotado: Transparente
                 const imgFilter = produto.esgotado ? 'filter: grayscale(0%) opacity(0.5);' : '';
                 
                 let badgeHTML = '';
@@ -282,78 +271,54 @@
             });
         }
 
-        // --- SISTEMA DE BUSCA ---
+        // --- BUSCA ---
         document.getElementById('campo-busca').addEventListener('input', function(e) {
             const termo = e.target.value.toLowerCase();
-            const filtrados = produtosGlobais.filter(produto => 
-                produto.nome.toLowerCase().includes(termo)
-            );
+            const filtrados = produtosGlobais.filter(produto => produto.nome.toLowerCase().includes(termo));
             renderizarProdutos(filtrados);
         });
 
-        // --- SISTEMA DE FILTROS (TAGS) ---
+        // --- FILTROS ---
         function filtrarPorTag(tag, elementoBtn) {
-            // Muda cor dos botões
             document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
             elementoBtn.classList.add('ativo');
-
-            // Limpa a busca textual para não confundir
             document.getElementById('campo-busca').value = '';
 
             if (tag === 'todos') {
                 renderizarProdutos(produtosGlobais);
             } else {
-                // Filtra quem tem a tag selecionada (ex: Lançamento)
                 const filtrados = produtosGlobais.filter(p => p.tag && p.tag.includes(tag));
                 renderizarProdutos(filtrados);
             }
         }
 
-        // --- LÓGICA DO CARRINHO (AGRUPADO E INTELIGENTE) ---
+        // --- CARRINHO INTELIGENTE ---
         let carrinho = [];
 
         function carregarCarrinho() {
             const salvo = localStorage.getItem('carrinhoManu');
-            if (salvo) {
-                carrinho = JSON.parse(salvo);
-                atualizarCarrinhoUI();
-            }
+            if (salvo) { carrinho = JSON.parse(salvo); atualizarCarrinhoUI(); }
         }
 
-        function salvarCarrinho() {
-            localStorage.setItem('carrinhoManu', JSON.stringify(carrinho));
-        }
+        function salvarCarrinho() { localStorage.setItem('carrinhoManu', JSON.stringify(carrinho)); }
 
         function adicionarItem(nome, preco) {
-            // Verifica se item já existe
             const itemExistente = carrinho.find(item => item.nome === nome);
-
-            if (itemExistente) {
-                itemExistente.quantidade += 1; // Apenas soma
-            } else {
-                carrinho.push({ nome: nome, preco: preco, quantidade: 1 }); // Cria novo
-            }
+            if (itemExistente) { itemExistente.quantidade += 1; } 
+            else { carrinho.push({ nome: nome, preco: preco, quantidade: 1 }); }
             
             salvarCarrinho();
             atualizarCarrinhoUI();
             
-            // Efeito visual (Pulinho no ícone)
             const btnFloat = document.querySelector('.cart-float');
             btnFloat.style.transform = 'scale(1.3)';
             setTimeout(() => btnFloat.style.transform = 'scale(1)', 200);
-            
-            // NÃO ABRE O CARRINHO SOZINHO (Modo Silencioso)
         }
 
         function alterarQuantidade(index, mudanca) {
             const item = carrinho[index];
             item.quantidade += mudanca;
-
-            // Se zerar, remove o item
-            if (item.quantidade <= 0) {
-                carrinho.splice(index, 1);
-            }
-            
+            if (item.quantidade <= 0) { carrinho.splice(index, 1); }
             salvarCarrinho();
             atualizarCarrinhoUI();
         }
@@ -369,7 +334,6 @@
             const totalSpan = document.getElementById('total-carrinho');
             const contador = document.getElementById('cart-count');
             
-            // Conta ITENS totais (não apenas linhas)
             const totalItens = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
             contador.innerText = totalItens;
             
@@ -381,25 +345,19 @@
             } else {
                 carrinho.forEach((item, index) => {
                     totalFinanceiro += item.preco * item.quantidade;
-                    
                     const li = document.createElement('li');
                     li.className = 'item-carrinho';
-                    // HTML do Item no Carrinho (Com botões +/-)
                     li.innerHTML = `
                         <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
                             <div style="flex:1;">
                                 <span style="font-weight:600;">${item.nome}</span>
-                                <div style="font-size:0.9rem; color:#666;">
-                                    R$ ${item.preco.toFixed(2).replace('.', ',')} un.
-                                </div>
+                                <div style="font-size:0.9rem; color:#666;">R$ ${item.preco.toFixed(2).replace('.', ',')}</div>
                             </div>
-                            
                             <div style="display:flex; align-items:center; gap:10px;">
                                 <button onclick="alterarQuantidade(${index}, -1)" style="background:#eee; border:none; width:25px; height:25px; border-radius:50%; cursor:pointer;">-</button>
                                 <span style="font-weight:bold;">${item.quantidade}</span>
                                 <button onclick="alterarQuantidade(${index}, 1)" style="background:#eee; border:none; width:25px; height:25px; border-radius:50%; cursor:pointer;">+</button>
                             </div>
-
                             <i class="fas fa-trash-alt" style="color:#ff6b6b; cursor:pointer; margin-left:15px;" onclick="removerItem(${index})"></i>
                         </div>
                     `;
@@ -409,30 +367,23 @@
             totalSpan.innerText = totalFinanceiro.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         }
 
-        function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
-        function fecharCarrinho() { document.getElementById('modal-carrinho').classList.remove('open'); }
-
         function enviarPedidoWhatsApp() {
             if (carrinho.length === 0) { alert("Sua sacola está vazia!"); return; }
             let mensagem = "Olá, Loja Manu! Gostaria de fechar meu pedido do site:\n\n";
             let total = 0;
-            
             carrinho.forEach(item => {
                 const subtotal = item.preco * item.quantidade;
                 mensagem += `▪️ (${item.quantidade}x) ${item.nome} - R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
                 total += subtotal;
             });
-            
             mensagem += `\n*TOTAL: ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}*`;
             mensagem += "\n\nAguardo instruções de pagamento.";
-            
-            // Seu número (já configurado)
-            const telefone = "5537999146764";
-            const link = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+            const link = `https://wa.me/5537999146764?text=${encodeURIComponent(mensagem)}`;
             window.open(link, '_blank');
         }
 
-        // --- Menu Mobile e Scroll ---
+        function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
+        function fecharCarrinho() { document.getElementById('modal-carrinho').classList.remove('open'); }
         function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
         
         window.addEventListener('scroll', function() {
@@ -441,16 +392,13 @@
             else header.classList.remove('scrolled');
         });
 
-        // --- Formulário VIP (Webhook) ---
         document.getElementById('form-vip').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-enviar');
             const msg = document.getElementById('msg-status');
             btn.innerText = 'Enviando...'; btn.disabled = true;
-            
             const dados = { nome: document.getElementById('nome').value, whatsapp: document.getElementById('whatsapp').value, data: new Date().toISOString() };
             const webhookURL = 'https://webhook.jg.jardelguimaraes.com.br/webhook/cadastro-loja-manu'; 
-            
             fetch(webhookURL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dados) })
             .then(res => { if (res.ok) { msg.innerText = '✅ Sucesso!'; msg.style.color = 'green'; document.getElementById('form-vip').reset(); } else { throw new Error(); } })
             .catch(() => { msg.innerText = 'Erro.'; msg.style.color = 'red'; })
