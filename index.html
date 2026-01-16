@@ -291,13 +291,13 @@
             salvarCarrinho();
             atualizarCarrinhoUI();
             
-            // Efeito visual
+            // Efeito visual (O ícone da sacola dá um "pulo" para avisar que deu certo)
             const btnFloat = document.querySelector('.cart-float');
             btnFloat.style.transform = 'scale(1.3)';
             setTimeout(() => btnFloat.style.transform = 'scale(1)', 200);
             
-            // Abre o carrinho automaticamente para mostrar que funcionou
-            abrirCarrinho(); 
+            // REMOVI A LINHA QUE ABRI O CARRINHO SOZINHO.
+            // Agora o cliente continua na loja sem interrupção.
         }
 
         function removerItem(index) {
@@ -403,6 +403,7 @@
 
 </body>
 </html>
+
 
 
 
