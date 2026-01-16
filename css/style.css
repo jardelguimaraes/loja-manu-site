@@ -234,6 +234,7 @@ html {
     gap: 30px;
 }
 
+/* --- CARD DE PRODUTO (Base para a etiqueta) --- */
 .card-produto {
     background: white;
     border-radius: 8px;
@@ -242,26 +243,37 @@ html {
     transition: transform 0.3s;
     display: flex;
     flex-direction: column;
+    position: relative; /* ISSO É OBRIGATÓRIO PARA A ETIQUETA FICAR DENTRO */
 }
 
 .card-produto:hover { transform: translateY(-5px); }
 
-/* --- ETIQUETA TURBINADA --- */
+/* --- ETIQUETA CORRIGIDA (Direita + Menor + Sempre Visível) --- */
 .badge {
     position: absolute;
-    top: 15px;
-    left: 15px; /* Padronizado na esquerda */
-    background: var(--marsala-dark); /* Cor padrão se não vier outra */
+    top: 10px;      /* Distância do topo */
+    right: 10px;    /* AGORA NA DIREITA -> */
+    left: auto;     /* Remove alinhamento esquerdo */
+    
+    background: var(--marsala-dark); /* Cor padrão */
     color: white;
-    padding: 6px 15px;
-    font-size: 0.75rem;
+    
+    /* Tamanho Reduzido e Delicado */
+    padding: 4px 10px; 
+    font-size: 0.65rem; /* Letra um pouquinho menor */
     font-weight: 700;
-    border-radius: 4px;
+    letter-spacing: 0.5px;
+    
+    border-radius: 3px;
     text-transform: uppercase;
-    z-index: 100; /* Força ficar SEMPRE em cima da imagem */
-    letter-spacing: 1px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra para destacar do fundo */
-    pointer-events: none; /* Deixa clicar no produto através da etiqueta */
+    
+    /* Força Brutal de Visibilidade */
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    pointer-events: none;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
 }
 
 .img-container { height: 380px; overflow: hidden; position: relative; }
