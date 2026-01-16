@@ -246,7 +246,7 @@
             }
         }
 
-        // --- RENDERIZAR (COM REGRA DE ETIQUETA LIMPA) ---
+      // --- RENDERIZAR (CORRIGIDO: ESGOTADO COLORIDO) ---
         function renderizarProdutos(lista) {
             const container = document.getElementById('grid-produtos');
             container.innerHTML = ''; 
@@ -259,10 +259,13 @@
             lista.forEach(produto => {
                 const disabledAttr = produto.esgotado ? 'disabled' : '';
                 const btnText = produto.esgotado ? 'Esgotado' : '<i class="fab fa-whatsapp"></i> Comprar';
-                const imgFilter = produto.esgotado ? 'filter: grayscale(100%) opacity(0.6);' : ''; // Deixa foto PB se esgotado
                 
-                // --- REGRA DA ETIQUETA ---
-                // Se estiver esgotado, NÃO MOSTRA etiqueta no topo (pedido do Jardel)
+                // AQUI ESTÁ A MUDANÇA:
+                // Antes tinha grayscale(100%). Agora tirei.
+                // opacity(0.5) deixa a foto com 50% de transparência, mas COLORIDA.
+                const imgFilter = produto.esgotado ? 'filter: opacity(0.5);' : ''; 
+                
+                // Regra da Etiqueta (Esconde se esgotado)
                 let badgeHTML = '';
                 if (produto.tag && !produto.esgotado) {
                     badgeHTML = `<span class="badge" style="background: ${produto.tagCor || '#7d4e57'};">${produto.tag}</span>`;
@@ -289,7 +292,6 @@
                 container.appendChild(card);
             });
         }
-
         // --- BUSCA ---
         document.getElementById('campo-busca').addEventListener('input', function(e) {
             const termo = e.target.value.toLowerCase();
