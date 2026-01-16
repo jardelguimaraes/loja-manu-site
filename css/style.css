@@ -1,4 +1,4 @@
-/* --- RESET E GERAL --- */
+d/* --- RESET E GERAL --- */
 * {
     margin: 0;
     padding: 0;
@@ -7,10 +7,10 @@
 }
 
 :root {
-    /* PALETA DE CORES RESTAURADA (Baseada na foto do celular) */
+    /* PALETA DE CORES (Baseada nas suas fotos) */
     --marsala-dark: #7d4e57;    /* Topo, Rodapé, Títulos Fortes */
     --marsala-medium: #a87b85;  /* Botões e Detalhes */
-    --marsala-bg: #cfb0b7;      /* Fundo do Banner (O Rosé da foto) */
+    --marsala-bg: #cfb0b7;      /* Fundo do Banner */
     --rosa-claro: #fff0f5;      /* Fundos suaves */
     --text: #333;
     --white: #ffffff;
@@ -24,6 +24,12 @@ body {
 
 html {
     scroll-behavior: smooth;
+}
+
+/* --- UTILITÁRIOS --- */
+/* AQUI ESTÁ A CORREÇÃO DO TEXTO CENTRALIZADO */
+.text-center {
+    text-align: center;
 }
 
 /* --- TOPO E HEADER --- */
@@ -90,28 +96,26 @@ html {
     color: var(--marsala-dark);
 }
 
-/* --- HERO SECTION (BANNER CORRIGIDO) --- */
+/* --- HERO SECTION (BANNER) --- */
 .hero {
     height: 75vh;
-    /* Aqui está o segredo: Um degradê com a cor Rosé da sua foto */
     background: linear-gradient(rgba(125, 78, 87, 0.3), rgba(125, 78, 87, 0.3)), url('../img/hero-bg.jpg') center/cover no-repeat;
-    background-color: var(--marsala-bg); /* Cor de fundo se a imagem falhar */
+    background-color: var(--marsala-bg);
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* CAIXA "SUA ESSÊNCIA" (IGUAL À FOTO) */
 .hero-overlay {
-    background: rgba(125, 78, 87, 0.6); /* Marsala escuro semi-transparente */
+    background: rgba(125, 78, 87, 0.6);
     padding: 40px;
     border-radius: 20px;
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.6); /* Borda branca fina */
+    border: 1px solid rgba(255,255,255,0.6);
     max-width: 600px;
     margin: 0 20px;
-    backdrop-filter: blur(3px); /* Efeito de vidro */
+    backdrop-filter: blur(3px);
 }
 
 .hero-content h2 {
@@ -174,7 +178,7 @@ html {
     margin-bottom: 40px;
 }
 
-.section-title-left { /* Para alinhar titulos específicos se precisar */
+.section-title-left {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -265,247 +269,3 @@ html {
 
 .info-produto {
     padding: 20px;
-    text-align: center;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.info-produto h3 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: #333;
-}
-
-.price-new {
-    display: block;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--marsala-dark);
-}
-
-.installments {
-    display: block;
-    font-size: 0.8rem;
-    color: #888;
-    margin-top: 5px;
-}
-
-.btn-buy {
-    background: #25d366;
-    color: white;
-    border: none;
-    padding: 12px;
-    width: 100%;
-    margin-top: 15px;
-    cursor: pointer;
-    font-weight: 700;
-    text-transform: uppercase;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-.btn-buy:hover { background: #1ebc57; }
-.btn-buy:disabled { background: #ddd; color: #999; cursor: not-allowed; }
-
-/* --- AVALIAÇÕES --- */
-.reviews-section { background: white; }
-.review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.review-card {
-    background: #fffafa; padding: 30px; border-radius: 8px; text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;
-}
-.client-photo {
-    width: 80px; height: 80px; border-radius: 50%; margin-bottom: 15px; object-fit: cover;
-    border: 3px solid var(--marsala-dark);
-}
-.stars { color: #f1c40f; margin-bottom: 15px; }
-.review-text { font-style: italic; color: #555; margin-bottom: 20px; line-height: 1.5; }
-.client-name { font-weight: 700; color: var(--marsala-dark); }
-.client-location { font-size: 0.8rem; color: #999; }
-
-.btn-social-proof {
-    display: block; width: fit-content; margin: 40px auto 0;
-    color: var(--marsala-dark); text-decoration: none; font-weight: 600;
-    border: 2px solid var(--marsala-dark); padding: 10px 25px; border-radius: 30px;
-    transition: all 0.3s;
-}
-.btn-social-proof:hover { background: var(--marsala-dark); color: white; }
-
-/* --- NOSSA TRAJETÓRIA E TEXTOS --- */
-.bg-suave { background-color: var(--rosa-claro); }
-
-.text-box {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    text-align: center; /* Garante que o texto fique centralizado */
-}
-.text-box p { margin-bottom: 20px; }
-
-.signature {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    margin-top: 30px;
-    color: var(--marsala-dark);
-}
-
-/* --- CLUBE VIP (FORMULÁRIOS CORRIGIDOS) --- */
-.compact-form {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.input-row {
-    display: flex;
-    gap: 15px;
-}
-
-/* Aqui está a correção para os Inputs "quebrados" */
-.form-input {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    outline: none;
-    font-size: 1rem;
-    background: white;
-    transition: border-color 0.3s;
-}
-
-.form-input:focus {
-    border-color: var(--marsala-dark);
-    box-shadow: 0 0 5px rgba(125, 78, 87, 0.2);
-}
-
-/* Aqui está a correção para o Botão "feio" */
-.btn-full {
-    width: 100%;
-    padding: 15px;
-    background: var(--marsala-dark);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1rem;
-    text-transform: uppercase;
-    transition: background 0.3s;
-}
-
-.btn-full:hover { background: var(--marsala-medium); }
-.btn-full:disabled { background: #ccc; }
-
-/* --- FOOTER (RESTAURADO: COR MARSALA) --- */
-.footer {
-    background: var(--marsala-dark);
-    color: white;
-    padding: 60px 0 20px;
-}
-
-.footer h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: white;
-}
-
-.footer-info p { color: #ffdee6; font-style: italic; }
-
-.address-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    color: white;
-}
-
-.icon-map { font-size: 2rem; color: white; }
-
-.footer-map {
-    height: 200px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 2px solid rgba(255,255,255,0.2);
-    margin-top: 20px;
-}
-
-.social-links-footer {
-    display: flex; justify-content: center; gap: 20px; margin: 30px 0;
-}
-.social-links-footer a { color: white; font-size: 2rem; transition: transform 0.3s; }
-.social-links-footer a:hover { transform: scale(1.1); }
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.2);
-    padding-top: 20px; text-align: center; font-size: 0.8rem; color: #ffdee6;
-}
-
-/* --- FLUTUANTES --- */
-.float-zap {
-    position: fixed; bottom: 100px; right: 20px;
-    background: #25d366; color: white;
-    width: 60px; height: 60px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 1000; transition: transform 0.3s;
-}
-.float-zap:hover { transform: scale(1.1); }
-
-.cart-float {
-    position: fixed; bottom: 20px; right: 20px;
-    background: var(--marsala-dark);
-    color: white;
-    width: 60px; height: 60px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    cursor: pointer; z-index: 1000; transition: transform 0.2s;
-}
-
-.cart-count {
-    position: absolute; top: -5px; right: -5px;
-    background: red; color: white; font-size: 0.75rem;
-    width: 22px; height: 22px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; border: 2px solid white;
-}
-
-/* --- MODAL --- */
-.modal-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6); z-index: 2000;
-    display: none; justify-content: flex-end;
-}
-.modal-overlay.open { display: flex; }
-
-.modal-content {
-    background: white; width: 100%; max-width: 400px; height: 100%;
-    padding: 20px; display: flex; flex-direction: column;
-    animation: slideIn 0.3s ease-out;
-}
-@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
-
-.modal-header h2 { font-family: 'Playfair Display', serif; color: var(--marsala-dark); }
-.item-carrinho { padding: 10px 0; border-bottom: 1px solid #eee; }
-
-/* --- MOBILE --- */
-@media (max-width: 768px) {
-    .header-content { flex-direction: column; gap: 10px; }
-    .nav-menu { display: none; flex-direction: column; width: 100%; text-align: center; padding-top: 15px; border-top: 1px solid #eee; }
-    .nav-menu.active { display: flex; }
-    .mobile-menu-icon { display: block; position: absolute; right: 20px; top: 20px; }
-    .hero { height: 60vh; }
-    .hero-content h2 { font-size: 2.2rem; }
-    /* Ajuste para o formulário no celular: um embaixo do outro */
-    .input-row { flex-direction: column; gap: 10px; }
-    .footer-grid { grid-template-columns: 1fr; }
-}
