@@ -218,17 +218,16 @@
         <span class="cart-count" id="cart-count">0</span>
     </div>
 
-    <div id="modal-carrinho" class="modal-overlay">
+    <div id="modal-carrinho" class="modal-overlay" onclick="if(event.target === this) fecharCarrinho()">
+        
         <div class="modal-content">
-            
             <div class="modal-header">
                 <h2><i class="fas fa-shopping-bag"></i> Sua Sacola</h2>
                 <button class="btn-close" onclick="fecharCarrinho()">×</button>
             </div>
             
-            <ul id="itens-carrinho">
-                </ul>
-
+            <ul id="itens-carrinho"></ul>
+            
             <div class="cart-footer">
                 <div class="cart-total">
                     <span>Total:</span>
@@ -238,10 +237,8 @@
                     <i class="fab fa-whatsapp" style="font-size:1.3rem;"></i> Fechar Pedido no Zap
                 </button>
             </div>
-
         </div>
     </div>
-
    <script>
         document.addEventListener('DOMContentLoaded', function() {
             carregarProdutos();
