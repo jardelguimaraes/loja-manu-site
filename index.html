@@ -3,16 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Manu | Moda Feminina</title>
+    <title>Loja Manu Itaúna | Moda Feminina</title>
     
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="manifest" href="manifest.json">
+    <meta name="description" content="Loja Manu Itaúna - Moda feminina que exalta sua essência. Vestidos, conjuntos e lançamentos com estilo e elegância.">
+    <meta name="keywords" content="moda feminina, itaúna, vestidos, loja de roupa, loja manu">
+    <meta name="author" content="Loja Manu">
     <meta name="theme-color" content="#7d4e57">
 
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lojamanuitauna.com.br/">
+    <meta property="og:title" content="Loja Manu Itaúna | Sua Essência, Seu Estilo">
+    <meta property="og:description" content="Confira nossa nova coleção! Peças exclusivas, envio para todo Brasil e atendimento VIP.">
+    
+    <meta property="og:image" content="https://lojamanuitauna.com.br/img/logo-m.png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lojamanuitauna.com.br/">
+    <meta property="twitter:title" content="Loja Manu Itaúna">
+    <meta property="twitter:description" content="Moda feminina com propósito. Venha conhecer a nova coleção.">
+    <meta property="twitter:image" content="https://lojamanuitauna.com.br/img/logo-m.png">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -32,27 +49,6 @@
                 </div>
             </a>
 
-            <meta name="description" content="Loja Manu Itaúna - Moda feminina que exalta sua essência. Vestidos, conjuntos e lançamentos com estilo e elegância.">
-    <meta name="keywords" content="moda feminina, itaúna, vestidos, loja de roupa, loja manu">
-    <meta name="author" content="Loja Manu">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lojamanuitauna.com.br/">
-    <meta property="og:title" content="Loja Manu Itaúna | Sua Essência, Seu Estilo">
-    <meta property="og:description" content="Confira nossa nova coleção! Peças exclusivas, envio para todo Brasil e atendimento VIP.">
-    
-    <meta property="og:image" content="https://lojamanuitauna.com.br/img/logo-zap.jpg"> 
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://lojamanuitauna.com.br/">
-    <meta property="twitter:title" content="Loja Manu Itaúna">
-    <meta property="twitter:description" content="Moda feminina com propósito. Venha conhecer a nova coleção.">
-    <meta property="twitter:image" content="https://lojamanuitauna.com.br/img/logo-zap.jpg">
-    
-    <meta name="theme-color" content="#7d4e57">
-
-            <link rel="icon" type="image/png" href="img/favicon.png">
-            
             <nav class="nav-menu" id="nav-menu">
                 <a href="#colecao" onclick="toggleMenu()">Coleção</a>
                 <a href="#sobre" onclick="toggleMenu()">História</a>
@@ -193,7 +189,7 @@
     <footer class="footer" id="contato">
         <div class="container">
             <div class="footer-grid">
-                                <div class="footer-info">
+                        <div class="footer-info">
                     <h3>Loja Manu Itaúna</h3>
                     <p style="margin-bottom: 20px; font-style: italic; color: #ffdee6;">Moda com Propósito.</p>
                     
@@ -494,64 +490,4 @@
                 carrinho.forEach((item, index) => {
                     let qtd = item.quantidade || 1; let prc = item.preco || 0;
                     totalFinanceiro += prc * qtd;
-                    const displayTamanho = item.tamanho ? `<span style="background:#eee; padding:2px 6px; border-radius:4px; font-size:0.75rem; margin-left:5px; color:#555;">Tam: ${item.tamanho}</span>` : '';
-                    
-                    const li = document.createElement('li');
-                    li.className = 'item-carrinho';
-                    li.innerHTML = `
-                        <div style="flex:1;">
-                            <div style="font-weight:700; font-size:1rem; color:#333; margin-bottom:5px;">
-                                ${item.nome} ${displayTamanho}
-                            </div>
-                            <div style="font-size:0.9rem; color:#888;">R$ ${prc.toFixed(2).replace('.', ',')}</div>
-                        </div>
-                        <div class="qty-controls">
-                            <button class="btn-qty" onclick="alterarQuantidade(${index}, -1)">-</button>
-                            <span style="font-weight:600; min-width:20px; text-align:center;">${qtd}</span>
-                            <button class="btn-qty" onclick="alterarQuantidade(${index}, 1)">+</button>
-                        </div>
-                        <i class="fas fa-trash-alt" style="color:#ff6b6b; cursor:pointer; margin-left:15px; font-size:1.2rem; padding:10px;" onclick="removerItem(${index})"></i>
-                    `;
-                    lista.appendChild(li);
-                });
-            }
-            if (isNaN(totalFinanceiro)) totalFinanceiro = 0;
-            totalSpan.innerText = totalFinanceiro.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-        }
-
-        function enviarPedidoWhatsApp() {
-            if (carrinho.length === 0) { alert("Sua sacola está vazia!"); return; }
-            let mensagem = "Olá, Loja Manu! Gostaria de fechar meu pedido do site:\n\n";
-            let total = 0;
-            carrinho.forEach(item => {
-                const subtotal = item.preco * item.quantidade;
-                const tamTxt = item.tamanho ? ` (Tam: ${item.tamanho})` : '';
-                mensagem += `▪️ (${item.quantidade}x) ${item.nome}${tamTxt} - R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
-                total += subtotal;
-            });
-            mensagem += `\n*TOTAL: ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}*`;
-            mensagem += "\n\nAguardo instruções de pagamento.";
-            const link = `https://wa.me/5537999146764?text=${encodeURIComponent(mensagem)}`;
-            window.open(link, '_blank');
-        }
-
-        function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
-        function fecharCarrinho() { document.getElementById('modal-carrinho').classList.remove('open'); }
-        function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
-
-        // Webhook VIP (Mantido)
-        document.getElementById('form-vip').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('btn-enviar');
-            const msg = document.getElementById('msg-status');
-            btn.innerText = 'Enviando...'; btn.disabled = true;
-            const dados = { nome: document.getElementById('nome').value, whatsapp: document.getElementById('whatsapp').value, data: new Date().toISOString() };
-            const webhookURL = 'https://webhook.jg.jardelguimaraes.com.br/webhook/cadastro-loja-manu'; 
-            fetch(webhookURL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dados) })
-            .then(res => { if (res.ok) { msg.innerText = '✅ Sucesso!'; msg.style.color = 'green'; document.getElementById('form-vip').reset(); } else { throw new Error(); } })
-            .catch(() => { msg.innerText = 'Erro.'; msg.style.color = 'red'; })
-            .finally(() => { btn.innerText = 'QUERO ENTRAR'; btn.disabled = false; });
-        });
-   </script>
-</body>
-</html>
+                    const displayT
