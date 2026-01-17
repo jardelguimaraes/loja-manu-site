@@ -302,11 +302,32 @@ html {
 }
 
 
+/* --- INFO DO PRODUTO (CENTRALIZAÇÃO TOTAL) --- */
+.info-produto {
+    padding: 20px;
+    
+    /* O SEGREDO DO ALINHAMENTO */
+    text-align: center;       /* Centraliza os textos */
+    align-items: center;      /* Centraliza os blocos (botões, preços) */
+    
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .info-produto h3 {
     font-size: 1.1rem;
     margin-bottom: 10px;
     font-weight: 600;
     color: #333;
+    width: 100%; /* Garante que o texto tenha espaço para centralizar */
+}
+
+.price-box {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .price-new {
@@ -322,6 +343,7 @@ html {
     color: #888;
     margin-top: 5px;
 }
+
 
 .btn-buy {
     background: #25d366;
