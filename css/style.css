@@ -571,24 +571,45 @@ html {
 }
 @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
 
-/* Cabeçalho do Carrinho */
+/* --- 2. CABEÇALHO DA SACOLA (Centralizado) --- */
 .modal-header {
-    background: var(--marsala-dark); 
+    background: var(--marsala-dark);
     color: white;
     padding: 20px;
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex;
+    justify-content: center; /* CENTRALIZA O TÍTULO */
+    align-items: center;
+    position: relative; /* Necessário para o botão X absoluto */
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-.modal-header h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin: 0; color: white; }
 
-/* Botão X de Fechar */
-.btn-close {
-    background: rgba(255,255,255,0.2); border: none; color: white;
-    font-size: 1.5rem; cursor: pointer; width: 40px; height: 40px;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
+.modal-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; /* Um pouco menor para caber bem no mobile */
+    margin: 0;
+    color: white;
+    display: flex; align-items: center; gap: 10px;
 }
-.btn-close:hover { background: rgba(255,255,255,0.4); }
+
+/* BOTÃO X (Jogado para a direita) */
+.btn-close {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+    
+    /* POSIÇÃO ABSOLUTA */
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.btn-close:hover { background: rgba(255,255,255,0.3); }
 
 /* Lista de Itens */
 #itens-carrinho {
@@ -698,16 +719,18 @@ html {
 
 /* --- FILTROS GRUDADOS (STICKY) --- */
 /* Isso faz a barra de busca e filtros acompanhar a descida */
+/* --- 1. FILTROS GRUDADOS (Com mais espaço do topo) --- */
 .sticky-filters {
     position: sticky;
-    top: 90px; /* Ajuste para ficar logo abaixo do cabeçalho fixo */
-    background: rgba(250, 250, 250, 0.95); /* Fundo quase sólido */
+    top: 115px; /* Aumentei para desgrudar do cabeçalho */
+    background: rgba(250, 250, 250, 0.98);
     padding: 15px 0;
     z-index: 900;
-    backdrop-filter: blur(5px); /* Efeito vidro */
+    backdrop-filter: blur(5px);
     border-bottom: 1px solid rgba(0,0,0,0.05);
     margin-bottom: 30px;
     transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* Sombra suave para destacar */
 }
 
 /* --- BOTÃO VER MAIS (Load More) --- */
