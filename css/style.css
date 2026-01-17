@@ -614,3 +614,55 @@ html {
     .input-row { flex-direction: column; gap: 10px; }
     .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* --- SELETOR DE TAMANHOS (NÍVEL GRIFE) --- */
+.sizes-container {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 10px 0 15px 0;
+    flex-wrap: wrap;
+}
+
+.size-btn {
+    border: 1px solid #ddd;
+    background: transparent;
+    color: #555;
+    padding: 0;
+    width: 35px; /* Bolinha perfeita */
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.size-btn:hover {
+    border-color: var(--marsala-dark);
+    color: var(--marsala-dark);
+}
+
+/* Quando selecionado */
+.size-btn.selected {
+    background: var(--marsala-dark);
+    color: white;
+    border-color: var(--marsala-dark);
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(125, 78, 87, 0.3);
+}
+
+/* Alerta de "Selecione um tamanho" */
+.shake {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+    border-color: #ff6b6b !important;
+    color: #ff6b6b !important;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
