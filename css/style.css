@@ -720,17 +720,26 @@ html {
 /* --- FILTROS GRUDADOS (STICKY) --- */
 /* Isso faz a barra de busca e filtros acompanhar a descida */
 /* --- 1. FILTROS GRUDADOS (Com mais espaço do topo) --- */
+/* --- FILTROS GRUDADOS (Correção da "Brecha Fantasma") --- */
 .sticky-filters {
     position: sticky;
-    top: 115px; /* Aumentei para desgrudar do cabeçalho */
-    background: rgba(250, 250, 250, 0.98);
-    padding: 15px 0;
-    z-index: 900;
+    
+    /* 1. O Ponto de Grude */
+    /* Ajustei para 75px (altura média do cabeçalho mobile) para não sobrar buraco */
+    top: 75px; 
+    
+    /* 2. O Respiro Visual */
+    /* Aumentei o enchimento interno para empurrar os botões para baixo com elegância */
+    padding-top: 20px; 
+    padding-bottom: 15px;
+    
+    background: rgba(250, 250, 250, 0.98); /* Fundo sólido que tapa o que passa por trás */
+    z-index: 800; /* Garante que fique acima dos produtos */
     backdrop-filter: blur(5px);
     border-bottom: 1px solid rgba(0,0,0,0.05);
     margin-bottom: 30px;
     transition: all 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* Sombra suave para destacar */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
 /* --- BOTÃO VER MAIS (Load More) --- */
