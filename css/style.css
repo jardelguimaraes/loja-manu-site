@@ -799,30 +799,41 @@ html {
     transform: translateY(-3px);
 }
 
-/* --- CORREÇÃO DO ESPAÇO INICIAL --- */
-/* Como aumentamos o padding do filtro, precisamos tirar a margem do título para não ficar buraco */
+/* --- AJUSTE DE ESPAÇAMENTO DA COLEÇÃO --- */
 
-#colecao .section-title {
-    margin-bottom: 0 !important; /* Remove o espaço debaixo do título */
-    padding-bottom: 0 !important;
+/* 1. Aproxima o título "Nossa Coleção" da frase rosa de cima */
+#colecao {
+    padding-top: 10px; /* Reduzi bastante o topo da seção */
+    padding-bottom: 40px;
 }
 
+#colecao .section-title {
+    margin-bottom: 0 !important; /* Remove margem debaixo do título */
+    padding-bottom: 0 !important;
+    position: relative;
+    z-index: 850; /* Garante que o título fique sobreposto se precisar */
+}
+
+/* 2. Barra de Filtros (O Pulo do Gato) */
 .sticky-filters {
-    /* Mantenha o seu padding de 55px que funcionou */
-    padding-top: 55px; 
-    padding-bottom: 25px;
+    position: sticky;
+    
+    /* ONDE ELE TRAVA: */
     top: 75px; 
     
-    /* TRUQUE EXTRA: Margem negativa para subir mais um pouquinho se precisar */
-    margin-top: -20px; 
+    /* O ESCUDO (Mantém o buraco fechado na rolagem): */
+    padding-top: 55px; 
+    padding-bottom: 20px;
     
-    /* Restante das regras... */
-    position: sticky;
+    /* A MÁGICA (Margem Negativa): */
+    /* Puxa a caixa para cima para "comer" o espaço vazio inicial */
+    margin-top: -50px; 
+    
     background: rgba(250, 250, 250, 0.98);
     z-index: 800;
     backdrop-filter: blur(5px);
     border-bottom: 1px solid rgba(0,0,0,0.05);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     transition: all 0.3s;
     box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
