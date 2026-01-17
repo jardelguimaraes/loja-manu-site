@@ -362,4 +362,192 @@
                         <span class="price-new">R$ ${produto.preco.toFixed(2).replace('.', ',')}</span>
                         ${produto.parcelas ? `<span class="installments">${produto.parcelas}</span>` : ''}
                     </div>
-                    <button class="btn-buy" id="btn-buy-${index}" ${disabledAttr} onclick="tentarAdicionar(${index}, '${produto.nome}', ${produto
+                    <button class="btn-buy" id="btn-buy-${index}" ${disabledAttr} onclick="tentarAdicionar(${index}, '${produto.nome}', ${produto.preco})">
+                        ${btnText}
+                    </button>
+                    <input type="hidden" id="selected-size-${index}" value="">
+                </div>
+            `;
+            container.appendChild(card);
+        }
+
+        // --- SELEÇÃO DE TAMANHO ---
+        function selecionarTamanho(indexCard, tamanho, btnElement) {
+            const container = document.getElementById(`sizes-${indexCard}`);
+            const btns = container.getElementsByClassName('size-btn');
+            for (let btn of btns) { btn.classList.remove('selected'); btn.classList.remove('shake'); }
+            btnElement.classList.add('selected');
+            document.getElementById(`selected-size-${indexCard}`).value = tamanho;
+        }
+
+        function tentarAdicionar(index, nome, preco) {
+            const inputSize = document.getElementById(`selected-size-${index}`);
+            const sizesContainer = document.getElementById(`sizes-${index}`);
+            
+            if (sizesContainer && inputSize.value === "") {
+                const btns = sizesContainer.getElementsByClassName('size-btn');
+                for (let btn of btns) {
+                    btn.classList.add('shake');
+                    setTimeout(() => btn.classList.remove('shake'), 500);
+                }
+                return;
+            }
+            const tamanhoEscolhido = inputSize ? inputSize.value : null;
+            adicionarItem(nome, preco, tamanhoEscolhido);
+        }
+
+        // --- BUSCA E FILTROS (INTEGRADOS COM PAGINAÇÃO) ---
+        document.getElementById('campo-busca').addEventListener('input', function(e) {
+            const termo = e.target.value.toLowerCase();
+            // Filtra a lista global
+            produtosFiltrados = produtosGlobais.filter(produto => produto.nome.toLowerCase().includes(termo));
+            resetarPaginacao(); // Reinicia exibição do zero
+        });
+
+        function filtrarPorTag(tag, elementoBtn) {
+            document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
+            elementoBtn.classList.add('ativo');
+            document.getElementById('campo-busca').value = '';
+
+            if (tag === 'todos') {
+                produtosFiltrados = produtosGlobais;
+            } else {
+                produtosFiltrados = produtosGlobais.filter(p => p.tag && p.tag.toLowerCase().includes(tag.toLowerCase()));
+            }
+            resetarPaginacao(); // Reinicia exibição do zero
+        }
+
+        // --- BOTÃO VOLTAR AO TOPO (Visibilidade) ---
+        window.addEventListener('scroll', function() {
+            const backBtn = document.querySelector('.back-to-top');
+            const header = document.querySelector('.header');
+            
+            // Controle do Header
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+
+            // Controle do Botão Topo
+            if (window.scrollY > 500) backBtn.classList.add('show');
+            else backBtn.classList.remove('show');
+        });
+
+        // --- CARRINHO INTELIGENTE (MANTIDO IGUAL) ---
+        let carrinho = [];
+
+        function carregarCarrinho() {
+            const salvo = localStorage.getItem('carrinhoManu');
+            if (salvo) {
+                try {
+                    carrinho = JSON.parse(salvo);
+                    carrinho.forEach(item => {
+                        if (!item.quantidade || isNaN(item.quantidade)) item.quantidade = 1;
+                        if (!item.preco || isNaN(item.preco)) item.preco = 0;
+                    });
+                    salvarCarrinho(); atualizarCarrinhoUI();
+                } catch (e) { localStorage.removeItem('carrinhoManu'); carrinho = []; }
+            }
+        }
+
+        function salvarCarrinho() { localStorage.setItem('carrinhoManu', JSON.stringify(carrinho)); }
+
+        function adicionarItem(nome, preco, tamanho) {
+            const idItem = tamanho ? `${nome}-${tamanho}` : nome;
+            const itemExistente = carrinho.find(item => item.idUnico === idItem);
+            
+            if (itemExistente) { itemExistente.quantidade += 1; } 
+            else { carrinho.push({ idUnico: idItem, nome: nome, preco: preco, quantidade: 1, tamanho: tamanho }); }
+            
+            salvarCarrinho(); atualizarCarrinhoUI();
+            const btnFloat = document.querySelector('.cart-float');
+            btnFloat.style.transform = 'scale(1.3)'; setTimeout(() => btnFloat.style.transform = 'scale(1)', 200);
+        }
+
+        function alterarQuantidade(index, mudanca) {
+            const item = carrinho[index];
+            item.quantidade += mudanca;
+            if (item.quantidade <= 0) { carrinho.splice(index, 1); }
+            salvarCarrinho(); atualizarCarrinhoUI();
+        }
+
+        function removerItem(index) {
+            carrinho.splice(index, 1); salvarCarrinho(); atualizarCarrinhoUI();
+        }
+
+        function atualizarCarrinhoUI() {
+            const lista = document.getElementById('itens-carrinho');
+            const totalSpan = document.getElementById('total-carrinho');
+            const contador = document.getElementById('cart-count');
+            
+            const totalItens = carrinho.reduce((acc, item) => acc + (item.quantidade || 1), 0);
+            contador.innerText = totalItens;
+            
+            lista.innerHTML = '';
+            let totalFinanceiro = 0;
+
+            if (carrinho.length === 0) {
+                lista.innerHTML = `<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; color:#999;"><i class="fas fa-shopping-basket" style="font-size:3rem; margin-bottom:15px; color:#ddd;"></i><p>Sua sacola está vazia.</p></div>`;
+            } else {
+                carrinho.forEach((item, index) => {
+                    let qtd = item.quantidade || 1; let prc = item.preco || 0;
+                    totalFinanceiro += prc * qtd;
+                    const displayTamanho = item.tamanho ? `<span style="background:#eee; padding:2px 6px; border-radius:4px; font-size:0.75rem; margin-left:5px; color:#555;">Tam: ${item.tamanho}</span>` : '';
+                    
+                    const li = document.createElement('li');
+                    li.className = 'item-carrinho';
+                    li.innerHTML = `
+                        <div style="flex:1;">
+                            <div style="font-weight:700; font-size:1rem; color:#333; margin-bottom:5px;">
+                                ${item.nome} ${displayTamanho}
+                            </div>
+                            <div style="font-size:0.9rem; color:#888;">R$ ${prc.toFixed(2).replace('.', ',')}</div>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="btn-qty" onclick="alterarQuantidade(${index}, -1)">-</button>
+                            <span style="font-weight:600; min-width:20px; text-align:center;">${qtd}</span>
+                            <button class="btn-qty" onclick="alterarQuantidade(${index}, 1)">+</button>
+                        </div>
+                        <i class="fas fa-trash-alt" style="color:#ff6b6b; cursor:pointer; margin-left:15px; font-size:1.2rem; padding:10px;" onclick="removerItem(${index})"></i>
+                    `;
+                    lista.appendChild(li);
+                });
+            }
+            if (isNaN(totalFinanceiro)) totalFinanceiro = 0;
+            totalSpan.innerText = totalFinanceiro.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function enviarPedidoWhatsApp() {
+            if (carrinho.length === 0) { alert("Sua sacola está vazia!"); return; }
+            let mensagem = "Olá, Loja Manu! Gostaria de fechar meu pedido do site:\n\n";
+            let total = 0;
+            carrinho.forEach(item => {
+                const subtotal = item.preco * item.quantidade;
+                const tamTxt = item.tamanho ? ` (Tam: ${item.tamanho})` : '';
+                mensagem += `▪️ (${item.quantidade}x) ${item.nome}${tamTxt} - R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
+                total += subtotal;
+            });
+            mensagem += `\n*TOTAL: ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}*`;
+            mensagem += "\n\nAguardo instruções de pagamento.";
+            const link = `https://wa.me/5537999146764?text=${encodeURIComponent(mensagem)}`;
+            window.open(link, '_blank');
+        }
+
+        function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
+        function fecharCarrinho() { document.getElementById('modal-carrinho').classList.remove('open'); }
+        function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
+
+        // Webhook VIP (Mantido)
+        document.getElementById('form-vip').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-enviar');
+            const msg = document.getElementById('msg-status');
+            btn.innerText = 'Enviando...'; btn.disabled = true;
+            const dados = { nome: document.getElementById('nome').value, whatsapp: document.getElementById('whatsapp').value, data: new Date().toISOString() };
+            const webhookURL = 'https://webhook.jg.jardelguimaraes.com.br/webhook/cadastro-loja-manu'; 
+            fetch(webhookURL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dados) })
+            .then(res => { if (res.ok) { msg.innerText = '✅ Sucesso!'; msg.style.color = 'green'; document.getElementById('form-vip').reset(); } else { throw new Error(); } })
+            .catch(() => { msg.innerText = 'Erro.'; msg.style.color = 'red'; })
+            .finally(() => { btn.innerText = 'QUERO ENTRAR'; btn.disabled = false; });
+        });
+   </script>
+</body>
+</html>
