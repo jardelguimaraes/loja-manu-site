@@ -228,25 +228,19 @@
 
         let produtosGlobais = [];
 
-        // --- CARREGAR PRODUTOS ---
         async function carregarProdutos() {
             try {
                 const response = await fetch('produtos.json?v=' + Date.now());
                 let produtos = await response.json();
-                
-                // Ordenação: Esgotados para o final
                 produtos.sort((a, b) => a.esgotado - b.esgotado);
-                
                 produtosGlobais = produtos;
                 renderizarProdutos(produtos);
-
             } catch (erro) {
                 console.error("Erro:", erro);
                 document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center;">Erro ao carregar coleção.</p>';
             }
         }
 
-      // --- RENDERIZAR (CORRIGIDO: ESGOTADO COLORIDO) ---
         function renderizarProdutos(lista) {
             const container = document.getElementById('grid-produtos');
             container.innerHTML = ''; 
@@ -256,16 +250,22 @@
                 return;
             }
 
-            lista.forEach(produto => {
+            lista.forEach((produto, index) => {
                 const disabledAttr = produto.esgotado ? 'disabled' : '';
                 const btnText = produto.esgotado ? 'Esgotado' : '<i class="fab fa-whatsapp"></i> Comprar';
+                const imgFilter = produto.esgotado ? 'filter: opacity(0.5);' : '';
                 
-                // AQUI ESTÁ A MUDANÇA:
-                // Antes tinha grayscale(100%). Agora tirei.
-                // opacity(0.5) deixa a foto com 50% de transparência, mas COLORIDA.
-                const imgFilter = produto.esgotado ? 'filter: opacity(0.5);' : ''; 
-                
-                // Regra da Etiqueta (Esconde se esgotado)
+                // --- LÓGICA DE TAMANHOS ---
+                let sizesHTML = '';
+                if (produto.tamanhos && Array.isArray(produto.tamanhos) && produto.tamanhos.length > 0 && !produto.esgotado) {
+                    sizesHTML = `<div class="sizes-container" id="sizes-${index}">`;
+                    produto.tamanhos.forEach(tam => {
+                        sizesHTML += `<button class="size-btn" onclick="selecionarTamanho(${index}, '${tam}', this)">${tam}</button>`;
+                    });
+                    sizesHTML += `</div>`;
+                }
+
+                // ETIQUETA
                 let badgeHTML = '';
                 if (produto.tag && !produto.esgotado) {
                     badgeHTML = `<span class="badge" style="background: ${produto.tagCor || '#7d4e57'};">${produto.tag}</span>`;
@@ -273,6 +273,7 @@
 
                 const card = document.createElement('div');
                 card.className = 'card-produto';
+                // Adicionamos data-id para facilitar busca
                 card.innerHTML = `
                     ${badgeHTML}
                     <div class="img-container">
@@ -280,44 +281,73 @@
                     </div>
                     <div class="info-produto">
                         <h3>${produto.nome}</h3>
-                        <div class="price-box">
+                        ${sizesHTML} <div class="price-box">
                             <span class="price-new">R$ ${produto.preco.toFixed(2).replace('.', ',')}</span>
                             ${produto.parcelas ? `<span class="installments">${produto.parcelas}</span>` : ''}
                         </div>
-                        <button class="btn-buy" ${disabledAttr} onclick="adicionarItem('${produto.nome}', ${produto.preco})">
+                        <button class="btn-buy" id="btn-buy-${index}" ${disabledAttr} onclick="tentarAdicionar(${index}, '${produto.nome}', ${produto.preco})">
                             ${btnText}
                         </button>
+                        <input type="hidden" id="selected-size-${index}" value="">
                     </div>
                 `;
                 container.appendChild(card);
             });
         }
-        // --- BUSCA ---
+
+        // --- SELEÇÃO DE TAMANHO ---
+        function selecionarTamanho(indexCard, tamanho, btnElement) {
+            // Limpa seleção anterior deste card
+            const container = document.getElementById(`sizes-${indexCard}`);
+            const btns = container.getElementsByClassName('size-btn');
+            for (let btn of btns) { btn.classList.remove('selected'); btn.classList.remove('shake'); }
+            
+            // Marca o novo
+            btnElement.classList.add('selected');
+            document.getElementById(`selected-size-${indexCard}`).value = tamanho;
+        }
+
+        // --- VALIDAÇÃO ANTES DE COMPRAR ---
+        function tentarAdicionar(index, nome, preco) {
+            const inputSize = document.getElementById(`selected-size-${index}`);
+            const sizesContainer = document.getElementById(`sizes-${index}`);
+            
+            // Se o produto TEM opções de tamanho (container existe) e NADA foi selecionado
+            if (sizesContainer && inputSize.value === "") {
+                // Efeito visual de erro (tremer as bolinhas)
+                const btns = sizesContainer.getElementsByClassName('size-btn');
+                for (let btn of btns) {
+                    btn.classList.add('shake');
+                    setTimeout(() => btn.classList.remove('shake'), 500);
+                }
+                return; // PARA AQUI, não adiciona ao carrinho
+            }
+            
+            // Se passou, adiciona com o tamanho
+            const tamanhoEscolhido = inputSize ? inputSize.value : null;
+            adicionarItem(nome, preco, tamanhoEscolhido);
+        }
+
+        // --- BUSCA E FILTROS ---
         document.getElementById('campo-busca').addEventListener('input', function(e) {
             const termo = e.target.value.toLowerCase();
             const filtrados = produtosGlobais.filter(produto => produto.nome.toLowerCase().includes(termo));
             renderizarProdutos(filtrados);
         });
 
-        // --- FILTROS INTELIGENTES (CORRIGIDO) ---
         function filtrarPorTag(tag, elementoBtn) {
-            // Atualiza visual dos botões
             document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
             elementoBtn.classList.add('ativo');
             document.getElementById('campo-busca').value = '';
 
-            if (tag === 'todos') {
-                renderizarProdutos(produtosGlobais);
-            } else {
-                // CORREÇÃO AQUI: Ignora maiúsculas/minúsculas para achar o filtro
-                const filtrados = produtosGlobais.filter(p => 
-                    p.tag && p.tag.toLowerCase().includes(tag.toLowerCase())
-                );
+            if (tag === 'todos') { renderizarProdutos(produtosGlobais); } 
+            else {
+                const filtrados = produtosGlobais.filter(p => p.tag && p.tag.toLowerCase().includes(tag.toLowerCase()));
                 renderizarProdutos(filtrados);
             }
         }
 
-        // --- CARRINHO & OUTRAS FUNÇÕES (MANTIDAS) ---
+        // --- CARRINHO INTELIGENTE (COM SUPORTE A TAMANHOS) ---
         let carrinho = [];
 
         function carregarCarrinho() {
@@ -329,21 +359,33 @@
                         if (!item.quantidade || isNaN(item.quantidade)) item.quantidade = 1;
                         if (!item.preco || isNaN(item.preco)) item.preco = 0;
                     });
-                    salvarCarrinho();
-                    atualizarCarrinhoUI();
-                } catch (e) {
-                    localStorage.removeItem('carrinhoManu'); carrinho = [];
-                }
+                    salvarCarrinho(); atualizarCarrinhoUI();
+                } catch (e) { localStorage.removeItem('carrinhoManu'); carrinho = []; }
             }
         }
 
         function salvarCarrinho() { localStorage.setItem('carrinhoManu', JSON.stringify(carrinho)); }
 
-        function adicionarItem(nome, preco) {
-            const itemExistente = carrinho.find(item => item.nome === nome);
-            if (itemExistente) { itemExistente.quantidade += 1; } 
-            else { carrinho.push({ nome: nome, preco: preco, quantidade: 1 }); }
+        function adicionarItem(nome, preco, tamanho) {
+            // Cria ID único combinando nome + tamanho (ex: "Vestido-M")
+            const idItem = tamanho ? `${nome}-${tamanho}` : nome;
+            
+            const itemExistente = carrinho.find(item => item.idUnico === idItem);
+            
+            if (itemExistente) { 
+                itemExistente.quantidade += 1; 
+            } else { 
+                carrinho.push({ 
+                    idUnico: idItem, // Chave única
+                    nome: nome, 
+                    preco: preco, 
+                    quantidade: 1,
+                    tamanho: tamanho // Salva o tamanho
+                }); 
+            }
+            
             salvarCarrinho(); atualizarCarrinhoUI();
+            
             const btnFloat = document.querySelector('.cart-float');
             btnFloat.style.transform = 'scale(1.3)'; setTimeout(() => btnFloat.style.transform = 'scale(1)', 200);
         }
@@ -376,11 +418,17 @@
                 carrinho.forEach((item, index) => {
                     let qtd = item.quantidade || 1; let prc = item.preco || 0;
                     totalFinanceiro += prc * qtd;
+                    
+                    // Exibe o tamanho se existir
+                    const displayTamanho = item.tamanho ? `<span style="background:#eee; padding:2px 6px; border-radius:4px; font-size:0.75rem; margin-left:5px; color:#555;">Tam: ${item.tamanho}</span>` : '';
+                    
                     const li = document.createElement('li');
                     li.className = 'item-carrinho';
                     li.innerHTML = `
                         <div style="flex:1;">
-                            <div style="font-weight:700; font-size:1rem; color:#333; margin-bottom:5px;">${item.nome}</div>
+                            <div style="font-weight:700; font-size:1rem; color:#333; margin-bottom:5px;">
+                                ${item.nome} ${displayTamanho}
+                            </div>
                             <div style="font-size:0.9rem; color:#888;">R$ ${prc.toFixed(2).replace('.', ',')}</div>
                         </div>
                         <div class="qty-controls">
@@ -403,7 +451,8 @@
             let total = 0;
             carrinho.forEach(item => {
                 const subtotal = item.preco * item.quantidade;
-                mensagem += `▪️ (${item.quantidade}x) ${item.nome} - R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
+                const tamTxt = item.tamanho ? ` (Tam: ${item.tamanho})` : ''; // Adiciona tamanho no Zap
+                mensagem += `▪️ (${item.quantidade}x) ${item.nome}${tamTxt} - R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
                 total += subtotal;
             });
             mensagem += `\n*TOTAL: ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}*`;
