@@ -225,19 +225,4 @@
     "data_alteracao": "17/01/2026, 18:11:37",
     "parcelaPreco": 13.3
   },
-  {
-     "id": 72,
-    "nome": "Top Faica",
-    "preco": 29.9,
-    "parcelas": "3x de R$ 5,97 sem juros no cartão",
-    "formaPagamento": "cartão",
-    "tag": null,
-    "tagCor": null,
-    "esgotado": false,
-    "img": "img/colecoes/264.jpg",
-    "id": 71,
-    "status": "ativo",
-    "data_alteracao": "17/01/2026, 18:11:37",
-    "parcelaPreco": 13.3
-  }
-]
+ ]
