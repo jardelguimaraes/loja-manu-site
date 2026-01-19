@@ -95,6 +95,7 @@
     "img": "img/colecoes/90.jpg"
   },
   {
+     "id": 64,
     "nome": "Conjunto Poliamida",
     "preco": 99.9,
     "parcelas": "💠 À vista no PIX",
@@ -110,6 +111,7 @@
     "parcelaPreco": 99.9
   },
   {
+     "id": 65,
     "nome": "Vestido Gala",
     "preco": 99.9,
     "parcelas": "2x de R$ 49,95 sem juros no cartão",
@@ -125,6 +127,7 @@
     "parcelaPreco": 49.95
   },
   {
+     "id": 66,
     "nome": "Body",
     "preco": 39.9,
     "parcelas": "2x de R$ 19,95 sem juros no cartão",
@@ -132,7 +135,7 @@
     "tag": "promoção",
     "tagCor": "#007bff",
     "esgotado": false,
-    "img": "img/colecoes/192.jpg",
+    "img": "img/colecoes/266.jpg",
     "id": 66,
     "status": "ativo",
     "historico": "[16/01/2026, 12:02:13] Criado.",
@@ -140,6 +143,7 @@
     "parcelaPreco": 19.95
   },
   {
+     "id": 67,
     "nome": "Vestido tomara que caia",
     "preco": 99.9,
     "parcelas": "2x de R$ 49,95 sem juros no cartão",
@@ -155,6 +159,7 @@
     "parcelaPreco": 49.95
   },
   {
+     "id": 68,
     "nome": "Vestido indiano",
     "preco": 99.9,
     "parcelas": "2x de R$ 49,95 sem juros no cartão",
@@ -170,6 +175,7 @@
     "parcelaPreco": 49.95
   },
   {
+     "id": 69,
     "nome": "Camisa listrada",
     "preco": 79.9,
     "parcelas": "3x de R$ 26,63 sem juros no cartão",
@@ -184,6 +190,7 @@
     "parcelaPreco": 26.63
   },
   {
+     "id": 70,
     "nome": "Shot saia",
     "preco": 49.9,
     "parcelas": "3x de R$ 16,63 sem juros no cartão",
@@ -204,6 +211,7 @@
     ]
   },
   {
+     "id": 71,
     "nome": "Regata Ribana",
     "preco": 39.9,
     "parcelas": "3x de R$ 13,30 sem juros no cartão",
@@ -212,6 +220,21 @@
     "tagCor": null,
     "esgotado": false,
     "img": "img/colecoes/262.jpg",
+    "id": 71,
+    "status": "ativo",
+    "data_alteracao": "17/01/2026, 18:11:37",
+    "parcelaPreco": 13.3
+  },
+  {
+     "id": 72,
+    "nome": "Top Faica",
+    "preco": 29.9,
+    "parcelas": "3x de R$ 5,97 sem juros no cartão",
+    "formaPagamento": "cartão",
+    "tag": null,
+    "tagCor": null,
+    "esgotado": false,
+    "img": "img/colecoes/264.jpg",
     "id": 71,
     "status": "ativo",
     "data_alteracao": "17/01/2026, 18:11:37",
