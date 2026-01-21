@@ -99,7 +99,7 @@ html {
     height: 90vh;
     
     /* A MÁGICA: Gradiente preto 50% transparente + Sua imagem */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-hero-mulher.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-hero-manu.png');
     
     /* Fallback de cor caso a imagem demore carregar */
     background-color: var(--marsala-bg);
