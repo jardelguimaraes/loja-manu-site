@@ -93,69 +93,96 @@ html {
     color: var(--marsala-dark);
 }
 
-/* --- HERO SECTION (BANNER) --- */
+/* --- HERO SECTION (BANNER) - ATUALIZADO --- */
 .hero {
-    height: 75vh;
-    background: linear-gradient(rgba(125, 78, 87, 0.3), rgba(125, 78, 87, 0.3)), url('../img/hero-bg.jpg') center/cover no-repeat;
+    /* Aumentei a altura para 90vh para dar impacto de "capa de revista" */
+    height: 90vh;
+    
+    /* A MÁGICA: Gradiente preto 50% transparente + Sua imagem */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-hero-mulher.png');
+    
+    /* Fallback de cor caso a imagem demore carregar */
     background-color: var(--marsala-bg);
+    
+    /* Configuração para imagem vertical funcionar no horizontal */
+    background-size: cover;       /* Cobre toda a área */
+    background-position: center top; /* Foca no rosto/topo da modelo e corta as pernas se necessário */
+    background-repeat: no-repeat;
+    
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center; /* Garante que tudo fique centralizado */
 }
 
-.hero-overlay {
-    background: rgba(125, 78, 87, 0.6);
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.6);
-    max-width: 600px;
-    margin: 0 20px;
-    backdrop-filter: blur(3px);
+/* Ajuste do container de texto */
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+    z-index: 2; /* Garante que o texto fique sobre a imagem */
 }
 
-.hero-content h2 {
+/* Título Principal (H1) */
+.hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: white;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    font-size: 3.5rem; /* Fonte bem grande */
+    color: #ffffff;    /* Branco puro */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Sombra para leitura perfeita */
 }
 
+/* Subtítulo (Parágrafo) */
 .hero-content p {
-    color: #f0f0f0;
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    font-weight: 400;
+    color: #f0f0f0; /* Branco levemente suave */
+    font-size: 1.3rem;
+    margin-bottom: 35px;
+    font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
+/* Botão Moderno "Ghost" (Transparente com borda) */
 .btn-hero {
-    background: rgba(255,255,255,0.25);
-    color: white;
-    padding: 12px 35px;
-    border-radius: 30px;
+    background: transparent;
+    color: #ffffff;
+    padding: 15px 45px;
+    border-radius: 4px; /* Borda mais quadrada é mais moderna */
     text-decoration: none;
     font-weight: 600;
     text-transform: uppercase;
-    border: 1px solid white;
-    transition: all 0.3s;
+    letter-spacing: 1px;
+    border: 2px solid #ffffff; /* Borda branca grossa */
+    transition: all 0.3s ease;
     display: inline-block;
 }
 
+/* Efeito ao passar o mouse no botão */
 .btn-hero:hover {
-    background: white;
-    color: var(--marsala-dark);
+    background: #ffffff;
+    color: #000000; /* Texto fica preto para contraste máximo */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.slogan-banner {
-    background: var(--rosa-claro);
-    text-align: center;
-    padding: 40px 20px;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: var(--marsala-dark);
-    font-size: 1.3rem;
+/* Ajustes para Celular */
+@media (max-width: 768px) {
+    .hero {
+        height: 80vh; /* Um pouco menor no celular */
+    }
+    .hero-content h1 {
+        font-size: 2.2rem; /* Diminui a fonte para caber na tela */
+    }
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    .btn-hero {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
 }
 
 /* --- LAYOUT GERAL --- */
