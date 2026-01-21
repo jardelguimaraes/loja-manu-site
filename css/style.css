@@ -99,7 +99,7 @@ html {
     height: 90vh;
     
     /* Gradiente preto 50% transparente + Imagem de Fundo */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-hero-mulher.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-hero-manu.png');
     
     background-color: var(--marsala-bg); /* Cor de fundo caso a imagem falhe */
     
