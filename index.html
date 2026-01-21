@@ -406,18 +406,34 @@
             resetarPaginacao(); // Reinicia exibição do zero
         });
 
-        function filtrarPorTag(tag, elementoBtn) {
-            document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
-            elementoBtn.classList.add('ativo');
-            document.getElementById('campo-busca').value = '';
+       // Procure esta função no seu script e substitua por esta versão:
+function filtrarPorTag(tag, elementoBtn) {
+    // 1. Atualiza visual dos botões
+    document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
+    elementoBtn.classList.add('ativo');
+    document.getElementById('campo-busca').value = '';
 
-            if (tag === 'todos') {
-                produtosFiltrados = produtosGlobais;
-            } else {
-                produtosFiltrados = produtosGlobais.filter(p => p.tag && p.tag.toLowerCase().includes(tag.toLowerCase()));
-            }
-            resetarPaginacao(); // Reinicia exibição do zero
-        }
+    // 2. Filtra os produtos
+    if (tag === 'todos') {
+        produtosFiltrados = produtosGlobais;
+    } else {
+        produtosFiltrados = produtosGlobais.filter(p => p.tag && p.tag.toLowerCase().includes(tag.toLowerCase()));
+    }
+    
+    // 3. Reseta a paginação
+    resetarPaginacao();
+
+    // --- A NOVIDADE: ELEVADOR AUTOMÁTICO ---
+    // Isso faz a tela rolar suavemente até o título "Nossa Coleção"
+    const secaoColecao = document.getElementById('colecao');
+    if (secaoColecao) {
+        // Pequeno desconto de 80px para não ficar escondido atrás do menu fixo
+        const yOffset = -80; 
+        const y = secaoColecao.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({top: y, behavior: 'smooth'});
+    }
+}
+
 
         // --- BOTÃO VOLTAR AO TOPO (Visibilidade) ---
         window.addEventListener('scroll', function() {
