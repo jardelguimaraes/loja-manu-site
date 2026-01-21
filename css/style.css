@@ -93,96 +93,85 @@ html {
     color: var(--marsala-dark);
 }
 
-/* --- HERO SECTION (BANNER) - ATUALIZADO --- */
+/* --- HERO SECTION (BANNER PRINCIPAL) --- */
 .hero {
-    /* Aumentei a altura para 90vh para dar impacto de "capa de revista" */
+    /* Altura imponente */
     height: 90vh;
     
-    /* A MÁGICA: Gradiente preto 50% transparente + Sua imagem */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-hero-manu.png');
+    /* Gradiente preto 50% transparente + Imagem de Fundo */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-hero-mulher.png');
     
-    /* Fallback de cor caso a imagem demore carregar */
-    background-color: var(--marsala-bg);
+    background-color: var(--marsala-bg); /* Cor de fundo caso a imagem falhe */
     
-    /* Configuração para imagem vertical funcionar no horizontal */
-    background-size: cover;       /* Cobre toda a área */
-    background-position: center top; /* Foca no rosto/topo da modelo e corta as pernas se necessário */
+    /* Configuração para preencher a tela */
+    background-size: cover;       
+    background-position: center top; /* Foca no topo (rosto) */
     background-repeat: no-repeat;
     
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center; /* Garante que tudo fique centralizado */
+    text-align: center; 
 }
 
-/* Ajuste do container de texto */
 .hero-content {
     max-width: 800px;
     padding: 0 20px;
-    z-index: 2; /* Garante que o texto fique sobre a imagem */
+    z-index: 2; 
 }
 
-/* Título Principal (H1) */
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem; /* Fonte bem grande */
-    color: #ffffff;    /* Branco puro */
+    font-size: 3.5rem; 
+    color: #ffffff;    
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
     line-height: 1.2;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Sombra para leitura perfeita */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
 }
 
-/* Subtítulo (Parágrafo) */
 .hero-content p {
-    color: #f0f0f0; /* Branco levemente suave */
+    color: #f0f0f0; 
     font-size: 1.3rem;
     margin-bottom: 35px;
     font-weight: 300;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-/* Botão Moderno "Ghost" (Transparente com borda) */
+/* Botão Moderno Transparente */
 .btn-hero {
     background: transparent;
     color: #ffffff;
     padding: 15px 45px;
-    border-radius: 4px; /* Borda mais quadrada é mais moderna */
+    border-radius: 4px;
     text-decoration: none;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border: 2px solid #ffffff; /* Borda branca grossa */
+    border: 2px solid #ffffff;
     transition: all 0.3s ease;
     display: inline-block;
 }
 
-/* Efeito ao passar o mouse no botão */
 .btn-hero:hover {
     background: #ffffff;
-    color: #000000; /* Texto fica preto para contraste máximo */
+    color: #000000;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Ajustes para Celular */
-@media (max-width: 768px) {
-    .hero {
-        height: 80vh; /* Um pouco menor no celular */
-    }
-    .hero-content h1 {
-        font-size: 2.2rem; /* Diminui a fonte para caber na tela */
-    }
-    .hero-content p {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-    .btn-hero {
-        padding: 12px 30px;
-        font-size: 0.9rem;
-    }
+/* --- SLOGAN BANNER (Recuperado) --- */
+.slogan-banner {
+    background: var(--rosa-claro);
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--marsala-dark);
+    font-size: 1.3rem;
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.03);
 }
 
 /* --- LAYOUT GERAL --- */
@@ -211,12 +200,43 @@ html {
 }
 
 /* --- FILTROS E BUSCA --- */
+/* Ajuste do título para não brigar com o filtro */
+#colecao {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+#colecao .section-title {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    position: relative;
+    z-index: 850;
+}
+
+/* Barra de Filtros Fixa */
+.sticky-filters {
+    position: sticky;
+    top: 75px; 
+    padding-top: 40px;
+    padding-bottom: 20px;
+    margin-top: -20px;
+    background: rgba(250, 250, 250, 0.98);
+    z-index: 800;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
 .filtros-container {
     display: flex;
     gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 20px;
 }
 
 .btn-filtro {
@@ -236,7 +256,7 @@ html {
     color: white;
 }
 
-.search-container { text-align: center; margin-bottom: 40px; }
+.search-container { text-align: center; width: 100%; display: flex; justify-content: center;}
 
 #campo-busca {
     padding: 12px 25px;
@@ -275,7 +295,7 @@ html {
 
 .card-produto:hover { transform: translateY(-5px); }
 
-/* --- ETIQUETA --- */
+/* ETIQUETA */
 .badge {
     position: absolute;
     top: 10px;      
@@ -297,7 +317,6 @@ html {
     display: block !important;
 }
 
-/* --- AJUSTE DE FOTO NÍVEL GRIFE --- */
 .img-container {
     width: 100%;
     aspect-ratio: 2 / 3; 
@@ -315,11 +334,10 @@ html {
     transition: transform 0.5s, filter 0.3s;
 }
 
-/* --- INFO DO PRODUTO --- */
 .info-produto {
     padding: 20px;
-    text-align: center;       
-    align-items: center;      
+    text-align: center;        
+    align-items: center;       
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -369,6 +387,33 @@ html {
 }
 .btn-buy:hover { background: #1ebc57; }
 .btn-buy:disabled { background: #ddd; color: #999; cursor: not-allowed; }
+
+/* --- SELETOR DE TAMANHOS --- */
+.sizes-container {
+    display: flex; gap: 8px; justify-content: center;
+    margin: 10px 0 15px 0; flex-wrap: wrap;
+}
+.size-btn {
+    border: 1px solid #ddd; background: transparent; color: #555;
+    padding: 0; width: 35px; height: 35px; border-radius: 50%;
+    cursor: pointer; font-size: 0.8rem; font-weight: 600;
+    transition: all 0.2s ease; display: flex; align-items: center; justify-content: center;
+}
+.size-btn:hover { border-color: var(--marsala-dark); color: var(--marsala-dark); }
+.size-btn.selected {
+    background: var(--marsala-dark); color: white; border-color: var(--marsala-dark);
+    transform: scale(1.1); box-shadow: 0 3px 8px rgba(125, 78, 87, 0.3);
+}
+.shake {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+    border-color: #ff6b6b !important; color: #ff6b6b !important;
+}
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
 
 /* --- AVALIAÇÕES --- */
 .reviews-section { background: white; }
@@ -453,7 +498,6 @@ html {
     border: 2px solid rgba(255,255,255,0.2); margin-top: 20px;
 }
 
-/* --- ÍCONES SOCIAIS FOOTER --- */
 .social-links-footer {
     display: flex; justify-content: center; gap: 25px; margin: 30px 0;
 }
@@ -500,6 +544,29 @@ html {
     display: flex; align-items: center; justify-content: center;
     font-weight: 700; border: 2px solid white;
 }
+
+/* --- BOTÕES EXTRAS --- */
+.load-more-container { text-align: center; margin: 40px 0; }
+.btn-load-more {
+    background: transparent; border: 2px solid var(--marsala-dark);
+    color: var(--marsala-dark); padding: 12px 40px; border-radius: 30px;
+    font-weight: 700; text-transform: uppercase; cursor: pointer;
+    transition: all 0.3s; font-size: 0.9rem; display: none;
+}
+.btn-load-more:hover {
+    background: var(--marsala-dark); color: white;
+    transform: translateY(-2px); box-shadow: 0 4px 10px rgba(125, 78, 87, 0.3);
+}
+
+.back-to-top {
+    position: fixed; bottom: 90px; left: 20px; background: rgba(51, 51, 51, 0.7);
+    color: white; width: 45px; height: 45px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+    opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 999;
+    font-size: 1.2rem; border: none;
+}
+.back-to-top.show { opacity: 1; visibility: visible; }
+.back-to-top:hover { background: var(--marsala-dark); transform: translateY(-3px); }
 
 /* --- MODAL CARRINHO --- */
 .modal-overlay {
@@ -573,101 +640,29 @@ html {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;
 }
 
-/* --- MOBILE MENU --- */
+/* --- AJUSTES PARA CELULAR (Responsivo) - ATUALIZADO --- */
 @media (max-width: 768px) {
     .header-content { flex-direction: column; gap: 10px; }
     .nav-menu { display: none; flex-direction: column; width: 100%; text-align: center; padding-top: 15px; border-top: 1px solid #eee; }
     .nav-menu.active { display: flex; }
     .mobile-menu-icon { display: block; position: absolute; right: 20px; top: 20px; }
-    .hero { height: 60vh; }
-    .hero-content h2 { font-size: 2.2rem; }
+    
+    /* Hero ajustado para não cobrir o rosto */
+    .hero { 
+        height: 70vh; 
+        background-position: center top; 
+    }
+    
+    .hero-content {
+        padding-top: 50px; /* Empurra o texto para baixo */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero-content h1 { font-size: 2.2rem; margin-bottom: 15px; } /* Texto menor */
+    .hero-content p { font-size: 1rem; margin-bottom: 25px; line-height: 1.4; }
+    .btn-hero { padding: 12px 35px; font-size: 0.9rem; }
+    
     .input-row { flex-direction: column; gap: 10px; }
     .footer-grid { grid-template-columns: 1fr; }
 }
-
-/* --- SELETOR DE TAMANHOS --- */
-.sizes-container {
-    display: flex; gap: 8px; justify-content: center;
-    margin: 10px 0 15px 0; flex-wrap: wrap;
-}
-.size-btn {
-    border: 1px solid #ddd; background: transparent; color: #555;
-    padding: 0; width: 35px; height: 35px; border-radius: 50%;
-    cursor: pointer; font-size: 0.8rem; font-weight: 600;
-    transition: all 0.2s ease; display: flex; align-items: center; justify-content: center;
-}
-.size-btn:hover { border-color: var(--marsala-dark); color: var(--marsala-dark); }
-.size-btn.selected {
-    background: var(--marsala-dark); color: white; border-color: var(--marsala-dark);
-    transform: scale(1.1); box-shadow: 0 3px 8px rgba(125, 78, 87, 0.3);
-}
-.shake {
-    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
-    border-color: #ff6b6b !important; color: #ff6b6b !important;
-}
-@keyframes shake {
-  10%, 90% { transform: translate3d(-1px, 0, 0); }
-  20%, 80% { transform: translate3d(2px, 0, 0); }
-  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-  40%, 60% { transform: translate3d(4px, 0, 0); }
-}
-
-/* --- ESTILO DOS FILTROS UNIFICADO E CORRIGIDO --- */
-
-/* 1. Ajuste do título para não brigar com o filtro */
-#colecao {
-    padding-top: 20px; /* Reduzi para aproximar */
-    padding-bottom: 40px;
-}
-#colecao .section-title {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-    position: relative;
-    z-index: 850; /* Garante que o título fique ACIMA do fundo do filtro se tocar */
-}
-
-/* 2. Barra de Filtros (Definitiva) */
-.sticky-filters {
-    position: sticky;
-    
-    /* ONDE ELE TRAVA: Logo abaixo do header */
-    top: 75px; 
-    
-    /* O ESCUDO: Altura suficiente para cobrir os itens rolando */
-    padding-top: 40px; /* Reduzi um pouco para não ficar gigante */
-    padding-bottom: 20px;
-    
-    /* A MÁGICA: Puxa para cima para aproximar do título quando parado */
-    margin-top: -20px; /* Um valor mais suave que não sobrepõe */
-    
-    background: rgba(250, 250, 250, 0.98);
-    z-index: 800;
-    backdrop-filter: blur(5px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    margin-bottom: 20px;
-    transition: all 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-}
-
-/* --- BOTÕES EXTRAS --- */
-.load-more-container { text-align: center; margin: 40px 0; }
-.btn-load-more {
-    background: transparent; border: 2px solid var(--marsala-dark);
-    color: var(--marsala-dark); padding: 12px 40px; border-radius: 30px;
-    font-weight: 700; text-transform: uppercase; cursor: pointer;
-    transition: all 0.3s; font-size: 0.9rem; display: none;
-}
-.btn-load-more:hover {
-    background: var(--marsala-dark); color: white;
-    transform: translateY(-2px); box-shadow: 0 4px 10px rgba(125, 78, 87, 0.3);
-}
-
-.back-to-top {
-    position: fixed; bottom: 90px; left: 20px; background: rgba(51, 51, 51, 0.7);
-    color: white; width: 45px; height: 45px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; cursor: pointer;
-    opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 999;
-    font-size: 1.2rem; border: none;
-}
-.back-to-top.show { opacity: 1; visibility: visible; }
-.back-to-top:hover { background: var(--marsala-dark); transform: translateY(-3px); }
