@@ -91,8 +91,64 @@
             </div>
                 
             <div class="grid" id="grid-produtos">
-                <p style="text-align:center; padding: 40px; width: 100%;">Carregando produtos...</p>
+                <p style="text-align:center; width:100%; color:#888;">Carregando vitrine...</p>
             </div>
+            <div class="load-more-container">
+                <button id="btn-ver-mais" class="btn-load-more" onclick="carregarMaisProdutos()">
+                    Ver Mais Produtos <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <section class="reviews-section section">
+        <div class="container">
+            <h2 class="section-title">Quem usa, se apaixona</h2>
+            <p style="text-align: center; color: #888; margin-top: -30px; margin-bottom: 50px;">O carinho de nossas clientes VIP.</p>
+            
+            <div class="review-grid">
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="client-photo">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Estou encantada com a qualidade! O conjunto de alfaiataria vestiu perfeitamente. O atendimento da Raquel foi impecável."</p>
+                    <div><p class="client-name">Fernanda Oliveira</p><span class="client-location">Cliente VIP</span></div>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente" class="client-photo">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"As roupas são ainda mais lindas pessoalmente. Comprei o vestido floral e recebi muitos elogios. A entrega em Itaúna foi super rápida!"</p>
+                    <div><p class="client-name">Juliana Costa</p><span class="client-location">Cliente VIP</span></div>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Cliente" class="client-photo">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"A Loja Manu virou meu vício! Toda semana tem novidade e preço justo. Amo como as peças valorizam meu corpo."</p>
+                    <div><p class="client-name">Mariana Dias</p><span class="client-location">Cliente VIP</span></div>
+                </div>
+
+                 <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Cliente" class="client-photo">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Nunca vi um atendimento assim em loja online. Me senti super acolhida e as roupas chegaram cheirosas! Recomendo mil vezes."</p>
+                    <div><p class="client-name">Patrícia Souza</p><span class="client-location">Cliente VIP</span></div>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Cliente" class="client-photo">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Comprei um vestido para um casamento e foi sucesso total. Tecido maravilhoso e caimento perfeito. Obrigada Manu!"</p>
+                    <div><p class="client-name">Camila Rocha</p><span class="client-location">Cliente VIP</span></div>
+                </div>
+            </div>
+            
+            <a href="https://www.instagram.com/lojamanuitauna/" target="_blank" class="btn-social-proof">
+                <i class="fab fa-instagram"></i> Ver mais clientes no Instagram
+            </a>
         </div>
     </section>
 
