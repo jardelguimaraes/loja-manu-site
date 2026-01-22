@@ -184,35 +184,52 @@ html {
     text-align: center;
     border-bottom: 1px solid #eee;
 }
+/* --- FILTROS E BUSCA --- */
 .filtros-container {
     display: flex;
-    justify-content: center;
     gap: 10px;
+    justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
-.btn-filtro 
-{ border: 1px solid var(--marsala);
- background: transparent;
- color: var(--marsala);
- padding: 8px 20px;
- border-radius: 20px;
- cursor: pointer;
- font-weight: 600;
- transition: 0.3s;
+
+.btn-filtro {
+    padding: 8px 18px;
+    border: 1px solid var(--marsala-dark);
+    background: transparent;
+    color: var(--marsala-dark);
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s;
 }
+
 .btn-filtro.ativo, .btn-filtro:hover {
-    background: var(--marsala);
+    background: var(--marsala-dark);
     color: white;
 }
-#campo-busca {
-    padding: 10px 20px;
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    outline: none;
+
+.search-container {
+    text-align: center;
+    margin-bottom: 40px;
 }
+
+#campo-busca {
+    padding: 12px 25px;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+#campo-busca:focus {
+    border-color: var(--marsala-dark);
+    box-shadow: 0 0 10px rgba(125, 78, 87, 0.2);
+
 
 /* --- VITRINE PRODUTOS --- */
 .grid {
