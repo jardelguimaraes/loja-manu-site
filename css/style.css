@@ -158,9 +158,9 @@ html {
 }
 .section-title {
     text-align: center;
-    color: var(--marsala);
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    color: var(--marsala-dark);
     margin-bottom: 40px;
 }
 .section-title-left {
