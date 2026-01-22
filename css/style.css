@@ -139,23 +139,27 @@ html {
     color: var(--texto);
 }
 
-/* --- LAYOUT GERAL --- */
 .slogan-banner {
-    background: var(--rosa-bg);
-    color: var(--marsala);
+    background: var(--rosa-claro);
     text-align: center;
-    padding: 30px 20px;
-    font-family: 'Playfair Display', serif; font-style: italic;
-    font-size: 1.2rem;
+    padding: 40px 20px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--marsala-dark);
+    font-size: 1.3rem;
 }
+
+/* --- LAYOUT GERAL --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
+
 .section {
     padding: 60px 0;
 }
+
 .section-title {
     text-align: center;
     font-family: 'Playfair Display', serif;
@@ -163,6 +167,7 @@ html {
     color: var(--marsala-dark);
     margin-bottom: 40px;
 }
+
 .section-title-left {
     text-align: center;
     font-family: 'Playfair Display', serif;
@@ -170,10 +175,6 @@ html {
     color: var(--marsala-dark);
     margin-bottom: 40px;
 }
-.bg-suave {
-    background-color: var(--rosa-bg);
-}
-
 /* --- FILTROS --- */
 .sticky-filters {
     position: sticky;
