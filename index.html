@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Manu Itaúna | Moda Feminina</title>
-    
-    <meta name="description" content="Loja Manu Itaúna - Moda feminina que exalta sua essência.">
     <meta name="theme-color" content="#7d4e57">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -25,27 +21,22 @@
         <div class="container header-content">
             <a href="#" class="logo-link">
                 <div class="logo">
-                    <img src="img/logo-m.png" alt="Logo Manu" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block'">
-                    <div class="logo-text"><h1>Loja Manu</h1></div>
+                    <img src="img/logo-m.png" alt="Loja Manu" class="logo-img" onerror="this.style.display='none'; document.getElementById('txt-logo').style.display='block'">
+                    <div class="logo-text" id="txt-logo"><h1>Loja Manu</h1></div>
                 </div>
             </a>
-
             <nav class="nav-menu" id="nav-menu">
                 <a href="#colecao" onclick="toggleMenu()">Coleção</a>
                 <a href="#sobre" onclick="toggleMenu()">História</a>
                 <a href="#vip" onclick="toggleMenu()">VIP</a>
-                <a href="https://www.instagram.com/lojamanuitauna/" target="_blank">Instagram</a>
                 <a href="#contato" onclick="toggleMenu()">Contato</a>
             </nav>
-
-            <div class="mobile-menu-icon" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </div>
+            <div class="mobile-menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-spacer"></div> 
+        <div class="hero-spacer"></div>
         <div class="hero-content">
             <h1>Sua essência,<br>seu estilo.</h1>
             <p>Moda selecionada com carinho para valorizar a mulher real.</p>
@@ -64,17 +55,15 @@
             <div class="sticky-filters">
                 <div class="filtros-container">
                     <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Ver Tudo</button>
-                    <button class="btn-filtro" onclick="filtrar('lancamento', this)">✨ Lançamentos</button>
-                    <button class="btn-filtro" onclick="filtrar('promocao', this)">🔥 Promoção</button>
-                    <button class="btn-filtro" onclick="filtrar('ultimas', this)">💎 Últimas Peças</button>
-                </div>
-                <div class="search-container">
-                    <input type="text" id="campo-busca" placeholder="🔍 O que você procura hoje?">
+                    <button class="btn-filtro" onclick="filtrar('Lançamento', this)">✨ Lançamentos</button>
+                    <button class="btn-filtro" onclick="filtrar('Promoção', this)">🔥 Promoção</button>
+                    <button class="btn-filtro" onclick="filtrar('Últimas Peças', this)">💎 Últimas Peças</button>
                 </div>
             </div>
             
             <div class="grid" id="grid-produtos">
-                </div>
+                <p style="text-align:center; padding:40px; width:100%;">Carregando produtos...</p>
+            </div>
         </div>
     </section>
 
@@ -88,37 +77,20 @@
         </div>
     </section>
 
-    <section id="vip" class="section">
-        <div class="container text-center">
-            <h2 class="section-title">Clube VIP</h2>
-            <p style="color: #666; margin-bottom: 20px;">Entre para nossa lista exclusiva.</p>
-            <form id="form-vip" class="compact-form">
-                <div class="input-row">
-                    <input type="text" id="nome" class="form-input" placeholder="Seu Nome" required>
-                    <input type="text" id="whatsapp" class="form-input" placeholder="Seu WhatsApp" required>
-                </div>
-                <button type="submit" id="btn-enviar" class="btn-full">QUERO ENTRAR</button>
-            </form>
-        </div>
-    </section>
-
     <footer class="footer" id="contato">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-info">
                     <h3>Loja Manu Itaúna</h3>
-                    <p style="margin-bottom: 15px; font-style: italic; color: #ffdee6;">Moda com Propósito.</p>
                     <p>Rua Geniplo Dornas, 229 - Centro, Itaúna/MG</p>
                     <p>(37) 99914-6764</p>
                 </div>
                 <div class="social-links-footer">
-                    <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://instagram.com/lojamanuitauna" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Loja Manu. Todos os direitos reservados.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Loja Manu.</p></div>
         </div>
     </footer>
 
@@ -144,136 +116,120 @@
     </div>
 
     <script>
-        // DADOS REAIS OU EXEMPLO (Funciona sempre)
-        const produtosDB = [
-            { nome: "Conjunto Alfaiataria", preco: 299.90, img: "img/prod1.jpg", tag: "lancamento" },
-            { nome: "Vestido Midi Floral", preco: 189.90, img: "img/prod2.jpg", tag: "promocao" },
-            { nome: "Blusa Social Seda", preco: 129.90, img: "img/prod3.jpg", tag: "lancamento" },
-            { nome: "Calça Pantalona", preco: 219.90, img: "img/prod4.jpg", tag: "ultimas" },
-            { nome: "Saia Plissada", preco: 159.90, img: "img/prod5.jpg", tag: "promocao" },
-            { nome: "Macacão Linho", preco: 349.90, img: "img/prod6.jpg", tag: "lancamento" },
-            { nome: "Cropped Renda", preco: 89.90, img: "img/prod7.jpg", tag: "ultimas" }
-        ];
-
+        let produtosGlobais = [];
         let carrinho = [];
 
-        // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
-            renderizar(produtosDB);
+            carregarProdutosDoArquivo();
             carregarCarrinho();
         });
 
-        // Renderizar Produtos
+        // --- CARREGAR DO JSON ---
+        async function carregarProdutosDoArquivo() {
+            try {
+                // Tenta carregar o arquivo
+                const response = await fetch('produtos.json?v=' + Date.now());
+                if (!response.ok) throw new Error('Erro ao ler arquivo');
+                
+                produtosGlobais = await response.json();
+                renderizar(produtosGlobais);
+                
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('grid-produtos').innerHTML = 
+                    '<p style="text-align:center; color:red; padding:20px;">Erro ao carregar produtos. Verifique se o arquivo produtos.json existe.</p>';
+            }
+        }
+
         function renderizar(lista) {
             const grid = document.getElementById('grid-produtos');
             grid.innerHTML = '';
             
             if(lista.length === 0) {
-                grid.innerHTML = '<p style="width:100%; text-align:center; padding:20px;">Nenhum produto encontrado.</p>';
+                grid.innerHTML = '<p style="text-align:center; width:100%;">Nenhum produto encontrado.</p>';
                 return;
             }
 
             lista.forEach(p => {
-                // Tenta carregar imagem ou usa placeholder
-                const imgUrl = p.img ? p.img : 'https://via.placeholder.com/300x400?text=Manu';
-                
-                const html = `
+                let btnHtml = p.esgotado ? 
+                    `<button class="btn-buy" disabled style="background:#ccc;">Esgotado</button>` : 
+                    `<button class="btn-buy" onclick="adicionarItem('${p.nome}', ${p.preco})">Comprar</button>`;
+
+                const card = `
                     <div class="card-produto">
+                        ${p.tag ? `<span class="badge" style="background:${p.tagCor}">${p.tag}</span>` : ''}
                         <div class="img-container">
-                            <img src="${imgUrl}" onerror="this.src='https://via.placeholder.com/300x400?text=Foto'">
+                            <img src="${p.img}" onerror="this.src='https://via.placeholder.com/300x400?text=Foto'">
                         </div>
                         <div class="info-produto">
                             <h3>${p.nome}</h3>
-                            <p class="price-new">R$ ${p.preco.toFixed(2).replace('.', ',')}</p>
-                            <button class="btn-buy" onclick="adicionarItem('${p.nome}', ${p.preco})">
-                                <i class="fas fa-shopping-bag"></i> Comprar
-                            </button>
+                            <div class="price-box">
+                                <span class="price-new">R$ ${p.preco.toFixed(2).replace('.', ',')}</span>
+                                <span class="installments">${p.parcelas || ''}</span>
+                            </div>
+                            ${btnHtml}
                         </div>
                     </div>
                 `;
-                grid.innerHTML += html;
+                grid.innerHTML += card;
             });
         }
 
-        // Filtro
         function filtrar(tag, btn) {
-            // Visual
             document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
             btn.classList.add('ativo');
             
-            // Lógica
-            let filtrados = (tag === 'todos') ? produtosDB : produtosDB.filter(p => p.tag === tag);
-            renderizar(filtrados);
-
-            // Scroll Suave (Elevador)
+            if (tag === 'todos') {
+                renderizar(produtosGlobais);
+            } else {
+                const filtrados = produtosGlobais.filter(p => p.tag && p.tag.toLowerCase().includes(tag.toLowerCase()));
+                renderizar(filtrados);
+            }
+            
+            // Elevador
             const secao = document.getElementById('colecao');
-            const topo = secao.offsetTop - 100;
-            window.scrollTo({ top: topo, behavior: 'smooth' });
+            window.scrollTo({ top: secao.offsetTop - 100, behavior: 'smooth' });
         }
 
-        // Carrinho
+        // --- CARRINHO ---
         function carregarCarrinho() {
             const salvo = localStorage.getItem('carrinhoManu');
             if (salvo) carrinho = JSON.parse(salvo);
             atualizarUI();
         }
-
         function adicionarItem(nome, preco) {
             const item = carrinho.find(i => i.nome === nome);
             if (item) item.qtd++;
             else carrinho.push({ nome, preco, qtd: 1 });
-            salvar();
-            abrirCarrinho();
+            salvar(); abrirCarrinho();
         }
-
         function salvar() {
             localStorage.setItem('carrinhoManu', JSON.stringify(carrinho));
             atualizarUI();
         }
-
         function atualizarUI() {
             document.getElementById('cart-count').innerText = carrinho.reduce((acc, i) => acc + i.qtd, 0);
             const lista = document.getElementById('itens-carrinho');
             lista.innerHTML = '';
             let total = 0;
-            
             carrinho.forEach((item, idx) => {
                 total += item.preco * item.qtd;
-                lista.innerHTML += `
-                    <li class="item-carrinho">
-                        <div>${item.qtd}x <strong>${item.nome}</strong></div>
-                        <div>R$ ${(item.preco * item.qtd).toFixed(2)} 
-                        <i class="fas fa-trash" style="color:red; cursor:pointer; margin-left:10px;" onclick="remover(${idx})"></i></div>
-                    </li>
-                `;
+                lista.innerHTML += `<li class="item-carrinho"><div>${item.qtd}x ${item.nome}</div> <div>R$ ${(item.preco*item.qtd).toFixed(2)} <i class="fas fa-trash" style="color:red; margin-left:10px; cursor:pointer;" onclick="remover(${idx})"></i></div></li>`;
             });
             document.getElementById('total-carrinho').innerText = 'R$ ' + total.toFixed(2);
         }
-
-        function remover(idx) {
-            carrinho.splice(idx, 1);
-            salvar();
-        }
-
+        function remover(idx) { carrinho.splice(idx, 1); salvar(); }
         function enviarPedidoWhatsApp() {
             if(carrinho.length === 0) return alert('Sacola vazia!');
-            let msg = "Olá Loja Manu! Gostaria de pedir:\n";
+            let msg = "Olá! Pedido pelo site:\n";
             carrinho.forEach(i => msg += `- ${i.qtd}x ${i.nome}\n`);
             msg += `Total: ${document.getElementById('total-carrinho').innerText}`;
             window.open(`https://wa.me/5537999146764?text=${encodeURIComponent(msg)}`);
         }
 
-        // Menus
         function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
         function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
         function fecharCarrinho() { document.getElementById('modal-carrinho').classList.remove('open'); }
-        
-        // Busca
-        document.getElementById('campo-busca').addEventListener('input', (e) => {
-            const termo = e.target.value.toLowerCase();
-            const filtrados = produtosDB.filter(p => p.nome.toLowerCase().includes(termo));
-            renderizar(filtrados);
-        });
     </script>
 </body>
 </html>
