@@ -63,9 +63,9 @@
             <div class="sticky-filters">
                 <div class="filtros-container">
                     <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Ver Tudo</button>
-                    <button class="btn-filtro" onclick="filtrar('Lançamento', this)">✨ Lançamentos</button>
-                    <button class="btn-filtro" onclick="filtrar('Promoção', this)">🔥 Promoção</button>
-                    <button class="btn-filtro" onclick="filtrar('Últimas Peças', this)">💎 Últimas Peças</button>
+                    <button class="btn-filtro" onclick="filtrar('lançamento', this)">✨ Lançamentos</button>
+                    <button class="btn-filtro" onclick="filtrar('promoção', this)">🔥 Promoção</button>
+                    <button class="btn-filtro" onclick="filtrar('últimas peças', this)">💎 Últimas Peças</button>
                 </div>
                 
                 <div class="search-container">
@@ -145,13 +145,6 @@
     </div>
 
     <script>
-        // DADOS DE BACKUP (Caso o JSON falhe, o site NÃO quebra)
-        const backupProdutos = [
-            {id:1, nome:"Produto Exemplo 1", preco:199.90, tag:"Lançamento", img:"https://via.placeholder.com/300"},
-            {id:2, nome:"Produto Exemplo 2", preco:149.90, tag:"Promoção", img:"https://via.placeholder.com/300"},
-            {id:3, nome:"Produto Exemplo 3", preco:89.90, tag:"Últimas Peças", img:"https://via.placeholder.com/300"}
-        ];
-
         let produtosGlobais = [];
         let carrinho = [];
 
@@ -160,17 +153,17 @@
             carregarCarrinho();
         });
 
-        // 1. Carrega JSON ou usa Backup
+        // 1. Carrega JSON
         async function carregarProdutos() {
             try {
                 const response = await fetch('produtos.json?v=' + Date.now());
-                if (!response.ok) throw new Error("JSON falhou");
+                if (!response.ok) throw new Error("Erro ao carregar JSON");
                 produtosGlobais = await response.json();
+                renderizar(produtosGlobais);
             } catch (e) {
-                console.warn("Usando backup de produtos.");
-                produtosGlobais = backupProdutos;
+                console.error(e);
+                document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center;">Erro ao carregar vitrine.</p>';
             }
-            renderizar(produtosGlobais);
         }
 
         // 2. Renderiza a grade
@@ -179,16 +172,27 @@
             grid.innerHTML = '';
             
             if(lista.length === 0) {
-                grid.innerHTML = '<p style="text-align:center; width:100%;">Nenhum produto encontrado.</p>';
+                grid.innerHTML = '<p style="text-align:center; width:100%;">Nenhum produto encontrado com este filtro.</p>';
                 return;
             }
 
             lista.forEach(p => {
                 const imgUrl = p.img ? p.img : 'https://via.placeholder.com/300x400?text=Manu';
                 const tagHtml = p.tag ? `<span class="badge" style="background:${p.tagCor || '#7d4e57'}">${p.tag}</span>` : '';
-                const btnHtml = p.esgotado ? 
-                    `<button class="btn-buy" disabled style="background:#ccc;">Esgotado</button>` : 
-                    `<button class="btn-buy" onclick="adicionarItem('${p.nome}', ${p.preco})">Comprar</button>`;
+                
+                // Botão Esgotado ou Comprar
+                let btnHtml = '';
+                if(p.esgotado) {
+                    btnHtml = `<button class="btn-buy" disabled style="background:#ccc; cursor:not-allowed;">Esgotado</button>`;
+                } else {
+                    btnHtml = `<button class="btn-buy" onclick="adicionarItem('${p.nome}', ${p.preco})">Comprar</button>`;
+                }
+
+                // Tamanhos
+                let sizesHtml = '';
+                if(p.tamanhos && p.tamanhos.length > 0) {
+                    sizesHtml = `<div class="sizes-container">${p.tamanhos.map(t => `<span class="size-badge">${t}</span>`).join('')}</div>`;
+                }
 
                 const card = `
                     <div class="card-produto">
@@ -198,6 +202,7 @@
                         </div>
                         <div class="info-produto">
                             <h3>${p.nome}</h3>
+                            ${sizesHtml}
                             <div class="price-box">
                                 <span class="price-new">R$ ${p.preco.toFixed(2).replace('.', ',')}</span>
                                 <span class="installments">${p.parcelas || ''}</span>
@@ -216,21 +221,21 @@
             document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
             btn.classList.add('ativo');
             
-            // Lógica de filtro
+            // Lógica de filtro (case insensitive)
             let filtrados = [];
             if (tag === 'todos') {
                 filtrados = produtosGlobais;
             } else {
-                // Filtra ignorando maiúsculas/minúsculas
-                filtrados = produtosGlobais.filter(p => p.tag && p.tag.toLowerCase().includes(tag.toLowerCase()));
+                filtrados = produtosGlobais.filter(p => p.tag && p.tag.toLowerCase() === tag.toLowerCase());
             }
             renderizar(filtrados);
 
-            // A Mágica do Scroll
+            // A Mágica do Scroll: Sobe a tela descontando o header
             const secao = document.getElementById('colecao');
-            // Desconta 100px por causa do cabeçalho fixo
-            const topo = secao.offsetTop - 100; 
-            window.scrollTo({ top: topo, behavior: 'smooth' });
+            if(secao) {
+                const topo = secao.offsetTop - 120; // 120px de margem de segurança
+                window.scrollTo({ top: topo, behavior: 'smooth' });
+            }
         }
 
         // 4. Funções do Carrinho
@@ -256,7 +261,12 @@
             let total = 0;
             carrinho.forEach((item, idx) => {
                 total += item.preco * item.qtd;
-                lista.innerHTML += `<li class="item-carrinho"><div>${item.qtd}x ${item.nome}</div> <div>R$ ${(item.preco*item.qtd).toFixed(2)} <i class="fas fa-trash" style="color:red; margin-left:10px; cursor:pointer;" onclick="remover(${idx})"></i></div></li>`;
+                lista.innerHTML += `
+                    <li class="item-carrinho">
+                        <div>${item.qtd}x ${item.nome}</div>
+                        <div>R$ ${(item.preco*item.qtd).toFixed(2)} 
+                        <i class="fas fa-trash" style="color:red; margin-left:10px; cursor:pointer;" onclick="remover(${idx})"></i></div>
+                    </li>`;
             });
             document.getElementById('total-carrinho').innerText = 'R$ ' + total.toFixed(2);
         }
@@ -269,7 +279,7 @@
             window.open(`https://wa.me/5537999146764?text=${encodeURIComponent(msg)}`);
         }
 
-        // 5. Utilidades (Menu, Busca)
+        // 5. Utilidades
         function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
         function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
         function fecharCarrinho() { document.getElementById('modal-carrinho').classList.remove('open'); }
