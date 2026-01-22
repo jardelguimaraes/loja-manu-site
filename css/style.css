@@ -34,7 +34,7 @@ html {
     background: var(--marsala-dark);
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 16px;
     font-size: 0.85rem;
     font-weight: 500;
     position: fixed;
@@ -47,7 +47,7 @@ html {
     background: rgba(255, 255, 255, 0.98);
     padding: 10px 0;
     position: fixed;
-    top: 36px;
+    top: 100px;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -62,7 +62,7 @@ html {
 .logo-link { text-decoration: none; color: inherit; }
 
 .logo { display: flex; align-items: center; gap: 12px; }
-.logo-img { height: 50px; }
+.logo-img { height: 58px; }
 
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
@@ -123,18 +123,13 @@ html {
 }
 
 .hero-content p {
-    font-size: 1.15rem;
-    color: #f5f5f5;
+    font-size: 1.1rem;
+    color: #f0f0f0;
+    margin-bottom: 25px;
+    font-weight: 400;
     opacity: 0.9;
 }
 
-
-.hero-content p {
-    color: #f0f0f0;
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    font-weight: 400;
-}
 
 .btn-hero {
     background: rgba(255,255,255,0.25);
@@ -632,10 +627,15 @@ html {
     box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
+<script.js>
 function scrollParaColecao() {
     const el = document.getElementById('colecao');
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
+</script.js>
+
 function filtrarPorTag(tag, elementoBtn) {
     document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
     elementoBtn.classList.add('ativo');
