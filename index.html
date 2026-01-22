@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Manu Itaúna | Moda Feminina</title>
+    
+    <meta name="description" content="Loja Manu Itaúna - Moda feminina que exalta sua essência.">
     <meta name="theme-color" content="#7d4e57">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -23,7 +25,7 @@
         <div class="container header-content">
             <a href="#" class="logo-link">
                 <div class="logo">
-                    <img src="img/logo-m.png" alt="Logo Manu" class="logo-img" onerror="this.style.display='none'">
+                    <img src="img/logo-m.png" alt="Logo Manu" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block'">
                     <div class="logo-text"><h1>Loja Manu</h1></div>
                 </div>
             </a>
@@ -32,6 +34,7 @@
                 <a href="#colecao" onclick="toggleMenu()">Coleção</a>
                 <a href="#sobre" onclick="toggleMenu()">História</a>
                 <a href="#vip" onclick="toggleMenu()">VIP</a>
+                <a href="https://www.instagram.com/lojamanuitauna/" target="_blank">Instagram</a>
                 <a href="#contato" onclick="toggleMenu()">Contato</a>
             </nav>
 
@@ -42,6 +45,7 @@
     </header>
 
     <section class="hero">
+        <div class="hero-spacer"></div> 
         <div class="hero-content">
             <h1>Sua essência,<br>seu estilo.</h1>
             <p>Moda selecionada com carinho para valorizar a mulher real.</p>
@@ -62,6 +66,10 @@
                     <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Ver Tudo</button>
                     <button class="btn-filtro" onclick="filtrar('lancamento', this)">✨ Lançamentos</button>
                     <button class="btn-filtro" onclick="filtrar('promocao', this)">🔥 Promoção</button>
+                    <button class="btn-filtro" onclick="filtrar('ultimas', this)">💎 Últimas Peças</button>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="campo-busca" placeholder="🔍 O que você procura hoje?">
                 </div>
             </div>
             
@@ -70,17 +78,42 @@
         </div>
     </section>
 
+    <section id="sobre" class="section bg-suave">
+        <div class="container text-center">
+            <h2 class="section-title">Nossa Trajetória</h2>
+            <div class="text-box">
+                <p>A <strong>Loja Manu</strong> é a concretização de um sonho de <strong>Raquel Santos</strong>. Com espírito empreendedor, Raquel sempre acreditou que a moda é ferramenta de autoestima.</p>
+                <p class="signature">Com carinho, Equipe Manu.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vip" class="section">
+        <div class="container text-center">
+            <h2 class="section-title">Clube VIP</h2>
+            <p style="color: #666; margin-bottom: 20px;">Entre para nossa lista exclusiva.</p>
+            <form id="form-vip" class="compact-form">
+                <div class="input-row">
+                    <input type="text" id="nome" class="form-input" placeholder="Seu Nome" required>
+                    <input type="text" id="whatsapp" class="form-input" placeholder="Seu WhatsApp" required>
+                </div>
+                <button type="submit" id="btn-enviar" class="btn-full">QUERO ENTRAR</button>
+            </form>
+        </div>
+    </section>
+
     <footer class="footer" id="contato">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-info">
                     <h3>Loja Manu Itaúna</h3>
+                    <p style="margin-bottom: 15px; font-style: italic; color: #ffdee6;">Moda com Propósito.</p>
                     <p>Rua Geniplo Dornas, 229 - Centro, Itaúna/MG</p>
-                    <p>WhatsApp: (37) 99914-6764</p>
+                    <p>(37) 99914-6764</p>
                 </div>
                 <div class="social-links-footer">
+                    <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://instagram.com/lojamanuitauna" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -90,78 +123,156 @@
     </footer>
 
     <a href="https://wa.me/5537999146764" class="float-zap" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    
+    <div class="cart-float" onclick="abrirCarrinho()">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+
+    <div id="modal-carrinho" class="modal-overlay" onclick="if(event.target === this) fecharCarrinho()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sua Sacola</h2>
+                <button class="btn-close" onclick="fecharCarrinho()">×</button>
+            </div>
+            <ul id="itens-carrinho"></ul>
+            <div class="cart-footer">
+                <div class="cart-total"><span>Total:</span> <span id="total-carrinho">R$ 0,00</span></div>
+                <button class="btn-finalizar" onclick="enviarPedidoWhatsApp()">Fechar no WhatsApp</button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // DADOS DOS PRODUTOS (Para não depender de arquivo externo agora)
+        // DADOS REAIS OU EXEMPLO (Funciona sempre)
         const produtosDB = [
             { nome: "Conjunto Alfaiataria", preco: 299.90, img: "img/prod1.jpg", tag: "lancamento" },
             { nome: "Vestido Midi Floral", preco: 189.90, img: "img/prod2.jpg", tag: "promocao" },
             { nome: "Blusa Social Seda", preco: 129.90, img: "img/prod3.jpg", tag: "lancamento" },
-            { nome: "Calça Pantalona", preco: 219.90, img: "img/prod4.jpg", tag: "todos" },
+            { nome: "Calça Pantalona", preco: 219.90, img: "img/prod4.jpg", tag: "ultimas" },
             { nome: "Saia Plissada", preco: 159.90, img: "img/prod5.jpg", tag: "promocao" },
-            { nome: "Macacão Linho", preco: 349.90, img: "img/prod6.jpg", tag: "lancamento" }
+            { nome: "Macacão Linho", preco: 349.90, img: "img/prod6.jpg", tag: "lancamento" },
+            { nome: "Cropped Renda", preco: 89.90, img: "img/prod7.jpg", tag: "ultimas" }
         ];
-        
-        // Função que desenha os produtos na tela
+
+        let carrinho = [];
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            renderizar(produtosDB);
+            carregarCarrinho();
+        });
+
+        // Renderizar Produtos
         function renderizar(lista) {
             const grid = document.getElementById('grid-produtos');
-            grid.innerHTML = ''; // Limpa antes de desenhar
+            grid.innerHTML = '';
             
+            if(lista.length === 0) {
+                grid.innerHTML = '<p style="width:100%; text-align:center; padding:20px;">Nenhum produto encontrado.</p>';
+                return;
+            }
+
             lista.forEach(p => {
-                // Cria o card do produto
-                const card = `
+                // Tenta carregar imagem ou usa placeholder
+                const imgUrl = p.img ? p.img : 'https://via.placeholder.com/300x400?text=Manu';
+                
+                const html = `
                     <div class="card-produto">
                         <div class="img-container">
-                            <img src="${p.img}" onerror="this.src='https://via.placeholder.com/300x400?text=Foto+Manu'">
+                            <img src="${imgUrl}" onerror="this.src='https://via.placeholder.com/300x400?text=Foto'">
                         </div>
                         <div class="info-produto">
                             <h3>${p.nome}</h3>
-                            <p class="price">R$ ${p.preco.toFixed(2).replace('.', ',')}</p>
-                            <button class="btn-buy" onclick="comprar('${p.nome}')">
-                                <i class="fab fa-whatsapp"></i> Comprar
+                            <p class="price-new">R$ ${p.preco.toFixed(2).replace('.', ',')}</p>
+                            <button class="btn-buy" onclick="adicionarItem('${p.nome}', ${p.preco})">
+                                <i class="fas fa-shopping-bag"></i> Comprar
                             </button>
                         </div>
                     </div>
                 `;
-                grid.innerHTML += card;
+                grid.innerHTML += html;
             });
         }
 
-        // Filtro com "Elevador" (Scroll para o topo)
+        // Filtro
         function filtrar(tag, btn) {
-            // Arruma os botões
+            // Visual
             document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
             btn.classList.add('ativo');
-
-            // Filtra os dados
-            let filtrados = [];
-            if(tag === 'todos') {
-                filtrados = produtosDB;
-            } else {
-                filtrados = produtosDB.filter(p => p.tag === tag);
-            }
+            
+            // Lógica
+            let filtrados = (tag === 'todos') ? produtosDB : produtosDB.filter(p => p.tag === tag);
             renderizar(filtrados);
 
-            // Sobe a tela
+            // Scroll Suave (Elevador)
             const secao = document.getElementById('colecao');
-            const topo = secao.offsetTop - 100; // 100px de desconto do menu
+            const topo = secao.offsetTop - 100;
             window.scrollTo({ top: topo, behavior: 'smooth' });
         }
 
-        // Menu Mobile
-        function toggleMenu() {
-            document.getElementById('nav-menu').classList.toggle('active');
+        // Carrinho
+        function carregarCarrinho() {
+            const salvo = localStorage.getItem('carrinhoManu');
+            if (salvo) carrinho = JSON.parse(salvo);
+            atualizarUI();
         }
 
-        // Botão Comprar
-        function comprar(nome) {
-            const msg = `Olá! Gostei do produto: ${nome}. Está disponível?`;
+        function adicionarItem(nome, preco) {
+            const item = carrinho.find(i => i.nome === nome);
+            if (item) item.qtd++;
+            else carrinho.push({ nome, preco, qtd: 1 });
+            salvar();
+            abrirCarrinho();
+        }
+
+        function salvar() {
+            localStorage.setItem('carrinhoManu', JSON.stringify(carrinho));
+            atualizarUI();
+        }
+
+        function atualizarUI() {
+            document.getElementById('cart-count').innerText = carrinho.reduce((acc, i) => acc + i.qtd, 0);
+            const lista = document.getElementById('itens-carrinho');
+            lista.innerHTML = '';
+            let total = 0;
+            
+            carrinho.forEach((item, idx) => {
+                total += item.preco * item.qtd;
+                lista.innerHTML += `
+                    <li class="item-carrinho">
+                        <div>${item.qtd}x <strong>${item.nome}</strong></div>
+                        <div>R$ ${(item.preco * item.qtd).toFixed(2)} 
+                        <i class="fas fa-trash" style="color:red; cursor:pointer; margin-left:10px;" onclick="remover(${idx})"></i></div>
+                    </li>
+                `;
+            });
+            document.getElementById('total-carrinho').innerText = 'R$ ' + total.toFixed(2);
+        }
+
+        function remover(idx) {
+            carrinho.splice(idx, 1);
+            salvar();
+        }
+
+        function enviarPedidoWhatsApp() {
+            if(carrinho.length === 0) return alert('Sacola vazia!');
+            let msg = "Olá Loja Manu! Gostaria de pedir:\n";
+            carrinho.forEach(i => msg += `- ${i.qtd}x ${i.nome}\n`);
+            msg += `Total: ${document.getElementById('total-carrinho').innerText}`;
             window.open(`https://wa.me/5537999146764?text=${encodeURIComponent(msg)}`);
         }
 
-        // Inicia o site carregando tudo
-        document.addEventListener('DOMContentLoaded', () => {
-            renderizar(produtosDB);
+        // Menus
+        function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
+        function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
+        function fecharCarrinho() { document.getElementById('modal-carrinho').classList.remove('open'); }
+        
+        // Busca
+        document.getElementById('campo-busca').addEventListener('input', (e) => {
+            const termo = e.target.value.toLowerCase();
+            const filtrados = produtosDB.filter(p => p.nome.toLowerCase().includes(termo));
+            renderizar(filtrados);
         });
     </script>
 </body>
