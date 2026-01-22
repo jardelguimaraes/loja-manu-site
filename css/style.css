@@ -21,7 +21,7 @@ html { scroll-behavior: smooth; }
 .hero {
     height: 85vh; /* Altura do banner */
     /* IMPORTANTE: Nome da sua imagem nova */
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('../img/banner-hero-novo.png');
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('../img/banner-hero-manu.jpg');
     
     /* Configuração para Imagem Larga (Horizontal) */
     background-size: cover;          /* Cobre todo o espaço */
