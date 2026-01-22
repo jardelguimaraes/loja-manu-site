@@ -103,9 +103,11 @@ html {
 }
 
 .hero-content { 
-    color: white; z-index: 2; padding: 20px; max-width: 800px;
-    /* AJUSTE DO TEXTO PARA BAIXO */
-    margin-top: 250px; 
+    color: white;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+    margin-top: 355px;  /* AJUSTE DO TEXTO PARA BAIXO */
 }
 
 .hero-content h1 { 
