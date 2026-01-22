@@ -74,57 +74,9 @@
         </div>
     </section>
 
-    <section class="reviews-section section">
-        <div class="container">
-            <h2 class="section-title">Quem usa, se apaixona</h2>
-            <p style="text-align: center; color: #888; margin-top: -30px; margin-bottom: 50px;">O carinho de nossas clientes VIP.</p>
-            
-            <div class="review-grid">
-                <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="client-photo">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="review-text">"Estou encantada com a qualidade! O conjunto de alfaiataria vestiu perfeitamente. O atendimento da Raquel foi impecável."</p>
-                    <div><p class="client-name">Fernanda Oliveira</p><span class="client-location">Cliente VIP</span></div>
-                </div>
-
-                <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente" class="client-photo">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="review-text">"As roupas são ainda mais lindas pessoalmente. Comprei o vestido floral e recebi muitos elogios. A entrega em Itaúna foi super rápida!"</p>
-                    <div><p class="client-name">Juliana Costa</p><span class="client-location">Cliente VIP</span></div>
-                </div>
-
-                <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Cliente" class="client-photo">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="review-text">"A Loja Manu virou meu vício! Toda semana tem novidade e preço justo. Amo como as peças valorizam meu corpo."</p>
-                    <div><p class="client-name">Mariana Dias</p><span class="client-location">Cliente VIP</span></div>
-                </div>
-
-                 <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Cliente" class="client-photo">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="review-text">"Nunca vi um atendimento assim em loja online. Me senti super acolhida e as roupas chegaram cheirosas! Recomendo mil vezes."</p>
-                    <div><p class="client-name">Patrícia Souza</p><span class="client-location">Cliente VIP</span></div>
-                </div>
-
-                <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Cliente" class="client-photo">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="review-text">"Comprei um vestido para um casamento e foi sucesso total. Tecido maravilhoso e caimento perfeito. Obrigada Manu!"</p>
-                    <div><p class="client-name">Camila Rocha</p><span class="client-location">Cliente VIP</span></div>
-                </div>
-            </div>
-            
-            <a href="https://www.instagram.com/lojamanuitauna/" target="_blank" class="btn-social-proof">
-                <i class="fab fa-instagram"></i> Ver mais clientes no Instagram
-            </a>
-        </div>
-    </section>
-
     <section id="sobre" class="section bg-suave">
         <div class="container text-center">
-            <h2 class="section-title">Nossa Trajetória</h2>
+            <h2 class="section-title-left" style="text-align: center;">Nossa Trajetória</h2>
             <div class="text-box">
                 <p>A <strong>Loja Manu</strong> é a concretização de um sonho de <strong>Raquel Santos</strong>. Com espírito empreendedor, Raquel sempre acreditou que a moda é ferramenta de autoestima.</p>
                 <p>Mulher incansável, transformou sua paixão em um espaço acolhedor em Itaúna, trazendo excelência para mulheres que não param nunca.</p>
@@ -136,13 +88,16 @@
     <section id="vip" class="section">
         <div class="container text-center">
             <h2 class="section-title">Clube VIP</h2>
-            <p style="margin-bottom: 20px; color: #666;">Entre para nossa lista exclusiva.</p>
+            <p style="margin-bottom: 20px; font-size: 1.1rem; color: #666;">
+                Entre para nossa lista exclusiva e fique por dentro das novidades.
+            </p>
             <form id="form-vip" class="compact-form">
                 <div class="input-row">
                     <input type="text" id="nome" class="form-input" placeholder="Seu Nome" required>
                     <input type="text" id="whatsapp" class="form-input" placeholder="Seu WhatsApp" required>
                 </div>
                 <button type="submit" id="btn-enviar" class="btn-full">QUERO ENTRAR</button>
+                <p id="msg-status" style="margin-top:10px; font-weight:bold;"></p>
             </form>
         </div>
     </section>
@@ -150,57 +105,74 @@
     <footer class="footer" id="contato">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-info">
+                        <div class="footer-info">
                     <h3>Loja Manu Itaúna</h3>
-                    <p style="font-style: italic; color: #ffdee6; margin-bottom: 15px;">Moda com Propósito.</p>
+                    <p style="margin-bottom: 20px; font-style: italic; color: #ffdee6;">Moda com Propósito.</p>
+                    
                     <div class="address-box">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Rua Geniplo Dornas, 229 - Centro, Itaúna/MG</p>
+                        <i class="fas fa-map-marker-alt icon-map"></i>
+                        <div>
+                            <strong>Rua Geniplo Dornas, 229</strong><br>
+                            Centro, Itaúna – MG
+                        </div>
                     </div>
-                    <div class="address-box">
-                        <i class="fas fa-phone-alt"></i>
-                        <p>(37) 99914-6764</p>
+
+                    <div class="address-box" style="margin-top: 10px; cursor: pointer;" onclick="window.location.href='tel:+5537999146764'">
+                        <i class="fas fa-phone-alt icon-map"></i>
+                        <div>
+                            <strong>Fale Conosco</strong><br>
+                            <span style="font-size: 1.1rem;">(37) 99914-6764</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="footer-map">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.0!2d-44.0!3d-20.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA0JzI4LjEiUyA0NMKwMjknMTYuNyJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.9723224765796!2d-44.58552682398579!3d-20.176882281268685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa0ae6522204595%3A0x6331908616186b86!2sR.%20Geniplo%20Dornas%2C%20229%20-%20Centro%2C%20Ita%C3%BAna%20-%20MG%2C%2035680-033!5e0!3m2!1spt-BR!2sbr!4v1704830000000!5m2!1spt-BR!2sbr" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
-            
             <div class="social-links-footer">
-                <a href="https://instagram.com/lojamanuitauna" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2026 Loja Manu. Todos os direitos reservados.</p>
+                <p class="copyright">© 2026 Loja Manu. Todos os direitos reservados.</p>
+                <p class="developer">By <strong>JGAutomações.AI</strong></p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/5537999146764" class="float-zap" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/5537999146764" target="_blank" class="float-zap"><i class="fab fa-whatsapp"></i></a>
+
     <div class="cart-float" onclick="abrirCarrinho()">
-        <i class="fas fa-shopping-bag"></i>
+        <i class="fas fa-shopping-bag" style="font-size: 1.5rem;"></i>
         <span class="cart-count" id="cart-count">0</span>
     </div>
 
     <div id="modal-carrinho" class="modal-overlay" onclick="if(event.target === this) fecharCarrinho()">
+        
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Sua Sacola</h2>
+                <h2><i class="fas fa-shopping-bag"></i> Sua Sacola</h2>
                 <button class="btn-close" onclick="fecharCarrinho()">×</button>
             </div>
+            
             <ul id="itens-carrinho"></ul>
+            
             <div class="cart-footer">
-                <div class="cart-total"><span>Total:</span> <span id="total-carrinho">R$ 0,00</span></div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="total-carrinho">R$ 0,00</span>
+                </div>
                 <button class="btn-finalizar" onclick="enviarPedidoWhatsApp()">
-                    <i class="fab fa-whatsapp"></i> Fechar no WhatsApp
+                    <i class="fab fa-whatsapp" style="font-size:1.3rem;"></i> Fechar Pedido no Zap
                 </button>
             </div>
         </div>
     </div>
-
-    <script>
+   <script>
         let produtosGlobais = [];
         let carrinho = [];
 
