@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Manu Itaúna | Moda Feminina</title>
-    
-    <meta name="description" content="Loja Manu Itaúna - Moda feminina que exalta sua essência.">
     <meta name="theme-color" content="#7d4e57">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -26,9 +24,7 @@
             <a href="#" class="logo-link">
                 <div class="logo">
                     <img src="img/logo-m.png" alt="Logo Manu" class="logo-img" onerror="this.style.display='none'">
-                    <div class="logo-text">
-                        <h1>Loja Manu</h1>
-                    </div>
+                    <div class="logo-text"><h1>Loja Manu</h1></div>
                 </div>
             </a>
 
@@ -36,7 +32,6 @@
                 <a href="#colecao" onclick="toggleMenu()">Coleção</a>
                 <a href="#sobre" onclick="toggleMenu()">História</a>
                 <a href="#vip" onclick="toggleMenu()">VIP</a>
-                <a href="https://www.instagram.com/lojamanuitauna/" target="_blank">Instagram</a>
                 <a href="#contato" onclick="toggleMenu()">Contato</a>
             </nav>
 
@@ -64,36 +59,14 @@
             
             <div class="sticky-filters">
                 <div class="filtros-container">
-                    <button class="btn-filtro ativo" onclick="filtrarPorTag('todos', this)">Ver Tudo</button>
-                    <button class="btn-filtro" onclick="filtrarPorTag('Lançamento', this)">✨ Lançamentos</button>
-                    <button class="btn-filtro" onclick="filtrarPorTag('Promoção', this)">🔥 Promoção</button>
-                    <button class="btn-filtro" onclick="filtrarPorTag('Últimas Peças', this)">💎 Últimas Peças</button>
-                </div>
-
-                <div class="search-container">
-                    <input type="text" id="campo-busca" placeholder="🔍 O que você procura hoje?">
+                    <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Ver Tudo</button>
+                    <button class="btn-filtro" onclick="filtrar('lancamento', this)">✨ Lançamentos</button>
+                    <button class="btn-filtro" onclick="filtrar('promocao', this)">🔥 Promoção</button>
                 </div>
             </div>
             
             <div class="grid" id="grid-produtos">
-                <p style="text-align:center; width:100%; color:#888; padding: 40px;">Carregando vitrine...</p>
-            </div>
-
-            <div class="load-more-container">
-                <button id="btn-ver-mais" class="btn-load-more" onclick="carregarMaisProdutos()">
-                    Ver Mais Produtos <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <section id="sobre" class="section bg-suave">
-        <div class="container text-center">
-            <h2 class="section-title">Nossa Trajetória</h2>
-            <div class="text-box">
-                <p>A <strong>Loja Manu</strong> é a concretização de um sonho de <strong>Raquel Santos</strong>. Com espírito empreendedor, Raquel sempre acreditou que a moda é ferramenta de autoestima.</p>
-                <p class="signature">Com carinho, Equipe Manu.</p>
-            </div>
+                </div>
         </div>
     </section>
 
@@ -102,13 +75,12 @@
             <div class="footer-grid">
                 <div class="footer-info">
                     <h3>Loja Manu Itaúna</h3>
-                    <p style="margin-bottom: 20px; font-style: italic; color: #ffdee6;">Moda com Propósito.</p>
                     <p>Rua Geniplo Dornas, 229 - Centro, Itaúna/MG</p>
-                    <p>(37) 99914-6764</p>
+                    <p>WhatsApp: (37) 99914-6764</p>
                 </div>
                 <div class="social-links-footer">
-                    <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/lojamanuitauna" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -117,150 +89,80 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/5537999146764" target="_blank" class="float-zap"><i class="fab fa-whatsapp"></i></a>
-    <div class="cart-float" onclick="abrirCarrinho()">
-        <i class="fas fa-shopping-bag"></i>
-        <span class="cart-count" id="cart-count">0</span>
-    </div>
-
-    <div id="modal-carrinho" class="modal-overlay" onclick="if(event.target === this) fecharCarrinho()">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Sua Sacola</h2>
-                <button class="btn-close" onclick="fecharCarrinho()">×</button>
-            </div>
-            <ul id="itens-carrinho"></ul>
-            <div class="cart-footer">
-                <div class="cart-total"><span>Total:</span> <span id="total-carrinho">R$ 0,00</span></div>
-                <button class="btn-finalizar" onclick="enviarPedidoWhatsApp()">Fechar no WhatsApp</button>
-            </div>
-        </div>
-    </div>
+    <a href="https://wa.me/5537999146764" class="float-zap" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // --- SCRIPT UNIFICADO E CORRIGIDO ---
-        document.addEventListener('DOMContentLoaded', function() {
-            carregarProdutos();
-            carregarCarrinho();
-        });
-
-        let produtosGlobais = [];
-        let produtosFiltrados = [];
-        let itensPorPagina = 12;
-        let paginaAtual = 1;
-        let carrinho = [];
-
-         // --- CARREGAR PRODUTOS ---
-        async function carregarProdutos() {
-            try {
-                const response = await fetch('produtos.json?v=' + Date.now());
-                let produtos = await response.json();
-                
-                // Ordenação: Esgotados para o final
-                produtos.sort((a, b) => a.esgotado - b.esgotado);
-                
-                produtosGlobais = produtos;
-                produtosFiltrados = produtos; // Começa exibindo tudo
-                
-                resetarPaginacao(); // Renderiza a primeira leva
-                
-            } catch (erro) {
-                console.error("Erro:", erro);
-                document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center;">Erro ao carregar coleção.</p>';
-            }
-        }
-
-        function resetarPaginacao() {
-            paginaAtual = 1;
-            document.getElementById('grid-produtos').innerHTML = '';
-            renderizarLote();
-        }
-
-        function renderizarLote() {
-            const container = document.getElementById('grid-produtos');
-            const btnVerMais = document.getElementById('btn-ver-mais');
-            const inicio = (paginaAtual - 1) * itensPorPagina;
-            const fim = inicio + itensPorPagina;
-            const lote = produtosFiltrados.slice(inicio, fim);
-
-            lote.forEach((produto, idx) => {
-                const card = document.createElement('div');
-                card.className = 'card-produto';
-                // Lógica simplificada de card
-                let btnHtml = produto.esgotado ? 
-                    `<button class="btn-buy" disabled style="background:#ccc;">Esgotado</button>` : 
-                    `<button class="btn-buy" onclick="adicionarItem('${produto.nome}', ${produto.preco})">Comprar</button>`;
-                
-                card.innerHTML = `
-                    <div class="img-container"><img src="${produto.img}" onerror="this.src='https://via.placeholder.com/300?text=Foto+Manu'"></div>
-                    <div class="info-produto">
-                        <h3>${produto.nome}</h3>
-                        <div class="price-box"><span class="price-new">R$ ${produto.preco.toFixed(2).replace('.',',')}</span></div>
-                        ${btnHtml}
+        // DADOS DOS PRODUTOS (Para não depender de arquivo externo agora)
+        const produtosDB = [
+            { nome: "Conjunto Alfaiataria", preco: 299.90, img: "img/prod1.jpg", tag: "lancamento" },
+            { nome: "Vestido Midi Floral", preco: 189.90, img: "img/prod2.jpg", tag: "promocao" },
+            { nome: "Blusa Social Seda", preco: 129.90, img: "img/prod3.jpg", tag: "lancamento" },
+            { nome: "Calça Pantalona", preco: 219.90, img: "img/prod4.jpg", tag: "todos" },
+            { nome: "Saia Plissada", preco: 159.90, img: "img/prod5.jpg", tag: "promocao" },
+            { nome: "Macacão Linho", preco: 349.90, img: "img/prod6.jpg", tag: "lancamento" }
+        ];
+        
+        // Função que desenha os produtos na tela
+        function renderizar(lista) {
+            const grid = document.getElementById('grid-produtos');
+            grid.innerHTML = ''; // Limpa antes de desenhar
+            
+            lista.forEach(p => {
+                // Cria o card do produto
+                const card = `
+                    <div class="card-produto">
+                        <div class="img-container">
+                            <img src="${p.img}" onerror="this.src='https://via.placeholder.com/300x400?text=Foto+Manu'">
+                        </div>
+                        <div class="info-produto">
+                            <h3>${p.nome}</h3>
+                            <p class="price">R$ ${p.preco.toFixed(2).replace('.', ',')}</p>
+                            <button class="btn-buy" onclick="comprar('${p.nome}')">
+                                <i class="fab fa-whatsapp"></i> Comprar
+                            </button>
+                        </div>
                     </div>
                 `;
-                container.appendChild(card);
+                grid.innerHTML += card;
             });
-
-            if (fim >= produtosFiltrados.length) btnVerMais.style.display = 'none';
-            else btnVerMais.style.display = 'block';
         }
 
-        function carregarMaisProdutos() {
-            paginaAtual++;
-            renderizarLote();
-        }
+        // Filtro com "Elevador" (Scroll para o topo)
+        function filtrar(tag, btn) {
+            // Arruma os botões
+            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
+            btn.classList.add('ativo');
 
-        // --- FILTRO COM ELEVADOR (SCROLL) ---
-        function filtrarPorTag(tag, elementoBtn) {
-            document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
-            elementoBtn.classList.add('ativo');
-            
-            if (tag === 'todos') produtosFiltrados = produtosGlobais;
-            else produtosFiltrados = produtosGlobais.filter(p => p.tag && p.tag.toLowerCase().includes(tag.toLowerCase()));
-            
-            resetarPaginacao();
-            
-            // O Elevador
+            // Filtra os dados
+            let filtrados = [];
+            if(tag === 'todos') {
+                filtrados = produtosDB;
+            } else {
+                filtrados = produtosDB.filter(p => p.tag === tag);
+            }
+            renderizar(filtrados);
+
+            // Sobe a tela
             const secao = document.getElementById('colecao');
-            const y = secao.getBoundingClientRect().top + window.scrollY - 80;
-            window.scrollTo({top: y, behavior: 'smooth'});
+            const topo = secao.offsetTop - 100; // 100px de desconto do menu
+            window.scrollTo({ top: topo, behavior: 'smooth' });
         }
 
-        // --- CARRINHO BÁSICO ---
-        function carregarCarrinho() {
-            const salvo = localStorage.getItem('carrinhoManu');
-            if (salvo) carrinho = JSON.parse(salvo);
-            atualizarCarrinhoUI();
+        // Menu Mobile
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('active');
         }
-        function adicionarItem(nome, preco) {
-            const item = carrinho.find(i => i.nome === nome);
-            if (item) item.qtd++;
-            else carrinho.push({nome, preco, qtd: 1});
-            localStorage.setItem('carrinhoManu', JSON.stringify(carrinho));
-            atualizarCarrinhoUI();
-            abrirCarrinho();
+
+        // Botão Comprar
+        function comprar(nome) {
+            const msg = `Olá! Gostei do produto: ${nome}. Está disponível?`;
+            window.open(`https://wa.me/5537999146764?text=${encodeURIComponent(msg)}`);
         }
-        function atualizarCarrinhoUI() {
-            document.getElementById('cart-count').innerText = carrinho.reduce((acc, i) => acc + i.qtd, 0);
-            const lista = document.getElementById('itens-carrinho');
-            lista.innerHTML = '';
-            let total = 0;
-            carrinho.forEach(item => {
-                total += item.preco * item.qtd;
-                lista.innerHTML += `<li class="item-carrinho">${item.qtd}x ${item.nome} - R$ ${(item.preco*item.qtd).toFixed(2)}</li>`;
-            });
-            document.getElementById('total-carrinho').innerText = 'R$ ' + total.toFixed(2);
-        }
-        function enviarPedidoWhatsApp() {
-            let msg = "Olá! Quero fechar meu pedido:\n";
-            carrinho.forEach(i => msg += `${i.qtd}x ${i.nome}\n`);
-            window.open(`https://wa.me/5537999146764?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-        
-        function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
-        function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
-        function fecharCarrinho() { document.getElementById('modal-carrinho').classList.remove('open'); }
+
+        // Inicia o site carregando tudo
+        document.addEventListener('DOMContentLoaded', () => {
+            renderizar(produtosDB);
+        });
     </script>
 </body>
 </html>
