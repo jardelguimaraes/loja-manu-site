@@ -163,6 +163,13 @@ html {
     font-size: 2.2rem;
     margin-bottom: 40px;
 }
+.section-title-left {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--marsala-dark);
+    margin-bottom: 40px;
+}
 .bg-suave {
     background-color: var(--rosa-bg);
 }
