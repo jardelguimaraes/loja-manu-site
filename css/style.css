@@ -627,33 +627,6 @@ html {
     box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
-<script.js>
-function scrollParaColecao() {
-    const el = document.getElementById('colecao');
-    if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-}
-</script.js>
-
-function filtrarPorTag(tag, elementoBtn) {
-    document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
-    elementoBtn.classList.add('ativo');
-
-    document.getElementById('campo-busca').value = '';
-
-    if (tag === 'todos') {
-        produtosFiltrados = produtosGlobais;
-    } else {
-        produtosFiltrados = produtosGlobais.filter(
-            p => p.tag && p.tag.toLowerCase().includes(tag.toLowerCase())
-        );
-    }
-
-    resetarPaginacao();
-    scrollParaColecao(); // 🔥 correção definitiva
-}
-
 
 /* --- BOTÕES EXTRAS --- */
 .load-more-container { text-align: center; margin: 40px 0; }
