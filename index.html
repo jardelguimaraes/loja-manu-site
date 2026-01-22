@@ -5,32 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Manu Itaúna | Moda Feminina</title>
     
-    <meta name="description" content="Loja Manu Itaúna - Moda feminina que exalta sua essência. Vestidos, conjuntos e lançamentos com estilo e elegância.">
-    <meta name="keywords" content="moda feminina, itaúna, vestidos, loja de roupa, loja manu">
-    <meta name="author" content="Loja Manu">
+    <meta name="description" content="Loja Manu Itaúna - Moda feminina que exalta sua essência.">
     <meta name="theme-color" content="#7d4e57">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lojamanuitauna.com.br/">
-    <meta property="og:title" content="Loja Manu Itaúna | Sua Essência, Seu Estilo">
-    <meta property="og:description" content="Confira nossa nova coleção! Peças exclusivas, envio para todo Brasil e atendimento VIP.">
-    
-    <meta property="og:image" content="https://lojamanuitauna.com.br/img/logo-m.png">
-    <meta property="og:image:width" content="300">
-    <meta property="og:image:height" content="300">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://lojamanuitauna.com.br/">
-    <meta property="twitter:title" content="Loja Manu Itaúna">
-    <meta property="twitter:description" content="Moda feminina com propósito. Venha conhecer a nova coleção.">
-    <meta property="twitter:image" content="https://lojamanuitauna.com.br/img/logo-m.png">
-
-    <link rel="icon" type="image/png" href="img/favicon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -42,9 +25,9 @@
         <div class="container header-content">
             <a href="#" class="logo-link">
                 <div class="logo">
-                    <img src="img/logo-m.png" alt="Logo Manu" class="logo-img">
+                    <img src="img/logo-m.png" alt="Logo Manu" class="logo-img" onerror="this.style.display='none'">
                     <div class="logo-text">
-                        <h1>Loja Manu Itaúna</h1>
+                        <h1>Loja Manu</h1>
                     </div>
                 </div>
             </a>
@@ -65,7 +48,7 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Sua essência, seu estilo.</h1>
+            <h1>Sua essência,<br>seu estilo.</h1>
             <p>Moda selecionada com carinho para valorizar a mulher real.</p>
             <a href="#colecao" class="btn-hero">Ver Coleção</a>
         </div>
@@ -87,13 +70,13 @@
                     <button class="btn-filtro" onclick="filtrarPorTag('Últimas Peças', this)">💎 Últimas Peças</button>
                 </div>
 
-                <div class="search-container" style="margin-bottom: 0;">
+                <div class="search-container">
                     <input type="text" id="campo-busca" placeholder="🔍 O que você procura hoje?">
                 </div>
             </div>
             
             <div class="grid" id="grid-produtos">
-                <p style="text-align:center; width:100%; color:#888;">Carregando vitrine...</p>
+                <p style="text-align:center; width:100%; color:#888; padding: 40px;">Carregando vitrine...</p>
             </div>
 
             <div class="load-more-container">
@@ -104,172 +87,177 @@
         </div>
     </section>
 
-    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <section class="reviews-section section">
-        <div class="container">
-            <h2 class="section-title">Quem usa, se apaixona</h2>
-            <p style="text-align: center; color: #888; margin-top: -30px; margin-bottom: 50px;">O carinho de nossas clientes VIP.</p>
-            
-            <div class="review-grid">
-                <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="client-photo">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="review-text">"Estou encantada com a qualidade! O conjunto de alfaiataria vestiu perfeitamente. O atendimento da Raquel foi impecável."</p>
-                    <div><p class="client-name">Fernanda Oliveira</p><span class="client-location">Cliente VIP</span></div>
-                </div>
-
-                <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente" class="client-photo">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="review-text">"As roupas são ainda mais lindas pessoalmente. Comprei o vestido floral e recebi muitos elogios. A entrega em Itaúna foi super rápida!"</p>
-                    <div><p class="client-name">Juliana Costa</p><span class="client-location">Cliente VIP</span></div>
-                </div>
-
-                <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Cliente" class="client-photo">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="review-text">"A Loja Manu virou meu vício! Toda semana tem novidade e preço justo. Amo como as peças valorizam meu corpo."</p>
-                    <div><p class="client-name">Mariana Dias</p><span class="client-location">Cliente VIP</span></div>
-                </div>
-
-                 <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Cliente" class="client-photo">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="review-text">"Nunca vi um atendimento assim em loja online. Me senti super acolhida e as roupas chegaram cheirosas! Recomendo mil vezes."</p>
-                    <div><p class="client-name">Patrícia Souza</p><span class="client-location">Cliente VIP</span></div>
-                </div>
-
-                <div class="review-card">
-                    <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Cliente" class="client-photo">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="review-text">"Comprei um vestido para um casamento e foi sucesso total. Tecido maravilhoso e caimento perfeito. Obrigada Manu!"</p>
-                    <div><p class="client-name">Camila Rocha</p><span class="client-location">Cliente VIP</span></div>
-                </div>
-            </div>
-            
-            <a href="https://www.instagram.com/lojamanuitauna/" target="_blank" class="btn-social-proof">
-                <i class="fab fa-instagram"></i> Ver mais clientes no Instagram
-            </a>
-        </div>
-    </section>
-
     <section id="sobre" class="section bg-suave">
         <div class="container text-center">
-            <h2 class="section-title-left" style="text-align: center;">Nossa Trajetória</h2>
+            <h2 class="section-title">Nossa Trajetória</h2>
             <div class="text-box">
                 <p>A <strong>Loja Manu</strong> é a concretização de um sonho de <strong>Raquel Santos</strong>. Com espírito empreendedor, Raquel sempre acreditou que a moda é ferramenta de autoestima.</p>
-                <p>Mulher incansável, transformou sua paixão em um espaço acolhedor em Itaúna, trazendo excelência para mulheres que não param nunca.</p>
                 <p class="signature">Com carinho, Equipe Manu.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="vip" class="section">
-        <div class="container text-center">
-            <h2 class="section-title">Clube VIP</h2>
-            <p style="margin-bottom: 20px; font-size: 1.1rem; color: #666;">
-                Entre para nossa lista exclusiva e fique por dentro das novidades.
-            </p>
-            <form id="form-vip" class="compact-form">
-                <div class="input-row">
-                    <input type="text" id="nome" class="form-input" placeholder="Seu Nome" required>
-                    <input type="text" id="whatsapp" class="form-input" placeholder="Seu WhatsApp" required>
-                </div>
-                <button type="submit" id="btn-enviar" class="btn-full">QUERO ENTRAR</button>
-                <p id="msg-status" style="margin-top:10px; font-weight:bold;"></p>
-            </form>
         </div>
     </section>
 
     <footer class="footer" id="contato">
         <div class="container">
             <div class="footer-grid">
-                        <div class="footer-info">
+                <div class="footer-info">
                     <h3>Loja Manu Itaúna</h3>
                     <p style="margin-bottom: 20px; font-style: italic; color: #ffdee6;">Moda com Propósito.</p>
-                    
-                    <div class="address-box">
-                        <i class="fas fa-map-marker-alt icon-map"></i>
-                        <div>
-                            <strong>Rua Geniplo Dornas, 229</strong><br>
-                            Centro, Itaúna – MG
-                        </div>
-                    </div>
-
-                    <div class="address-box" style="margin-top: 10px; cursor: pointer;" onclick="window.location.href='tel:+5537999146764'">
-                        <i class="fas fa-phone-alt icon-map"></i>
-                        <div>
-                            <strong>Fale Conosco</strong><br>
-                            <span style="font-size: 1.1rem;">(37) 99914-6764</span>
-                        </div>
-                    </div>
+                    <p>Rua Geniplo Dornas, 229 - Centro, Itaúna/MG</p>
+                    <p>(37) 99914-6764</p>
                 </div>
-
-                <div class="footer-map">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.9723224765796!2d-44.58552682398579!3d-20.176882281268685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa0ae6522204595%3A0x6331908616186b86!2sR.%20Geniplo%20Dornas%2C%20229%20-%20Centro%2C%20Ita%C3%BAna%20-%20MG%2C%2035680-033!5e0!3m2!1spt-BR!2sbr!4v1704830000000!5m2!1spt-BR!2sbr" 
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                <div class="social-links-footer">
+                    <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
-            </div>
-            <div class="social-links-footer">
-                <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
             <div class="footer-bottom">
-                <p class="copyright">© 2026 Loja Manu. Todos os direitos reservados.</p>
-                <p class="developer">By <strong>JGAutomações.AI</strong></p>
+                <p>&copy; 2026 Loja Manu. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
     <a href="https://wa.me/5537999146764" target="_blank" class="float-zap"><i class="fab fa-whatsapp"></i></a>
-
     <div class="cart-float" onclick="abrirCarrinho()">
-        <i class="fas fa-shopping-bag" style="font-size: 1.5rem;"></i>
+        <i class="fas fa-shopping-bag"></i>
         <span class="cart-count" id="cart-count">0</span>
     </div>
 
     <div id="modal-carrinho" class="modal-overlay" onclick="if(event.target === this) fecharCarrinho()">
-        
         <div class="modal-content">
             <div class="modal-header">
-                <h2><i class="fas fa-shopping-bag"></i> Sua Sacola</h2>
+                <h2>Sua Sacola</h2>
                 <button class="btn-close" onclick="fecharCarrinho()">×</button>
             </div>
-            
             <ul id="itens-carrinho"></ul>
-            
             <div class="cart-footer">
-                <div class="cart-total">
-                    <span>Total:</span>
-                    <span id="total-carrinho">R$ 0,00</span>
-                </div>
-                <button class="btn-finalizar" onclick="enviarPedidoWhatsApp()">
-                    <i class="fab fa-whatsapp" style="font-size:1.3rem;"></i> Fechar Pedido no Zap
-                </button>
+                <div class="cart-total"><span>Total:</span> <span id="total-carrinho">R$ 0,00</span></div>
+                <button class="btn-finalizar" onclick="enviarPedidoWhatsApp()">Fechar no WhatsApp</button>
             </div>
         </div>
     </div>
-   <script>
+
+    <script>
+        // --- SCRIPT UNIFICADO E CORRIGIDO ---
         document.addEventListener('DOMContentLoaded', function() {
             carregarProdutos();
             carregarCarrinho();
         });
 
-        // --- VARIÁVEIS GLOBAIS DE PAGINAÇÃO ---
-        let produtosGlobais = [];       // Todos os produtos do JSON
-        let produtosFiltrados = [];     // Produtos que atendem ao filtro atual
-        let itensPorPagina = 12;        // Quantos aparecem por vez (Padrão Grife)
-        let paginaAtual = 1;            // Página atual
+        let produtosGlobais = [];
+        let produtosFiltrados = [];
+        let itensPorPagina = 12;
+        let paginaAtual = 1;
+        let carrinho = [];
 
-        // --- CARREGAR PRODUTOS ---
         async function carregarProdutos() {
             try {
+                // Tenta carregar o JSON. Se falhar, usa lista vazia para não quebrar o site
                 const response = await fetch('produtos.json?v=' + Date.now());
-                let produtos = await response.json();
+                if (!response.ok) throw new Error("JSON não encontrado");
+                produtosGlobais = await response.json();
+                produtosGlobais.sort((a, b) => a.esgotado - b.esgotado);
+                produtosFiltrados = produtosGlobais;
+                resetarPaginacao();
+            } catch (erro) {
+                console.warn("Usando produtos de exemplo (JSON não carregou).");
+                // Fallback para não ficar vazio em teste
+                produtosGlobais = []; 
+                document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center;">Nenhum produto cadastrado ainda.</p>';
+            }
+        }
+
+        function resetarPaginacao() {
+            paginaAtual = 1;
+            document.getElementById('grid-produtos').innerHTML = '';
+            renderizarLote();
+        }
+
+        function renderizarLote() {
+            const container = document.getElementById('grid-produtos');
+            const btnVerMais = document.getElementById('btn-ver-mais');
+            const inicio = (paginaAtual - 1) * itensPorPagina;
+            const fim = inicio + itensPorPagina;
+            const lote = produtosFiltrados.slice(inicio, fim);
+
+            lote.forEach((produto, idx) => {
+                const card = document.createElement('div');
+                card.className = 'card-produto';
+                // Lógica simplificada de card
+                let btnHtml = produto.esgotado ? 
+                    `<button class="btn-buy" disabled style="background:#ccc;">Esgotado</button>` : 
+                    `<button class="btn-buy" onclick="adicionarItem('${produto.nome}', ${produto.preco})">Comprar</button>`;
                 
-                // Ordenação: Esgot
+                card.innerHTML = `
+                    <div class="img-container"><img src="${produto.img}" onerror="this.src='https://via.placeholder.com/300?text=Foto+Manu'"></div>
+                    <div class="info-produto">
+                        <h3>${produto.nome}</h3>
+                        <div class="price-box"><span class="price-new">R$ ${produto.preco.toFixed(2).replace('.',',')}</span></div>
+                        ${btnHtml}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            if (fim >= produtosFiltrados.length) btnVerMais.style.display = 'none';
+            else btnVerMais.style.display = 'block';
+        }
+
+        function carregarMaisProdutos() {
+            paginaAtual++;
+            renderizarLote();
+        }
+
+        // --- FILTRO COM ELEVADOR (SCROLL) ---
+        function filtrarPorTag(tag, elementoBtn) {
+            document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
+            elementoBtn.classList.add('ativo');
+            
+            if (tag === 'todos') produtosFiltrados = produtosGlobais;
+            else produtosFiltrados = produtosGlobais.filter(p => p.tag && p.tag.toLowerCase().includes(tag.toLowerCase()));
+            
+            resetarPaginacao();
+            
+            // O Elevador
+            const secao = document.getElementById('colecao');
+            const y = secao.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({top: y, behavior: 'smooth'});
+        }
+
+        // --- CARRINHO BÁSICO ---
+        function carregarCarrinho() {
+            const salvo = localStorage.getItem('carrinhoManu');
+            if (salvo) carrinho = JSON.parse(salvo);
+            atualizarCarrinhoUI();
+        }
+        function adicionarItem(nome, preco) {
+            const item = carrinho.find(i => i.nome === nome);
+            if (item) item.qtd++;
+            else carrinho.push({nome, preco, qtd: 1});
+            localStorage.setItem('carrinhoManu', JSON.stringify(carrinho));
+            atualizarCarrinhoUI();
+            abrirCarrinho();
+        }
+        function atualizarCarrinhoUI() {
+            document.getElementById('cart-count').innerText = carrinho.reduce((acc, i) => acc + i.qtd, 0);
+            const lista = document.getElementById('itens-carrinho');
+            lista.innerHTML = '';
+            let total = 0;
+            carrinho.forEach(item => {
+                total += item.preco * item.qtd;
+                lista.innerHTML += `<li class="item-carrinho">${item.qtd}x ${item.nome} - R$ ${(item.preco*item.qtd).toFixed(2)}</li>`;
+            });
+            document.getElementById('total-carrinho').innerText = 'R$ ' + total.toFixed(2);
+        }
+        function enviarPedidoWhatsApp() {
+            let msg = "Olá! Quero fechar meu pedido:\n";
+            carrinho.forEach(i => msg += `${i.qtd}x ${i.nome}\n`);
+            window.open(`https://wa.me/5537999146764?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+        
+        function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
+        function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
+        function fecharCarrinho() { document.getElementById('modal-carrinho').classList.remove('open'); }
+    </script>
+</body>
+</html>
