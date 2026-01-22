@@ -5,19 +5,22 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
-body {
-    padding-top: 80px;
-    background: #fafafa;
-    color: #333; }
-html {
-    scroll-behavior: smooth;
-}
-
 :root {
     --marsala: #7d4e57;
     --rosa-bg: #fff0f5;
     --texto: #333;
     --verde-zap: #25d366; }
+body {
+    background-color: #fafafa;
+    color: var(--text);
+    padding-top: 100px;
+}
+html {
+    scroll-behavior: smooth;
+}
+/* UTILITÁRIO DE TEXTO CENTRALIZADO */
+.text-center { text-align: center; }
+
 
 /* --- TOPO --- */
 .top-bar {
