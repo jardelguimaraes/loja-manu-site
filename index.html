@@ -150,20 +150,23 @@
         let paginaAtual = 1;
         let carrinho = [];
 
+         // --- CARREGAR PRODUTOS ---
         async function carregarProdutos() {
             try {
-                // Tenta carregar o JSON. Se falhar, usa lista vazia para não quebrar o site
                 const response = await fetch('produtos.json?v=' + Date.now());
-                if (!response.ok) throw new Error("JSON não encontrado");
-                produtosGlobais = await response.json();
-                produtosGlobais.sort((a, b) => a.esgotado - b.esgotado);
-                produtosFiltrados = produtosGlobais;
-                resetarPaginacao();
+                let produtos = await response.json();
+                
+                // Ordenação: Esgotados para o final
+                produtos.sort((a, b) => a.esgotado - b.esgotado);
+                
+                produtosGlobais = produtos;
+                produtosFiltrados = produtos; // Começa exibindo tudo
+                
+                resetarPaginacao(); // Renderiza a primeira leva
+                
             } catch (erro) {
-                console.warn("Usando produtos de exemplo (JSON não carregou).");
-                // Fallback para não ficar vazio em teste
-                produtosGlobais = []; 
-                document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center;">Nenhum produto cadastrado ainda.</p>';
+                console.error("Erro:", erro);
+                document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center;">Erro ao carregar coleção.</p>';
             }
         }
 
