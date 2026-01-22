@@ -4,15 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Manu Itaúna | Moda Feminina</title>
-    
-    <meta name="description" content="Loja Manu Itaúna - Moda feminina que exalta sua essência.">
     <meta name="theme-color" content="#7d4e57">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -25,8 +19,10 @@
         <div class="container header-content">
             <a href="#" class="logo-link">
                 <div class="logo">
-                    <img src="img/logo-m.png" alt="Logo Manu" class="logo-img" onerror="this.style.display='none'; document.getElementById('txt-logo').style.display='block'">
-                    <div class="logo-text" id="txt-logo" style="display:none;"><h1>Loja Manu</h1></div>
+                    <img src="img/logo-m.png" alt="Logo Manu" class="logo-img">
+                    <div class="logo-text">
+                        <h1>Loja Manu Itaúna</h1>
+                    </div>
                 </div>
             </a>
 
@@ -65,9 +61,8 @@
                     <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Ver Tudo</button>
                     <button class="btn-filtro" onclick="filtrar('lançamento', this)">✨ Lançamentos</button>
                     <button class="btn-filtro" onclick="filtrar('promoção', this)">🔥 Promoção</button>
-                    <button class="btn-filtro" onclick="filtrar('últimas peças', this)">💎 Últimas Peças</button>
+                    <button class="btn-filtro" onclick="filtrar('últimas peças', this)">💎 Últimas Peças</button> 
                 </div>
-                
                 <div class="search-container">
                     <input type="text" id="campo-busca" placeholder="🔍 O que você procura hoje?">
                 </div>
@@ -79,11 +74,39 @@
         </div>
     </section>
 
+    <section class="reviews-section section">
+        <div class="container">
+            <h2 class="section-title">Quem usa, se apaixona</h2>
+            <p style="text-align: center; color: #888; margin-bottom: 40px;">O carinho de nossas clientes VIP.</p>
+            <div class="review-grid">
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="client-photo">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Estou encantada com a qualidade! O conjunto vestiu perfeitamente."</p>
+                    <p class="client-name">Fernanda Oliveira</p>
+                </div>
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" class="client-photo">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Entrega super rápida em Itaúna. Amei o atendimento!"</p>
+                    <p class="client-name">Juliana Costa</p>
+                </div>
+                <div class="review-card">
+                    <img src="https://randomuser.me/api/portraits/women/90.jpg" class="client-photo">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Peças lindas e preço justo. Virei cliente fiel."</p>
+                    <p class="client-name">Mariana Dias</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="sobre" class="section bg-suave">
         <div class="container text-center">
             <h2 class="section-title">Nossa Trajetória</h2>
             <div class="text-box">
                 <p>A <strong>Loja Manu</strong> é a concretização de um sonho de <strong>Raquel Santos</strong>. Com espírito empreendedor, Raquel sempre acreditou que a moda é ferramenta de autoestima.</p>
+                <p>Mulher incansável, transformou sua paixão em um espaço acolhedor em Itaúna, trazendo excelência para mulheres que não param nunca.</p>
                 <p class="signature">Com carinho, Equipe Manu.</p>
             </div>
         </div>
@@ -108,15 +131,26 @@
             <div class="footer-grid">
                 <div class="footer-info">
                     <h3>Loja Manu Itaúna</h3>
-                    <p style="margin-bottom: 15px; font-style: italic; color: #ffdee6;">Moda com Propósito.</p>
-                    <p>Rua Geniplo Dornas, 229 - Centro, Itaúna/MG</p>
-                    <p>(37) 99914-6764</p>
+                    <p style="font-style: italic; color: #ffdee6; margin-bottom: 15px;">Moda com Propósito.</p>
+                    <div class="address-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Rua Geniplo Dornas, 229 - Centro, Itaúna/MG</p>
+                    </div>
+                    <div class="address-box">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>(37) 99914-6764</p>
+                    </div>
                 </div>
-                <div class="social-links-footer">
-                    <a href="https://www.instagram.com/lojamanuitauna/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <div class="footer-map">
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.0!2d-44.0!3d-20.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA0JzI4LjEiUyA0NMKwMjknMTYuNyJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
+            
+            <div class="social-links-footer">
+                <a href="https://instagram.com/lojamanuitauna" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5537999146764" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
             <div class="footer-bottom">
                 <p>&copy; 2026 Loja Manu. Todos os direitos reservados.</p>
             </div>
@@ -124,7 +158,6 @@
     </footer>
 
     <a href="https://wa.me/5537999146764" class="float-zap" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    
     <div class="cart-float" onclick="abrirCarrinho()">
         <i class="fas fa-shopping-bag"></i>
         <span class="cart-count" id="cart-count">0</span>
@@ -139,7 +172,9 @@
             <ul id="itens-carrinho"></ul>
             <div class="cart-footer">
                 <div class="cart-total"><span>Total:</span> <span id="total-carrinho">R$ 0,00</span></div>
-                <button class="btn-finalizar" onclick="enviarPedidoWhatsApp()">Fechar no WhatsApp</button>
+                <button class="btn-finalizar" onclick="enviarPedidoWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> Fechar no WhatsApp
+                </button>
             </div>
         </div>
     </div>
@@ -153,52 +188,50 @@
             carregarCarrinho();
         });
 
-        // 1. Carrega JSON
         async function carregarProdutos() {
             try {
+                // Tenta carregar o JSON real
                 const response = await fetch('produtos.json?v=' + Date.now());
-                if (!response.ok) throw new Error("Erro ao carregar JSON");
+                if (!response.ok) throw new Error("JSON não encontrado");
                 produtosGlobais = await response.json();
                 renderizar(produtosGlobais);
             } catch (e) {
                 console.error(e);
-                document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center;">Erro ao carregar vitrine.</p>';
+                document.getElementById('grid-produtos').innerHTML = '<p style="text-align:center;">Erro ao carregar coleção. Verifique o arquivo produtos.json</p>';
             }
         }
 
-        // 2. Renderiza a grade
         function renderizar(lista) {
             const grid = document.getElementById('grid-produtos');
             grid.innerHTML = '';
             
             if(lista.length === 0) {
-                grid.innerHTML = '<p style="text-align:center; width:100%;">Nenhum produto encontrado com este filtro.</p>';
+                grid.innerHTML = '<p style="text-align:center; width:100%;">Nenhum produto encontrado.</p>';
                 return;
             }
 
             lista.forEach(p => {
-                const imgUrl = p.img ? p.img : 'https://via.placeholder.com/300x400?text=Manu';
+                const imgUrl = p.img ? p.img : 'https://via.placeholder.com/300?text=Sem+Foto';
+                
+                // Badge de Tag
                 const tagHtml = p.tag ? `<span class="badge" style="background:${p.tagCor || '#7d4e57'}">${p.tag}</span>` : '';
                 
-                // Botão Esgotado ou Comprar
-                let btnHtml = '';
-                if(p.esgotado) {
-                    btnHtml = `<button class="btn-buy" disabled style="background:#ccc; cursor:not-allowed;">Esgotado</button>`;
-                } else {
-                    btnHtml = `<button class="btn-buy" onclick="adicionarItem('${p.nome}', ${p.preco})">Comprar</button>`;
+                // Tamanhos (Círculos)
+                let sizesHtml = '';
+                if (p.tamanhos && Array.isArray(p.tamanhos)) {
+                    sizesHtml = `<div class="sizes-container">${p.tamanhos.map(t => `<span class="size-circle">${t}</span>`).join('')}</div>`;
                 }
 
-                // Tamanhos
-                let sizesHtml = '';
-                if(p.tamanhos && p.tamanhos.length > 0) {
-                    sizesHtml = `<div class="sizes-container">${p.tamanhos.map(t => `<span class="size-badge">${t}</span>`).join('')}</div>`;
-                }
+                // Botão
+                let btnHtml = p.esgotado ? 
+                    `<button class="btn-buy esgotado" disabled>Esgotado</button>` : 
+                    `<button class="btn-buy" onclick="adicionarItem('${p.nome}', ${p.preco})"><i class="fab fa-whatsapp"></i> Comprar</button>`;
 
                 const card = `
                     <div class="card-produto">
                         ${tagHtml}
                         <div class="img-container">
-                            <img src="${imgUrl}" onerror="this.src='https://via.placeholder.com/300x400?text=Foto'">
+                            <img src="${imgUrl}" onerror="this.src='https://via.placeholder.com/300?text=Foto'">
                         </div>
                         <div class="info-produto">
                             <h3>${p.nome}</h3>
@@ -215,30 +248,22 @@
             });
         }
 
-        // 3. Filtro com "Elevador" (Scroll)
         function filtrar(tag, btn) {
-            // Visual dos botões
             document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
             btn.classList.add('ativo');
             
-            // Lógica de filtro (case insensitive)
             let filtrados = [];
             if (tag === 'todos') {
                 filtrados = produtosGlobais;
             } else {
-                filtrados = produtosGlobais.filter(p => p.tag && p.tag.toLowerCase() === tag.toLowerCase());
+                filtrados = produtosGlobais.filter(p => p.tag && p.tag.toLowerCase().includes(tag.toLowerCase()));
             }
             renderizar(filtrados);
 
-            // A Mágica do Scroll: Sobe a tela descontando o header
             const secao = document.getElementById('colecao');
-            if(secao) {
-                const topo = secao.offsetTop - 120; // 120px de margem de segurança
-                window.scrollTo({ top: topo, behavior: 'smooth' });
-            }
+            if(secao) window.scrollTo({ top: secao.offsetTop - 120, behavior: 'smooth' });
         }
 
-        // 4. Funções do Carrinho
         function carregarCarrinho() {
             const salvo = localStorage.getItem('carrinhoManu');
             if (salvo) carrinho = JSON.parse(salvo);
@@ -263,12 +288,14 @@
                 total += item.preco * item.qtd;
                 lista.innerHTML += `
                     <li class="item-carrinho">
-                        <div>${item.qtd}x ${item.nome}</div>
-                        <div>R$ ${(item.preco*item.qtd).toFixed(2)} 
-                        <i class="fas fa-trash" style="color:red; margin-left:10px; cursor:pointer;" onclick="remover(${idx})"></i></div>
+                        <div class="info-item">
+                            <strong>${item.nome}</strong><br>
+                            <span style="font-size:0.9rem;">${item.qtd}x R$ ${item.preco.toFixed(2)}</span>
+                        </div>
+                        <i class="fas fa-trash-alt btn-remove" onclick="remover(${idx})"></i>
                     </li>`;
             });
-            document.getElementById('total-carrinho').innerText = 'R$ ' + total.toFixed(2);
+            document.getElementById('total-carrinho').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
         }
         function remover(idx) { carrinho.splice(idx, 1); salvar(); }
         function enviarPedidoWhatsApp() {
@@ -279,7 +306,6 @@
             window.open(`https://wa.me/5537999146764?text=${encodeURIComponent(msg)}`);
         }
 
-        // 5. Utilidades
         function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
         function abrirCarrinho() { document.getElementById('modal-carrinho').classList.add('open'); }
         function fecharCarrinho() { document.getElementById('modal-carrinho').classList.remove('open'); }
