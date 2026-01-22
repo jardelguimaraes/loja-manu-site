@@ -17,20 +17,20 @@ html { scroll-behavior: smooth; }
 .nav-menu a:hover { color: var(--marsala); }
 .mobile-menu-icon { display: none; font-size: 1.5rem; color: var(--marsala); cursor: pointer; }
 
-/* --- HERO (BANNER NOVO) --- */
+/* --- HERO (BANNER) --- */
 .hero {
-    height: 85vh; /* Altura do banner */
-    /* IMPORTANTE: Nome da sua imagem nova */
+    height: 85vh; 
+    /* NOME CORRETO DA IMAGEM JPG */
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('../img/banner-hero-manu.jpg');
     
-    /* Configuração para Imagem Larga (Horizontal) */
-    background-size: cover;          /* Cobre todo o espaço */
-    background-position: center center; /* Centraliza a imagem */
+    /* Configuração para Imagem Larga */
+    background-size: cover;          
+    background-position: center center; 
     background-repeat: no-repeat;
     
     display: flex; 
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: flex-start; /* Alinha no topo (para usarmos margin depois) */
+    justify-content: center; 
+    align-items: flex-start; /* Alinha no topo para usarmos margin */
     text-align: center;
 }
 
@@ -40,8 +40,8 @@ html { scroll-behavior: smooth; }
     padding: 20px; 
     max-width: 800px;
     
-    /* O SEGREDO: Empurrar o texto para baixo para não cobrir o rosto */
-    margin-top: 180px; 
+    /* DESCER O TEXTO */
+    margin-top: 200px; /* Ajuste este valor se quiser descer mais ou menos */
 }
 
 .hero-content h1 { 
@@ -98,6 +98,10 @@ html { scroll-behavior: smooth; }
 .btn-buy:hover { background: #1ebc57; }
 .btn-buy:disabled { background: #ccc; cursor: not-allowed; }
 
+/* Tamanhos */
+.sizes-container { margin-bottom: 10px; font-size: 0.8rem; color: #666; }
+.size-badge { background: #eee; padding: 2px 6px; border-radius: 4px; margin: 0 2px; }
+
 /* --- RODAPÉ --- */
 .footer { background: var(--marsala); color: white; padding: 50px 0 20px; margin-top: 50px; }
 .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; }
@@ -129,7 +133,7 @@ html { scroll-behavior: smooth; }
     
     .hero { height: 75vh; }
     /* Ajuste fino para o texto não ficar nem muito em cima, nem muito embaixo no celular */
-    .hero-content { margin-top: 120px; } 
+    .hero-content { margin-top: 150px; } 
     .hero-content h1 { font-size: 2.5rem; }
     
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
