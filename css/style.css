@@ -230,7 +230,7 @@ html {
 #campo-busca:focus {
     border-color: var(--marsala-dark);
     box-shadow: 0 0 10px rgba(125, 78, 87, 0.2);
-
+}
 
 /* --- VITRINE PRODUTOS --- */
 .grid {
@@ -345,31 +345,66 @@ html {
 .btn-buy:disabled { background: #ddd; color: #999; cursor: not-allowed; }
 
 /* --- AVALIAÇÕES --- */
-.reviews-section { background: white; }
-.review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.reviews-section {
+    background: white;
+}
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
 .review-card {
-    background: #fffafa; padding: 30px; border-radius: 8px; text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;
+    background: #fffafa;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
 }
 .client-photo {
     width: 80px; height: 80px; border-radius: 50%; margin-bottom: 15px; object-fit: cover;
     border: 3px solid var(--marsala-dark);
 }
-.stars { color: #f1c40f; margin-bottom: 15px; }
-.review-text { font-style: italic; color: #555; margin-bottom: 20px; line-height: 1.5; }
-.client-name { font-weight: 700; color: var(--marsala-dark); }
-.client-location { font-size: 0.8rem; color: #999; }
+.stars {
+    color: #f1c40f;
+    margin-bottom: 15px;
+}
+.review-text {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.client-name {
+    font-weight: 700;
+    color: var(--marsala-dark);
+}
+.client-location {
+    font-size: 0.8rem;
+    color: #999;
+}
 
 .btn-social-proof {
-    display: block; width: fit-content; margin: 40px auto 0;
-    color: var(--marsala-dark); text-decoration: none; font-weight: 600;
-    border: 2px solid var(--marsala-dark); padding: 10px 25px; border-radius: 30px;
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0;
+    color: var(--marsala-dark);
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid var(--marsala-dark);
+    padding: 10px 25px;
+    border-radius: 30px;
     transition: all 0.3s;
 }
-.btn-social-proof:hover { background: var(--marsala-dark); color: white; }
+.btn-social-proof:hover {
+    background: var(--marsala-dark);
+    color: white;
+}
 
 /* --- TEXTOS E VIP --- */
-.bg-suave { background-color: var(--rosa-claro); }
+.bg-suave {
+    background-color: var(--rosa-claro);
+}
 
 .text-box {
     max-width: 800px;
@@ -379,7 +414,9 @@ html {
     color: #555;
     text-align: center;
 }
-.text-box p { margin-bottom: 20px; }
+.text-box p {
+    margin-bottom: 20px;
+}
 
 .signature {
     font-family: 'Playfair Display', serif;
@@ -396,46 +433,103 @@ html {
     gap: 15px;
 }
 
-.input-row { display: flex; gap: 15px; }
+.input-row {
+    display: flex;
+    gap: 15px; }
 
 .form-input {
-    width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px;
-    outline: none; font-size: 1rem; background: white; transition: border-color 0.3s;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.3s;
 }
-.form-input:focus { border-color: var(--marsala-dark); box-shadow: 0 0 5px rgba(125, 78, 87, 0.2); }
+.form-input:focus {
+    border-color: var(--marsala-dark);
+    box-shadow: 0 0 5px rgba(125, 78, 87, 0.2);
+}
 
 .btn-full {
-    width: 100%; padding: 15px; background: var(--marsala-dark); color: white;
-    border: none; border-radius: 5px; cursor: pointer; font-weight: 700;
-    font-size: 1rem; text-transform: uppercase; transition: background 0.3s;
+    width: 100%;
+    padding: 15px;
+    background: var(--marsala-dark);
+    color: white;
+    border: none;
+    border-radius: 5px; cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background 0.3s;
 }
-.btn-full:hover { background: var(--marsala-medium); }
-.btn-full:disabled { background: #ccc; }
+.btn-full:hover {
+    background: var(--marsala-medium);
+}
+.btn-full:disabled {
+    background: #ccc;
+}
 
 /* --- FOOTER --- */
-.footer { background: var(--marsala-dark); color: white; padding: 60px 0 20px; }
-.footer h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; color: white; }
-.footer-info p { color: #ffdee6; font-style: italic; }
+.footer {
+    background: var(--marsala-dark);
+    color: white;
+    padding: 60px 0 20px;
+}
+.footer h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: white;
+}
+.footer-info p {
+    color: #ffdee6;
+    font-style: italic;
+}
 
 .address-box {
-    background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 8px;
-    margin-top: 20px; display: flex; align-items: center; gap: 15px; color: white;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
 }
-.icon-map { font-size: 2rem; color: white; }
+.icon-map { 
+    font-size: 2rem;
+    color: white;
+}
 .footer-map {
-    height: 200px; border-radius: 8px; overflow: hidden;
-    border: 2px solid rgba(255,255,255,0.2); margin-top: 20px;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.2);
+    margin-top: 20px;
 }
 
 /* --- ÍCONES SOCIAIS FOOTER --- */
 .social-links-footer {
-    display: flex; justify-content: center; gap: 25px; margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0;
 }
 .social-links-footer a {
-    text-decoration: none !important; border: none !important; font-size: 2rem; 
-    display: flex; align-items: center; justify-content: center;
-    background: white; width: 50px; height: 50px; border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s;
+    text-decoration: none !important;
+    border: none !important;
+    font-size: 2rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
 }
 .social-links-footer a:hover { transform: scale(1.1); }
 .social-links-footer .fa-instagram { color: #E1306C; }
