@@ -47,7 +47,7 @@ html {
     background: rgba(255, 255, 255, 0.98);
     padding: 10px 0;
     position: fixed;
-    top: 80px;
+    top: 36px;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -62,7 +62,7 @@ html {
 .logo-link { text-decoration: none; color: inherit; }
 
 .logo { display: flex; align-items: center; gap: 12px; }
-.logo-img { height: 58px; }
+.logo-img { height: 50px; }
 
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
@@ -93,70 +93,96 @@ html {
     color: var(--marsala-dark);
 }
 
-/* --- HERO SECTION (BANNER) --- */
+/* --- HERO SECTION (BANNER) - ATUALIZADO --- */
 .hero {
-    height: 85vh;
-    background: 
-      linear-gradient(
-        rgba(125, 78, 87, 0.35),
-        rgba(125, 78, 87, 0.35)
-      ),
-      url('../img/banner-hero-manu.png') center 20% / cover no-repeat;
+    /* Aumentei a altura para 90vh para dar impacto de "capa de revista" */
+    height: 90vh;
+    
+    /* A MÁGICA: Gradiente preto 50% transparente + Sua imagem */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-hero-manu.png');
+    
+    /* Fallback de cor caso a imagem demore carregar */
+    background-color: var(--marsala-bg);
+    
+    /* Configuração para imagem vertical funcionar no horizontal */
+    background-size: cover;       /* Cobre toda a área */
+    background-position: center top; /* Foca no rosto/topo da modelo e corta as pernas se necessário */
+    background-repeat: no-repeat;
+    
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center; /* Garante que tudo fique centralizado */
 }
 
-.hero-overlay {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(4px);
-    padding: 50px 60px;
-    border-radius: 18px;
-    max-width: 650px;
-    border: 1px solid rgba(255,255,255,0.4);
+/* Ajuste do container de texto */
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+    z-index: 2; /* Garante que o texto fique sobre a imagem */
 }
 
-.hero-content h2 {
-    font-size: 3.2rem;
-    color: #fff;
-    letter-spacing: 1px;
+/* Título Principal (H1) */
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem; /* Fonte bem grande */
+    color: #ffffff;    /* Branco puro */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Sombra para leitura perfeita */
 }
 
+/* Subtítulo (Parágrafo) */
 .hero-content p {
-    font-size: 1.1rem;
-    color: #f0f0f0;
-    margin-bottom: 25px;
-    font-weight: 400;
-    opacity: 0.9;
+    color: #f0f0f0; /* Branco levemente suave */
+    font-size: 1.3rem;
+    margin-bottom: 35px;
+    font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-
+/* Botão Moderno "Ghost" (Transparente com borda) */
 .btn-hero {
-    background: rgba(255,255,255,0.25);
-    color: white;
-    padding: 12px 35px;
-    border-radius: 30px;
+    background: transparent;
+    color: #ffffff;
+    padding: 15px 45px;
+    border-radius: 4px; /* Borda mais quadrada é mais moderna */
     text-decoration: none;
     font-weight: 600;
     text-transform: uppercase;
-    border: 1px solid white;
-    transition: all 0.3s;
+    letter-spacing: 1px;
+    border: 2px solid #ffffff; /* Borda branca grossa */
+    transition: all 0.3s ease;
     display: inline-block;
 }
 
+/* Efeito ao passar o mouse no botão */
 .btn-hero:hover {
-    background: white;
-    color: var(--marsala-dark);
+    background: #ffffff;
+    color: #000000; /* Texto fica preto para contraste máximo */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.slogan-banner {
-    background: var(--rosa-claro);
-    text-align: center;
-    padding: 40px 20px;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: var(--marsala-dark);
-    font-size: 1.3rem;
+/* Ajustes para Celular */
+@media (max-width: 768px) {
+    .hero {
+        height: 80vh; /* Um pouco menor no celular */
+    }
+    .hero-content h1 {
+        font-size: 2.2rem; /* Diminui a fonte para caber na tela */
+    }
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    .btn-hero {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
 }
 
 /* --- LAYOUT GERAL --- */
@@ -549,18 +575,14 @@ html {
 
 /* --- MOBILE MENU --- */
 @media (max-width: 768px) {
-    .hero {
-        height: 70vh;
-        background-position: center top;
-    }
-
-    .hero-overlay {
-        padding: 30px;
-    }
-
-    .hero-content h2 {
-        font-size: 2.2rem;
-    }
+    .header-content { flex-direction: column; gap: 10px; }
+    .nav-menu { display: none; flex-direction: column; width: 100%; text-align: center; padding-top: 15px; border-top: 1px solid #eee; }
+    .nav-menu.active { display: flex; }
+    .mobile-menu-icon { display: block; position: absolute; right: 20px; top: 20px; }
+    .hero { height: 60vh; }
+    .hero-content h2 { font-size: 2.2rem; }
+    .input-row { flex-direction: column; gap: 10px; }
+    .footer-grid { grid-template-columns: 1fr; }
 }
 
 /* --- SELETOR DE TAMANHOS --- */
@@ -626,7 +648,6 @@ html {
     transition: all 0.3s;
     box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
-
 
 /* --- BOTÕES EXTRAS --- */
 .load-more-container { text-align: center; margin: 40px 0; }
