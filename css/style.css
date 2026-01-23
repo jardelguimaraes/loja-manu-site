@@ -111,30 +111,25 @@ color: var(--marsala-dark);
 
 /* --- HERO (BANNER) --- */
 .hero {
-    height: 85vh; 
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('../img/banner-hero-manu.jpg');
-    height: 85vh;
-    background-image: linear-gradient(to top, rgba(0,0,0,0.7) 10%, transparent 50%), url('../img/banner-hero-manu.jpg');
+height: 85vh;
+background-image: linear-gradient(to top, rgba(0,0,0,0.7) 10%, transparent 50%), url('../img/banner-hero-manu.jpg');
 background-size: cover;
-    background-position: center center; 
-    background-position: center center;
+background-position: center center;
 background-repeat: no-repeat;
-    display: flex; justify-content: center; align-items: flex-start; text-align: center;
-    display: flex;
-    justify-content: center;
+display: flex;
+justify-content: center;
     align-items: flex-end; /* Alterado de flex-start */
-    text-align: center;
-    padding-bottom: 8vh; /* Adicionado */
+    align-items: flex-end; /* Alterado */
+text-align: center;
+padding-bottom: 8vh; /* Adicionado */
 }
 
-.hero-content { 
 .hero-content {
 color: white;
 z-index: 2;
 padding: 20px;
 max-width: 800px;
-    margin-top: 355px;  /* AJUSTE DO TEXTO PARA BAIXO */
-    /* margin-top: 355px; foi removido */
+/* margin-top: 355px; foi removido */
 }
 
 
@@ -767,11 +762,23 @@ right: 20px;
 top: 20px;
 }
 .hero {
-height: 60vh;
+        height: 60vh;
+        height: 75vh; /* Alterado */
+        background-position: center 30%; /* Adicionado */
+        padding-bottom: 6vh; /* Adicionado */
 }
-.hero-content h2 {
-font-size: 2.2rem;
+    .hero-content h2 {
+        font-size: 2.2rem;
+    
+    .hero-content h1 { /* Seletor corrigido de h2 para h1 */
+        font-size: 2rem; /* Valor alterado */
+    }
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 25px;
 }
+ 
+    
 .input-row {
 flex-direction: column;
 gap: 10px;
