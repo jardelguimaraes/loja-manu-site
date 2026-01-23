@@ -111,21 +111,26 @@ html {
 
 /* --- HERO (BANNER) --- */
 .hero {
-    height: 85vh; 
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('../img/banner-hero-manu.jpg');
+    height: 85vh;
+    background-image: linear-gradient(to top, rgba(0,0,0,0.7) 10%, transparent 50%), url('../img/banner-hero-manu.jpg');
     background-size: cover;
-    background-position: center center; 
+    background-position: center center;
     background-repeat: no-repeat;
-    display: flex; justify-content: center; align-items: flex-start; text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Alterado de flex-start */
+    text-align: center;
+    padding-bottom: 8vh; /* Adicionado */
 }
 
-.hero-content { 
+.hero-content {
     color: white;
     z-index: 2;
     padding: 20px;
     max-width: 800px;
-    margin-top: 355px;  /* AJUSTE DO TEXTO PARA BAIXO */
+    /* margin-top: 355px; foi removido */
 }
+
 
 .hero-content h1 { 
     font-family: 'Playfair Display', serif;
