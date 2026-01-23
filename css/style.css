@@ -118,7 +118,7 @@ html {
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Alterado de flex-start */
+    align-items: flex-end; /* Alterado */
     text-align: center;
     padding-bottom: 8vh; /* Adicionado */
 }
@@ -761,11 +761,20 @@ html {
         top: 20px;
     }
     .hero {
-        height: 60vh;
+        height: 75vh; /* Alterado */
+        background-position: center 30%; /* Adicionado */
+        padding-bottom: 6vh; /* Adicionado */
     }
-    .hero-content h2 {
-        font-size: 2.2rem;
+    
+    .hero-content h1 { /* Seletor corrigido de h2 para h1 */
+        font-size: 2rem; /* Valor alterado */
     }
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+ 
+    
     .input-row {
         flex-direction: column;
         gap: 10px;
