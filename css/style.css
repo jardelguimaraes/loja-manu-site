@@ -59,7 +59,11 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
+    max-width: 1280px; /* ADICIONADO */
+    margin: 0 auto;    /* ADICIONADO */
 }
+
 
 .logo-link {
     text-decoration: none;
@@ -72,15 +76,11 @@ html {
     gap: 12px;
 }
 .logo-img {
-    height: 50px;
+    height: 40px; /* Valor alterado */
+    margin-right: 8px; /* Valor alterado */
 }
-
 .logo-text h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: var(--marsala-dark);
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-size: 1rem; /* Valor alterado */
 }
 
 .nav-menu {
@@ -158,7 +158,7 @@ html {
 }
 .btn-hero:hover {
     background: white;
-    color: var(--texto);
+    color: var(--text); /* Corrigido de --texto para --text */
 }
 
 .slogan-banner {
@@ -741,7 +741,10 @@ html {
 
 /* --- MOBILE MENU --- */
 @media (max-width: 768px) {
-    .header-content { flex-direction: column; gap: 10px;
+   
+    .header-content {
+        flex-direction: column;
+        gap: 10px;
 }
     .nav-menu {
         display: none;
@@ -773,6 +776,19 @@ html {
         font-size: 1rem;
         margin-bottom: 25px;
     }
+
+    .header-content {
+        position: relative; /* Adicionado */
+        justify-content: flex-end; /* Alterado */
+    }
+    
+    .logo-link {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
  
     
     .input-row {
