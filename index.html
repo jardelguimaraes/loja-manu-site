@@ -80,10 +80,11 @@
             
             <div class="sticky-filters">
                 <div class="filtros-container">
-                    <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Ver Tudo</button>
-                    <button class="btn-filtro" onclick="filtrar('lançamento', this)">✨ Lançamentos</button>
-                    <button class="btn-filtro" onclick="filtrar('promoção', this)">🔥 Promoção</button>
-                    <button class="btn-filtro" onclick="filtrar('últimas peças', this)">💎 Últimas Peças</button> 
+                    <button class="btn-filtro ativo" onclick="document.getElementById('colecao').scrollIntoView({behavior: 'smooth'}); filtrarPorTag('todos', this)">Ver Tudo</button>
+                    <button class="btn-filtro" onclick="document.getElementById('colecao').scrollIntoView({behavior: 'smooth'}); filtrarPorTag('lançamento', this)">✨ Lançamentos</button>
+                    <button class="btn-filtro" onclick="document.getElementById('colecao').scrollIntoView({behavior: 'smooth'}); filtrarPorTag('promoção', this)">🔥 Promoção</button>
+                    <button class="btn-filtro" onclick="document.getElementById('colecao').scrollIntoView({behavior: 'smooth'}); filtrarPorTag('últimas peças', this)">💎 Últimas Peças</button>
+
                 </div>
                 <div class="search-container" style="margin-bottom: 0;">
                     <input type="text" id="campo-busca" placeholder="🔍 O que você procura hoje?">
